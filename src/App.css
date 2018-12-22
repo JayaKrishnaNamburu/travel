@@ -30,3 +30,12 @@
     transform: rotate(360deg);
   }
 }
+
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.portfolio > div {
+  width: 50%;
+}

@@ -4,8 +4,10 @@
   "private": true,
   "homepage": "https://jayakrishnanamburu.github.io/travel",
   "dependencies": {
+    "mapbox-gl": "^0.52.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-mapbox-gl": "^4.0.2",
     "react-scripts": "2.1.1"
   },
   "scripts": {
@@ -26,6 +28,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "gh-pages": "^2.0.1",
+    "prettier": "^1.15.3"
   }
 }

@@ -1,13 +1,21 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component, Suspense } from 'react';
 import './App.css';
-import Holder from './components/Holder';
 
 class App extends Component {
   render() {
+    const Map = React.lazy(() => import('./components/Map'));
     return (
       <div className="App">
-        <Holder />
+        <div className="portfolio">
+          <div>
+            <h1>Jaya Krishna Namburu</h1>
+          </div>
+          <div>
+            <Suspense fallback={<div>Loding...</div>}>
+              <Map />
+            </Suspense>
+          </div>
+        </div>
       </div>
     );
   }
