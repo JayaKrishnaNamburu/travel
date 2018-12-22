@@ -4,7 +4,7 @@ import places from './points.js';
 import './style.css';
 
 const Map = () => {
-    const filtered_points = places.filter((item) => item.year === 2018);
+    const filtered_points = places[2018];
     const Map = ReactMapboxGl({
         accessToken: ""
     });
