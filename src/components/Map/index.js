@@ -5,8 +5,9 @@ import './style.css';
 
 const Map = () => {
     const filtered_points = places[2018];
+    const previous_year = places[2017];
     const Map = ReactMapboxGl({
-        accessToken: ""
+        accessToken: "pk.eyJ1IjoiamtyaXNobmEiLCJhIjoiY2lwODMyOTRlMDE2ZHRjbHl0cjdrOHY1YyJ9.EfSggaPaoVi_jUm82n8gZg"
     });
     return (
       <div className="map">
@@ -33,6 +34,19 @@ const Map = () => {
                 anchor="top"
                 >
                 <div className="mapMarkerStyle"></div>
+              </Marker>
+            );
+          })}
+          {previous_year.map((item) => {
+            return (
+              <Marker 
+                coordinates={item.points}
+                anchor="top"
+                >
+                <div
+                  style={{ 'backgroundColor': 'red' }}
+                  className="mapMarkerStyle"
+                ></div>
               </Marker>
             );
           })}

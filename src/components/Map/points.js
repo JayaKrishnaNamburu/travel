@@ -1,4 +1,50 @@
 const places = {
+  2017: [
+    {
+      name: 'Ooty',
+      points: [76.6932, 11.4064]
+    },
+    {
+      name: 'Kanyakumari',
+      points: [77.5385, 8.0883]
+    },
+    {
+      name: 'Kozhikode',
+      points: [75.7804, 11.2588]
+    },
+    {
+      name: 'Wayanad',
+      points: [76.1320, 11.6854]
+    },
+    {
+      name: 'Kannur',
+      points: [75.3704, 11.8745]
+    },
+    {
+      name: 'Kodaikanal',
+      points: [77.4892, 10.2381]
+    },
+    {
+      name: 'Madurai',
+      points: [78.1198, 9.9252]
+    },
+    {
+      name: 'Rameswaram',
+      points: [79.3129, 9.2876]
+    },
+    {
+      name: 'Nagalapuram',
+      points: [79.7989, 13.3858]
+    },
+    {
+      name: 'Tirupati',
+      points: [79.4192, 13.6288]
+    },
+    {
+      name: 'Mamallapuram',
+      points: [80.1927, 12.6269]
+    }
+  ],
   2018: [
     {
       name: 'Vijayawada',

@@ -34,8 +34,29 @@
 .portfolio {
   display: flex;
   flex-wrap: wrap;
+  height: 690px;
 }
 
 .portfolio > div {
   width: 50%;
+}
+
+.user {
+  color: #ffffff;
+  background: linear-gradient(to right,#8e44ad,#c0392b);
+}
+
+.card {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 6px;
+  margin: 10px;
+  display: flex;
+  padding: 5px;
+  flex-wrap: wrap;
+}
+
+.card > div {
+  flex-grow: 1;
+  flex-basis: 100px;
 }

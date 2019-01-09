@@ -1,5 +1,6 @@
 import React, { Component, Suspense } from 'react';
 import './App.css';
+import Blog from './components/Blog';
 
 class App extends Component {
   render() {
@@ -7,8 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="portfolio">
-          <div>
-            <h1>Jaya Krishna Namburu</h1>
+          <div className="user">
           </div>
           <div>
             <Suspense fallback={<div>Loding...</div>}>
@@ -16,6 +16,7 @@ class App extends Component {
             </Suspense>
           </div>
         </div>
+        <Blog />
       </div>
     );
   }
