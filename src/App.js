@@ -1,6 +1,7 @@
 import React, { Component, Suspense } from 'react';
 import './App.css';
 import Blog from './components/Blog';
+import back from './images/back.jpg';
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <div className="App">
         <div className="portfolio">
           <div className="user">
+            <img src={back} alt="bigPicture" className="bigPicture" />
           </div>
           <div>
             <Suspense fallback={<div>Loding...</div>}>

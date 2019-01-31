@@ -151,7 +151,12 @@ const places = {
       points: [78.1460, 11.6643]
     }
   ],
-  2019: []
+  2019: [
+    {
+      name: 'Dehradun',
+      points: [78.0322, 30.3165]
+    }
+  ]
 };
 
 export default places;
