@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactMapboxGl, { Layer, Marker, ZoomControl } from "react-mapbox-gl";
+import ReactMapboxGl, { Layer, Marker } from "react-mapbox-gl";
 import places from './points.js';
 import './style.css';
 
@@ -11,18 +11,17 @@ const Map = () => {
         accessToken: "pk.eyJ1IjoiamtyaXNobmEiLCJhIjoiY2lwODMyOTRlMDE2ZHRjbHl0cjdrOHY1YyJ9.EfSggaPaoVi_jUm82n8gZg"
     });
     return (
-      <div className="map">
+      <>
         <Map
           style="mapbox://styles/mapbox/streets-v9"
           containerStyle={{
-              height: "100vh",
               width: "100%",
               display: "inline-flex"
           }}
           center={[78.9629, 20.5937]}
           zoom={[4]}
+          scrollZoom="false"
         >
-          <ZoomControl />
           <Layer
               type="symbol"
               id="marker"
@@ -65,7 +64,7 @@ const Map = () => {
             );
           })}
         </Map>
-      </div>
+      </>
     );
 }
 

@@ -1,6 +1,6 @@
 import React, { Component, Suspense } from 'react';
 import './App.css';
-import Blog from './components/Blog';
+import Gallery from './components/Gallery';
 import back from './images/back.jpg';
 
 class App extends Component {
@@ -12,13 +12,17 @@ class App extends Component {
           <div className="user">
             <img src={back} alt="bigPicture" className="bigPicture" />
           </div>
-          <div>
+          <div className="map">
             <Suspense fallback={<div>Loding...</div>}>
               <Map />
             </Suspense>
           </div>
         </div>
-        <Blog />
+        <div>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Gallery />
+          </Suspense>
+        </div>
       </div>
     );
   }
