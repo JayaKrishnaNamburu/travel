@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactMapboxGl, { Layer, Marker } from "react-mapbox-gl";
 import places from './points.js';
 import './style.css';
 
-const Map = () => {
+
+class Map extends Component {
+
+  handleClick = (map, evt) => {
+    console.log(map, evt);
+  }
+
+  render() {
     const filtered_points = places[2018];
     const previous_year = places[2017];
     const current_year = places[2019];
+    
     const Map = ReactMapboxGl({
         accessToken: "pk.eyJ1IjoiamtyaXNobmEiLCJhIjoiY2lwODMyOTRlMDE2ZHRjbHl0cjdrOHY1YyJ9.EfSggaPaoVi_jUm82n8gZg"
     });
+
     return (
       <>
         <Map
-          style="mapbox://styles/mapbox/streets-v9"
+          style="mapbox://styles/mapbox/dark-v9"
           containerStyle={{
               width: "100%",
               display: "inline-flex"
@@ -21,6 +30,7 @@ const Map = () => {
           center={[78.9629, 20.5937]}
           zoom={[4]}
           scrollZoom="false"
+          onClick={this.handleClick}
         >
           <Layer
               type="symbol"
@@ -66,6 +76,9 @@ const Map = () => {
         </Map>
       </>
     );
+  }
+    
+
 }
 
 export default Map

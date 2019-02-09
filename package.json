@@ -41,11 +41,12 @@
     "postcss-loader": "3.0.0",
     "postcss-preset-env": "6.0.6",
     "postcss-safe-parser": "4.0.1",
-    "react": "^16.7.0",
+    "react": "^16.8.0",
     "react-app-polyfill": "^0.1.3",
     "react-dev-utils": "^6.1.1",
-    "react-dom": "^16.7.0",
+    "react-dom": "^16.8.0",
     "react-mapbox-gl": "^4.0.2",
+    "react-router": "^4.3.1",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",
@@ -60,6 +61,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
+    "crush": "rimraf -f src/compressed && node compressor.js",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
@@ -77,6 +79,8 @@
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.0",
     "gh-pages": "^2.0.1",
+    "imagemin": "^6.1.0",
+    "imagemin-mozjpeg": "^8.0.0",
     "prettier": "^1.15.3"
   },
   "jest": {

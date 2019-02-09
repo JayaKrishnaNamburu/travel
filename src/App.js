@@ -1,7 +1,7 @@
 import React, { Component, Suspense } from 'react';
 import './App.css';
 import Gallery from './components/Gallery';
-import back from './images/back.jpg';
+import back from './compressed/images/generic/back.jpg';
 
 class App extends Component {
   render() {
