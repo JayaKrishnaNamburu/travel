@@ -1,7 +1,7 @@
 .gridWrapper {
     margin-top: 5px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-row-gap: 5px;
     grid-column-gap: 5px;
     position: relative;
@@ -34,10 +34,28 @@
     width: 200% !important;
 }
 
+.lazyload {
+	opacity: 0;
+}
+
+.lazyloading {
+	opacity: 1;
+	transition: opacity 300ms;
+}
+
 @media only screen and (min-width: 768px){
     .rotate {
         transform: rotate(90deg) translateY(-100%) translateX(-40%);
         transform-origin: top left;
         height: 200% !important;
+    }
+
+    .gridWrapper {
+        margin-top: 5px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-row-gap: 5px;
+        grid-column-gap: 5px;
+        position: relative;
     }
 }

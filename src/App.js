@@ -2,6 +2,7 @@ import React, { Component, Suspense } from 'react';
 import './App.css';
 import Gallery from './components/Gallery';
 import back from './compressed/images/generic/back.jpg';
+import 'lazysizes';
 
 class App extends Component {
   render() {

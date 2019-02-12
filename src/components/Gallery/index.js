@@ -6,10 +6,11 @@ import { images } from './gallery';
 const Gallery = () =>  {
     return (
         <div className={styles.gridWrapper}>
-            {images['kedarkantha'].map((item) => <Holder index={item} loc="kedarkantha" />)}
-            {images['yercaud'].map((item) => <Holder index={item} loc="yercaud" />)}
-            {images['banglore'].map((item) => <Holder index={item} loc="banglore" />)}
-            {images['udaipur'].map((item) => <Holder index={item} loc="udaipur" />)}
+            {images['kedarkantha'].map((item) => <Holder key={`kedarkantha-${item}`}
+             index={item} loc="kedarkantha" />)}
+            {images['yercaud'].map((item) => <Holder key={`yercaud-${item}`} index={item} loc="yercaud" />)}
+            {images['banglore'].map((item) => <Holder key={`banglore-${item}`} index={item} loc="banglore" />)}
+            {images['udaipur'].map((item) => <Holder key={`udaipur-${item}`} index={item} loc="udaipur" />)}
         </div>
     );
 }
