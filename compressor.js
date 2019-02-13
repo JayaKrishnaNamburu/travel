@@ -54,3 +54,12 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
   );
   console.log(files);
 })();
+
+(async() => {
+  const files = await imagemin(
+      ['src/images/wayanad/*.jpg'],
+      'src/compressed/images/wayanad/',
+      {plugins: [imageminMozjpeg({quality: 30 })]}
+  );
+  console.log(files);
+})();

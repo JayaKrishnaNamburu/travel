@@ -21,12 +21,9 @@
     width: 100%;
     object-fit: cover;
     object-position: center;
-    transition: all .2s ease-in-out;
+    transform: translateZ(0);
 }
 
-.gridItem > img:hover {
-    transform: scale(1.2);
-}
 
 .rotate {
     transform: rotate(90deg) translateY(-100%);

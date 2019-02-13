@@ -19,7 +19,7 @@ class App extends Component {
             </Suspense>
           </div>
         </div>
-        <div>
+        <div class="jankBuster">
           <Suspense fallback={<div>Loading...</div>}>
             <Gallery />
           </Suspense>
