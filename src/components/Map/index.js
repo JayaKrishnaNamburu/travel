@@ -22,7 +22,7 @@ class Map extends Component {
     return (
       <>
         <Map
-          style="mapbox://styles/mapbox/dark-v9"
+          style="mapbox://styles/mapbox/dark-v9" //eslint-disable-line
           containerStyle={{
               width: "100%",
               display: "inline-flex"
