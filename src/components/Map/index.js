@@ -22,7 +22,7 @@ class Map extends Component {
     return (
       <>
         <Map
-          style="mapbox://styles/mapbox/dark-v9"
+          style="mapbox://styles/mapbox/dark-v9" //eslint-disable-line
           containerStyle={{
               width: "100%",
               display: "inline-flex"
@@ -67,7 +67,7 @@ class Map extends Component {
                 anchor="top"
                 >
                 <div
-                  style={{ 'backgroundColor': '#ca6fe0' }}
+                  style={{ 'backgroundColor': 'rgb(93, 208, 155)' }}
                   className="mapMarkerStyle"
                 ></div>
               </Marker>
