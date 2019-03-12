@@ -67,7 +67,7 @@ class Map extends Component {
                 anchor="top"
                 >
                 <div
-                  style={{ 'backgroundColor': '#ca6fe0' }}
+                  style={{ 'backgroundColor': 'rgb(93, 208, 155)' }}
                   className="mapMarkerStyle"
                 ></div>
               </Marker>

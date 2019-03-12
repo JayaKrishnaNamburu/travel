@@ -12,6 +12,9 @@ const Gallery = () =>  {
             {images['banglore'].map((item) => <Holder key={`banglore-${item}`} index={item} loc="banglore" />)}
             {images['udaipur'].map((item) => <Holder key={`udaipur-${item}`} index={item} loc="udaipur" />)}
             {images['wayanad'].map((item) => <Holder key={`wayanad-${item}`} index={item} loc="wayanad" />)}
+            {images['coorg'].map((item) => <Holder key={`coorg-${item}`} index={item} loc="coorg" />)}
+            {images['pollachi'].map((item) => <Holder key={`pollachi-${item}`} index={item} loc="pollachi" />)}
+            {images['pichavaram'].map((item) => <Holder key={`pichavaram-${item}`} index={item} loc="pichavaram" />)}
         </div>
     );
 }

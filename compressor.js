@@ -31,8 +31,8 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 (async() => {
   const files = await imagemin(
       ['src/images/udaipur/*.jpg'],
-      'src/compressed/images/updaipur/',
-      {plugins: [imageminMozjpeg({quality: 30})]}
+      'src/compressed/images/udaipur/',
+      {plugins: [imageminMozjpeg({quality: 30 })]}
   );
   console.log(files);
 })();
@@ -48,8 +48,8 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 
 (async() => {
   const files = await imagemin(
-      ['src/images/udaipur/*.jpg'],
-      'src/compressed/images/udaipur/',
+      ['src/images/wayanad/*.jpg'],
+      'src/compressed/images/wayanad/',
       {plugins: [imageminMozjpeg({quality: 30 })]}
   );
   console.log(files);
@@ -57,8 +57,26 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 
 (async() => {
   const files = await imagemin(
-      ['src/images/wayanad/*.jpg'],
-      'src/compressed/images/wayanad/',
+      ['src/images/coorg/*.jpg'],
+      'src/compressed/images/coorg/',
+      {plugins: [imageminMozjpeg({quality: 30 })]}
+  );
+  console.log(files);
+})();
+
+(async() => {
+  const files = await imagemin(
+      ['src/images/pollachi/*.jpg'],
+      'src/compressed/images/pollachi/',
+      {plugins: [imageminMozjpeg({quality: 30 })]}
+  );
+  console.log(files);
+})();
+
+(async() => {
+  const files = await imagemin(
+      ['src/images/pichavaram/*.jpg'],
+      'src/compressed/images/pichavaram/',
       {plugins: [imageminMozjpeg({quality: 30 })]}
   );
   console.log(files);

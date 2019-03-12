@@ -155,6 +155,18 @@ const places = {
     {
       name: 'Dehradun',
       points: [78.0322, 30.3165]
+    },
+    {
+      name: 'Pichavaram',
+      points: [79.7748, 11.4226]
+    },
+    {
+      name: 'Madikeri',
+      points: [75.7382, 12.4244]
+    },
+    {
+      name: 'Talakaveri',
+      points: [75.4942, 12.3836]
     }
   ]
 };
