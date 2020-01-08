@@ -2,7 +2,6 @@ import React from 'react';
 import styles from '../Gallery/gallery.module.css';
 
 const Holder = (props) => {
-    console.error(props);
     return (
         <div
             className={styles.gridItem}>

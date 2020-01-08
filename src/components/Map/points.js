@@ -14,7 +14,7 @@ const places = {
     },
     {
       name: 'Wayanad',
-      points: [76.1320, 11.6854]
+      points: [76.132, 11.6854]
     },
     {
       name: 'Kannur',
@@ -48,11 +48,11 @@ const places = {
   2018: [
     {
       name: 'Vijayawada',
-      points: [80.6480, 16.5062],
-    }, 
+      points: [80.648, 16.5062]
+    },
     {
       name: 'Chennai',
-      points: [80.2707, 13.0827],
+      points: [80.2707, 13.0827]
     },
     {
       name: 'Delhi',
@@ -64,7 +64,7 @@ const places = {
     },
     {
       name: 'Srirangam',
-      points: [78.6966, 10.8560]
+      points: [78.6966, 10.856]
     },
     {
       name: 'Kumbakonam',
@@ -72,7 +72,7 @@ const places = {
     },
     {
       name: 'Tanjavur',
-      points: [79.1378, 10.7870]
+      points: [79.1378, 10.787]
     },
     {
       name: 'Warangal',
@@ -92,7 +92,7 @@ const places = {
     },
     {
       name: 'Valparai',
-      points: [76.9510, 10.3236]
+      points: [76.951, 10.3236]
     },
     {
       name: 'Parambikulam',
@@ -148,7 +148,7 @@ const places = {
     },
     {
       name: 'Salem',
-      points: [78.1460, 11.6643]
+      points: [78.146, 11.6643]
     }
   ],
   2019: [
@@ -156,6 +156,11 @@ const places = {
       name: 'Dehradun',
       points: [78.0322, 30.3165]
     },
+    {
+      name: 'Kotgaon',
+      points: [78.1721, 31.0749]
+    },
+
     {
       name: 'Pichavaram',
       points: [79.7748, 11.4226]
@@ -167,6 +172,40 @@ const places = {
     {
       name: 'Talakaveri',
       points: [75.4942, 12.3836]
+    },
+    {
+      name: 'Pichavaram',
+      points: [79.7748, 11.4226]
+    },
+    {
+      name: 'Kodagu',
+      points: [75.8069, 12.3375]
+    },
+    {
+      name: 'Kanchipuram',
+      points: [79.7042, 12.8373]
+    },
+    {
+      name: 'Hyderabad',
+      points: [78.4867, 17.385]
+    },
+    {
+      name: 'Jawadhi Hills',
+      points: [78.8333, 12.5833]
+    }
+  ],
+  2020: [
+    {
+      name: 'Rishikesh',
+      points: [78.2676, 30.0869]
+    },
+    {
+      name: 'Haridwar',
+      points: [78.1642, 29.9457]
+    },
+    {
+      name: 'Bekaltal',
+      points: [79.5805, 30.1427]
     }
   ]
 };
