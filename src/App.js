@@ -1,30 +1,29 @@
-import React, { Component, Suspense } from 'react';
-import './App.css';
+import React, { Component } from 'react';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import Header from './components/Header';
 import Gallery from './components/Gallery';
-import back from './compressed/images/generic/back.jpg';
-import 'lazysizes';
+import Home from './components/Home';
+import Post from './components/BlogPost';
 
 class App extends Component {
   render() {
-    const Map = React.lazy(() => import('./components/Map'));
     return (
-      <div className="App">
-        <div className="portfolio">
-          <div className="user">
-            <img src={back} alt="bigPicture" className="bigPicture" />
-          </div>
-          <div className="map">
-            <Suspense fallback={<div>Loding...</div>}>
-              <Map />
-            </Suspense>
-          </div>
-        </div>
-        <div class="jankBuster">
-          <Suspense fallback={<div>Loading...</div>}>
-            <Gallery />
-          </Suspense>
-        </div>
-      </div>
+      <>
+        <Header />
+        <Router>
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/travel" exact>
+              <Gallery />
+            </Route>
+            <Route path="/blog-post/:postId" exact>
+              <Post />
+            </Route>
+          </Switch>
+        </Router>
+      </>
     );
   }
 }

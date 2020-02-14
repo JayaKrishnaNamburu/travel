@@ -37,16 +37,16 @@ class Map extends Component {
             id="marker"
             layout={{ 'icon-image': 'marker-15' }}
           ></Layer>
-          {filtered_points.map(item => {
+          {filtered_points.map((item, index) => {
             return (
-              <Marker coordinates={item.points} anchor="top">
+              <Marker key={index} coordinates={item.points} anchor="top">
                 <div className="mapMarkerStyle"></div>
               </Marker>
             );
           })}
-          {previous_year.map(item => {
+          {previous_year.map((item, index) => {
             return (
-              <Marker coordinates={item.points} anchor="top">
+              <Marker key={index} coordinates={item.points} anchor="top">
                 <div
                   style={{ backgroundColor: 'red' }}
                   className="mapMarkerStyle"
@@ -54,9 +54,9 @@ class Map extends Component {
               </Marker>
             );
           })}
-          {current_year.map(item => {
+          {current_year.map((item, index) => {
             return (
-              <Marker coordinates={item.points} anchor="top">
+              <Marker key={index} coordinates={item.points} anchor="top">
                 <div
                   style={{ backgroundColor: 'rgb(93, 208, 155)' }}
                   className="mapMarkerStyle"
@@ -66,9 +66,9 @@ class Map extends Component {
           })}
           {new_year &&
             new_year.length > 0 &&
-            new_year.map(item => {
+            new_year.map((item, index) => {
               return (
-                <Marker coordinates={item.points} anchor="top">
+                <Marker key={index} coordinates={item.points} anchor="top">
                   <div
                     style={{ backgroundColor: '#ff0' }}
                     className="mapMarkerStyle"

@@ -1,0 +1,73 @@
+Babel is a compiler for next generation. It helps in making code transformations and building code mods easy.
+
+Here is the notes for my talk at [Geeknight](http://geeknight.in/) Meetup in Thoughtworks Chennai.
+
+### [Github](https://github.com/coderz-mafia/babel-plugin-no-console-logs)
+
+### [Slides](https://jayakrishnanamburu.github.io/slides-custom-babel-plugin/#0)
+
+### Why we need Babel ?
+
+ECMA releases new specs and standards for javascript. These new specs are implemented by browser vendors. So, browsers will be able to execute lates code which is written using ES6.
+
+Often this takes a considerable time. Even if the implementation is successful, the clients should stay updated with browsers.
+
+So, _Babel_ helps in achieving this by transpiling ES6 syntax into ES5. Hence the browsers can execute them.
+
+### The win for DX over UX 💪 😅
+
+Often this leads to the victory of Developer Experience over User Experience. A perfect scenario is having a _Good Balance_ between Developer and User Experiences.
+
+The users with latest browsers, still end up loading bigger and older bundles.
+
+### How to balance both DX and the UX
+
+We can generate two builds in our build phase.
+
+- _esm_
+- _cjs_
+
+The _esm_ build targets the latest browsers and the _cjs_ targets old browsers.
+
+The one way to do this is having two separate script tags.
+
+```js
+<script type="module" src="/build/app.esm.js" />
+```
+
+If a browser support `type="module"`. It can execute the _esm_ bundle and hence it will load a smaller bundle and the second tag is ignore.
+
+```js
+<script nomodule src="/buid/app.js" />
+```
+
+_[Stencil](https://stenciljs.com/)_, is one of the popular frameworks does this out of the box.
+
+_Proptip - You can use cdn to load ESM modules for the repositoreis which expose them in their package.json files._
+
+### AST Trees
+
+AST stands for Abstract Syntax Tree.
+
+AST is a tree representation of the syntactic structure of source code written in a programming language.
+
+These are widely used in compilers to represent the structure of the source code. We can use tools to understand it better.
+
+- [AST Visualizer](http://resources.jointjs.com/demos/javascript-ast)
+- [AST Explorer](https://astexplorer.net/)
+
+### The Process !
+
+- First the _Babel_ compiler parses the code and generates a AST. This is done by using `babel-parser`. _Babylon_ is the parser for babel which performs this step.
+
+- `babel-traverse` helps in traversing the AST. The traverser follows a visitor pattern in which it visit each node.
+
+- Now, in the traverse phase. We can perform any action that we can do on AST. Adding / Removing / Changing the AST.
+
+#### Links
+
+- [Deploying ES2015+ Code in Production Today](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/) by [Phil Walton](https://twitter.com/philwalton)
+
+- [@babel/types](https://babeljs.io/docs/en/babel-types)
+
+- [@babel/generate](https://babeljs.io/docs/en/babel-generator)

@@ -1,0 +1,22 @@
+.navWrapper {
+  display: flex;
+  padding: 8px;
+  margin: 0px 50px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  min-height: 60px;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0px;
+}
+
+.listItem {
+  line-height: 1.5;
+  cursor: pointer;
+  padding: 10px 20px;
+}
