@@ -12,7 +12,7 @@
 /build
 
 # Removing all images that are compressed and built for development and hosting
-/compressed
+/src/compressed
 
 # misc
 .DS_Store
