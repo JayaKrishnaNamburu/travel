@@ -1,8 +1,7 @@
 import React, { Component, Suspense } from 'react';
 import style from './style.module.css';
-import back from '../../images/generic/back.jpg';
-import user from '../../images/generic/caricature.png';
-import bangalore from '../../images/generic/bangalore.jpeg';
+import back from '../../assets/back.jpg';
+import bangalore from '../../assets/bangalore.jpeg';
 
 class Home extends Component {
   render() {

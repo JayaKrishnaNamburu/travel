@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Holder from '../Holder';
 import styles from './gallery.module.css';
 import { images } from './gallery';
@@ -35,4 +36,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default withRouter(Gallery);

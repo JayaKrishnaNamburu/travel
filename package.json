@@ -61,10 +61,10 @@
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "start": "npm run crush && node scripts/start.js",
+    "build": "npm run crush && node scripts/build.js",
     "test": "node scripts/test.js",
-    "crush": "rimraf -f src/compressed && node compressor.js",
+    "crush": "rimraf -f src/compressed && node scripts/compressor.js && node scripts/normal-compressor.js",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {

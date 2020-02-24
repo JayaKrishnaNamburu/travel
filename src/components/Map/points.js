@@ -206,6 +206,14 @@ const places = {
     {
       name: 'Bekaltal',
       points: [79.5805, 30.1427]
+    },
+    {
+      name: 'Varkala',
+      points: [76.7041, 8.7354]
+    },
+    {
+      name: 'Jatayu Earth Center',
+      points: [76.5202, 8.5157]
     }
   ]
 };

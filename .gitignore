@@ -11,7 +11,8 @@
 # production
 /build
 
-*.jpg
+# Removing all images that are compressed and built for development and hosting
+/compressed
 
 # misc
 .DS_Store
