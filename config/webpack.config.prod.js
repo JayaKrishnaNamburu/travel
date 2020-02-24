@@ -12,6 +12,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const CopyPlugin = require('copy-webpack-plugin')
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
@@ -494,6 +495,10 @@ module.exports = {
         new RegExp('/[^/]+\\.[^/]+$'),
       ],
     }),
+    // Copies user defined files into the build
+    new CopyPlugin([
+      { from: '_redirects', to: ''}
+    ]),
     // TypeScript type checking
     fs.existsSync(paths.appTsConfig) &&
       new ForkTsCheckerWebpackPlugin({

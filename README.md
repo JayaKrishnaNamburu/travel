@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.com/JayaKrishnaNamburu/travel.svg?branch=master)](https://travis-ci.com/JayaKrishnaNamburu/travel)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/948e1694-8d3d-44e4-97b4-7088659d1dd4/deploy-status)](https://app.netlify.com/sites/mystifying-ardinghelli-c1eb5c/deploys)
