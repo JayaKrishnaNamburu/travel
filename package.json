@@ -63,7 +63,7 @@
     "start": "npm run crush && node scripts/start.js",
     "build": "npm run crush && node scripts/build.js",
     "test": "node scripts/test.js",
-    "crush": "rimraf -f src/compressed && node scripts/compressor.js && node scripts/normal-compressor.js"
+    "crush": "rimraf -f src/compressed && node scripts/compressor.js && node scripts/baseline.js"
   },
   "eslintConfig": {
     "extends": "react-app"
