@@ -14,9 +14,7 @@ code {
 a {
   text-decoration: none;
   cursor: pointer;
-  color: #1da1f2;
-  font-weight: bold;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
 }
 
 /* code {

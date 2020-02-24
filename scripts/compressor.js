@@ -19,6 +19,7 @@ const run = async () => {
       const folder = folders[i];
       await compress(folder);
     }
+    console.log("Compression Successful");
   } catch (e) {
     console.error(e);
   }

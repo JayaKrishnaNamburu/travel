@@ -9,6 +9,7 @@ const NormalGallery = () => {
       {images['kedarkantha'].map((item, index) => (
         <div className={styles.gridItem}>
           <img
+            key={`kedarkantha-${item}`}
             className="lazyload"
             data-src={require(`../../compressed/normal-compression/images/kedarkantha/${item}.jpg`)}
             alt="kedarkantha"
@@ -18,6 +19,7 @@ const NormalGallery = () => {
       {images['yercaud'].map((item, index) => (
         <div className={styles.gridItem}>
           <img
+            key={`yercaud-${item}`}
             className="lazyload"
             data-src={require(`../../compressed/normal-compression/images/yercaud/${item}.jpg`)}
             alt="yercaud"
@@ -27,6 +29,7 @@ const NormalGallery = () => {
       {images['banglore'].map((item, index) => (
         <div className={styles.gridItem}>
           <img
+            key={`banglore-${item}`}
             className="lazyload"
             data-src={require(`../../compressed/normal-compression/images/banglore/${item}.jpg`)}
             alt="banglore"

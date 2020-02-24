@@ -32,6 +32,12 @@ const Gallery = () => {
       {images['pichavaram'].map(item => (
         <Holder key={`pichavaram-${item}`} index={item} loc="pichavaram" />
       ))}
+      {images['varkala'].map(item => (
+        <Holder key={`varkala-${item}`} index={item} loc="varkala" />
+      ))}
+      {images['rishikesh'].map(item => (
+        <Holder key={`rishikesh-${item}`} index={item} loc="rishikesh" />
+      ))}
     </div>
   );
 };
