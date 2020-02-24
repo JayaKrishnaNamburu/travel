@@ -2,7 +2,6 @@
   "name": "my-travel",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jayakrishnanamburu.github.io/travel",
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
@@ -64,8 +63,7 @@
     "start": "npm run crush && node scripts/start.js",
     "build": "npm run crush && node scripts/build.js",
     "test": "node scripts/test.js",
-    "crush": "rimraf -f src/compressed && node scripts/compressor.js && node scripts/normal-compressor.js",
-    "deploy": "gh-pages -d build"
+    "crush": "rimraf -f src/compressed && node scripts/compressor.js && node scripts/normal-compressor.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -79,7 +77,6 @@
   "devDependencies": {
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "gh-pages": "^2.0.1",
     "imagemin": "^6.1.0",
     "imagemin-mozjpeg": "^8.0.0",
     "prettier": "^1.15.3"

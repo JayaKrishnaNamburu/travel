@@ -50,6 +50,7 @@ const Page = () => {
                 className="post_landing_image"
                 src={landing_image}
                 onLoad={() => setLandingImageLoaded(true)}
+                alt={heading}
               />
               {!landingImageLoaded && <div className="post_landing_loader" />}
             </div>
