@@ -14,10 +14,12 @@ const compress = folder => {
 
 const run = async () => {
   try {
-    const folders = fs.readdirSync("src/images/");
+    const folders = fs.readdirSync("./src/images/", { withFileTypes: true });
     for (let i = 0; i < folders.length; i++) {
-      const folder = folders[i];
-      await compress(folder);
+      if (folders[i].isDirectory()) {
+        const folder = folders[i];
+        await compress(folder.name);
+      }
     }
     console.log("Compression Successful");
   } catch (e) {
