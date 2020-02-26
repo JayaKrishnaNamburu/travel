@@ -19,7 +19,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/travel" component={withRouter(Gallery)} />
+            <Route path="/gallery" component={withRouter(Gallery)} />
             <Route path="/baseline" component={withRouter(NormalGallery)} />
             <Route path="/blog-post/:postId" component={withRouter(Post)} />
           </Switch>
