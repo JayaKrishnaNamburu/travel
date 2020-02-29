@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Gallery from './components/Gallery';
 import Home from './components/Home';
 import NormalGallery from './components/NormalGallery';
+import Reflow from './components/Reflow';
 import Post from './components/BlogPost';
 
 class App extends Component {
@@ -19,9 +20,10 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/travel" component={withRouter(Gallery)} />
+            <Route path="/gallery" component={withRouter(Gallery)} />
             <Route path="/baseline" component={withRouter(NormalGallery)} />
             <Route path="/blog-post/:postId" component={withRouter(Post)} />
+            <Route path="/reflow" component={withRouter(Reflow)} />
           </Switch>
         </Router>
       </>
