@@ -1,11 +1,12 @@
-import React, { Component, Suspense } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
+
 import style from './style.module.css';
 import back from '../../assets/back.jpg';
 import bangalore from '../../assets/bangalore.jpeg';
 
 class Home extends Component {
   render() {
-    const Map = React.lazy(() => import('../Map'));
+    const Map = lazy(() => import('../Map'));
     return (
       <>
         <section className={style.talks}>
