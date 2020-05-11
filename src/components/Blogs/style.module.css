@@ -1,0 +1,27 @@
+.blogHeading {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.blogDescription {
+  font-size: 1.6rem;
+}
+
+.aritcleGrid {
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: repeat(auto-fill, 300px);
+}
+
+.blogsWrapper {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px 50px;
+}
+
+.readMoreButton {
+  border-radius: 6px;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: #000;
+}

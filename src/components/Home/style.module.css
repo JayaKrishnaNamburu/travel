@@ -7,11 +7,6 @@
   flex-wrap: wrap;
 }
 
-.user {
-  width: 175px;
-  height: auto;
-}
-
 .intro {
   max-width: 500px;
   text-align: center;
@@ -42,21 +37,11 @@
   color: #61dafb;
 }
 
-.bigPicture {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
 .landingBanner {
   width: 100%;
   filter: grayscale(100%);
   height: 400px;
   object-fit: cover;
-}
-
-.talks {
 }
 
 @keyframes App-logo-spin {
@@ -66,27 +51,6 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.portfolio {
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  height: 690px;
-}
-
-.portfolio > div {
-  flex-basis: 0;
-  flex-grow: 1;
-  height: 100%;
-}
-
-.map {
-  width: 100%;
-}
-
-.map > div {
-  height: 100%;
 }
 
 .card {
