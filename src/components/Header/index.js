@@ -1,30 +1,36 @@
 import React from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import user from '../../assets/caricature.png';
 import style from './style.module.css';
 
 const Header = () => {
   return (
-    <Router>
-      <section className={style.navWrapper}>
-        <h3>Jaya Krishna Namburu</h3>
-        <nav>
-          <ul className={style.navList}>
-            <li className={style.listItem}>
-              <Link to="/">Home</Link>
-            </li>
-            <li className={style.listItem}>
-              <Link to="/travel">Travel</Link>
-            </li>
-            <li className={style.listItem}>
-              <Link to="/gallery">Gallery</Link>
-            </li>
-            <li className={style.listItem}>
-              <Link to="/blogs">Talks</Link>
-            </li>
-          </ul>
-        </nav>
-      </section>
-    </Router>
+    <header className={style.navWrapper}>
+      <div>
+        <img
+          className={style.smallImage}
+          src={user}
+          alt="Caricature of Jaya Krishna"
+        />
+        {/* <h4 className={style.userName}>Jaya Krishna Namburu</h4> */}
+      </div>
+      <nav>
+        <ul className={style.navList}>
+          <li className={style.listItem}>
+            <Link to="/">Home</Link>
+          </li>
+          <li className={style.listItem}>
+            <Link to="/travel">Travel-Stories</Link>
+          </li>
+          <li className={style.listItem}>
+            <Link to="/gallery">Travel-Gallery</Link>
+          </li>
+          <li className={style.listItem}>
+            <Link to="/blogs">Talks & Blogs</Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 };
 

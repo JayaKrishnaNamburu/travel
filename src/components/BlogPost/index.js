@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown/with-html';
 import { getPostData } from '../../resources/post_data';
 import CodeBlock from '../Code';
 import { useParams } from 'react-router-dom';
-import './style.css';
+import style from './style.module.css';
 
 const Page = () => {
   const [content, setContent] = useState('');
@@ -37,35 +37,34 @@ const Page = () => {
 
   return (
     <>
-      {/* <Head>
-        <link href="static/markdown.css" rel="stylesheet" />
-      </Head> */}
-      <div className="post_wrapper">
+      <div className={style.post_wrapper}>
         <article>
-          <h2 className="post_heading">{heading}</h2>
-          <p className="post_description">{description}</p>
+          <h2 className={style.post_heading}>{heading}</h2>
+          <p className={style.post_description}>{description}</p>
           {landing_image && (
-            <div className="post_image_holder">
+            <div className={style.post_image_holder}>
               <img
-                className="post_landing_image"
+                className={style.post_landing_image}
                 src={landing_image}
                 onLoad={() => setLandingImageLoaded(true)}
                 alt={heading}
               />
-              {!landingImageLoaded && <div className="post_landing_loader" />}
+              {!landingImageLoaded && (
+                <div className={style.post_landing_loader} />
+              )}
+            </div>
+          )}
+          {content && (
+            <div className={style.post_content}>
+              <ReactMarkdown
+                source={content}
+                renderers={{
+                  code: CodeBlock
+                }}
+              />
             </div>
           )}
         </article>
-        {content && (
-          <div className="post_content">
-            <ReactMarkdown
-              source={content}
-              renderers={{
-                code: CodeBlock
-              }}
-            />
-          </div>
-        )}
       </div>
     </>
   );

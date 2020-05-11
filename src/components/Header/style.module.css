@@ -1,7 +1,20 @@
+.smallImage {
+  width: 45px;
+  height: auto;
+  display: inline-block;
+}
+
+.userName {
+  display: inline-block;
+  font-weight: normal;
+  margin: 0px 0px 0px 15px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
 .navWrapper {
   display: flex;
   padding: 8px;
-  margin: 0px 50px;
   flex-wrap: wrap;
   justify-content: space-around;
   min-height: 60px;
@@ -21,4 +34,10 @@
   line-height: 1.5;
   cursor: pointer;
   padding: 10px 20px;
+  font-size: 1.6rem;
+}
+
+.listItem > a {
+  text-decoration: none;
+  color: black;
 }
