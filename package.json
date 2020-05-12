@@ -28,9 +28,7 @@
       "collapseWhitespace": false,
       "removeComments": false
     },
-    "removeScriptTags": {
-      "page": "post"
-    }
+    "removeScriptTags": true
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -86,7 +84,7 @@
     "postcss-safe-parser": "4.0.1",
     "prettier": "^1.15.3",
     "react-dev-utils": "^6.1.1",
-    "react-snap": "^1.23.0",
+    "react-snap": "git+https://github.com/JayaKrishnaNamburu/react-snap.git",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",

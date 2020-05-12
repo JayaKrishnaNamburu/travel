@@ -28,6 +28,7 @@ class App extends Component {
           <Route path="/">
             <Home />
           </Route>
+          <Route path="/404">404</Route>
         </Switch>
       </Router>
     );
