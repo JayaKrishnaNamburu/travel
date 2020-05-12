@@ -1,31 +1,43 @@
 const fs = require("fs");
 const imagemin = require("imagemin");
 const imageminMozjpeg = require("imagemin-mozjpeg");
+const imageminPngquant = require("imagemin-pngquant");
 const ora = require("ora");
 
-const spinner = ora("Compressing Images");
-
-const compress = folder => {
+const compress = (folder) => {
   return new Promise((resolve, reject) => {
     imagemin(
-      [`src/images/${folder}/*.jpg`],
+      [
+        `src/images/${folder}/*.jpg`,
+        `src/images/${folder}/*.jpeg`,
+        `src/images/${folder}/*.png`,
+      ],
       `src/compressed/images/${folder}/`,
-      { plugins: [imageminMozjpeg({ quality: 30 })] }
-    ).then(files => resolve(files));
+      {
+        plugins: [
+          imageminMozjpeg({ quality: 30 }),
+          imageminPngquant({ quality: [0.6, 0.8] }),
+        ],
+      }
+    )
+      .then((files) => resolve(files))
+      .catch((e) => console.log(e));
   });
 };
 
 const run = async () => {
-  spinner.start();
+  const spinner = ora("Compression is in progress").start();
   try {
-    const folders = fs.readdirSync("./src/images/", { withFileTypes: true });
+    const folders = fs.readdirSync("src/images/");
+    spinner.start();
     for (let i = 0; i < folders.length; i++) {
-      if (folders[i].isDirectory()) {
-        const folder = folders[i];
-        await compress(folder.name);
+      const folder = folders[i];
+      if (!folder.includes(".DS_Store")) {
+        await compress(folder);
       }
     }
-    spinner.succeed("Compression Successful");
+    spinner.stop();
+    console.log("Compression Successful");
   } catch (e) {
     console.error(e);
     spinner.fail("Failed in compressing images");

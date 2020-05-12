@@ -1,5 +1,5 @@
 export const images = {
-  varkala: [1, 2, 3],
+  varkala: [1, 2, 3, 4],
   rishikesh: [1],
   kedarkantha: [1, 2, 3, 4],
   yercaud: [1, 2],

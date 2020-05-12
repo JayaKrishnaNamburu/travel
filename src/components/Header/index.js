@@ -23,10 +23,10 @@ const Header = () => {
             <Link to="/travel">Travel-Stories</Link>
           </li>
           <li className={style.listItem}>
-            <Link to="/gallery">Travel-Gallery</Link>
+            <Link to="/blogs">Talks & Blogs</Link>
           </li>
           <li className={style.listItem}>
-            <Link to="/blogs">Talks & Blogs</Link>
+            <Link to="/gallery">Travel-Gallery</Link>
           </li>
         </ul>
       </nav>

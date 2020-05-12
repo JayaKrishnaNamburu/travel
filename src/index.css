@@ -12,6 +12,7 @@ body {
 }
 
 code {
+  color: red;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
@@ -22,13 +23,8 @@ a {
   letter-spacing: 0.5px;
 }
 
-/* code {
-  font-weight: bold;
-} */
-
 em {
-  font-weight: bold;
-  font-size: 1.1rem;
+  /* font-size: 1.4rem; */
 }
 
 pre {

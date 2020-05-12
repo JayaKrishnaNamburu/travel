@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown/with-html';
-import { getPostData } from '../../resources/post_data';
-import CodeBlock from '../Code';
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
+import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
+import { getPostData } from '../../resources/post_data';
 import style from './style.module.css';
+
+const ReactMarkdown = lazy(() => import('react-markdown/with-html'));
+const CodeBlock = lazy(() => import('../Code'));
 
 const Page = () => {
   const [content, setContent] = useState('');
   const [post, setPost] = useState();
   const [landingImageLoaded, setLandingImageLoaded] = useState(false);
+  const blogRef = useRef();
 
   const fetchFile = async fileName => {
     const path = require(`../../resources/markdown/${fileName}.md`);
@@ -37,7 +40,11 @@ const Page = () => {
 
   return (
     <>
-      <div className={style.post_wrapper}>
+      <div className={style.post_wrapper} ref={blogRef}>
+        <Helmet>
+          <title>{heading}</title>
+          <meta name="description" content={description} />
+        </Helmet>
         <article>
           <h2 className={style.post_heading}>{heading}</h2>
           <p className={style.post_description}>{description}</p>
@@ -56,12 +63,12 @@ const Page = () => {
           )}
           {content && (
             <div className={style.post_content}>
-              <ReactMarkdown
-                source={content}
-                renderers={{
-                  code: CodeBlock
-                }}
-              />
+              <Suspense fallback={<div>Loading....</div>}>
+                <ReactMarkdown
+                  source={content}
+                  renderers={{ code: CodeBlock }}
+                />
+              </Suspense>
             </div>
           )}
         </article>
