@@ -1,0 +1,126 @@
+Lerna is a tool for managing monorepos. This article talks about an ideal setup that covers the development, release and maintenance phases.
+
+# Why Lerna?
+
+Lerna allows you to maintain multiple packages using yarn workspaces.
+This is useful when we build an application which has optional plugins like [Babel](https://github.com/babel/babel).
+
+---
+
+1.  First, we will start by installing lerna using `yarn/npm`.
+
+> npm install lerna — save-dev
+
+This installs lerna and adds it as a `devDependency` in our _package.json_ file.
+
+2\. For initiating lerna, we need need to run
+
+> npx lerna init
+
+3\. This will create a _lerna.json_ file in our project with some basic configurations. Lerna operates the project in two modes, **Fixed/Locked** and the other is **Independent**. By default, `lerna init` starts the project in fixed mode.
+
+---
+
+**Packages**
+
+The `packages` folder stores all the packages that are being developed. It can be of any name, but the folder name should match with the name that we specified in the _lerna.json_ file.
+
+---
+
+**npmClient**
+
+It refers to the registry client that we like to use. By default, lerna uses yarn and its workspace feature. When choosing npm, you might run into an issue when resolving packages because npm resolves them only at the root level.
+
+**Version**
+
+In fixed mode, all packages follow the **same** version which we configure in _lerna.json_. And in **independent** mode, the version of each package is maintained individually. The best reference in what to choose is clearly explained in this [repo](https://github.com/lerna/lerna#fixedlocked-mode-default).
+
+4\. Now, we need to make some changes in our _package.json_ file to use workspaces.
+
+The _workspaces_ attribute defines the folder, which should be used as a workspace. We can have multiple workspaces configured under one project.
+
+The `private` attribute should be `true` in the _package.json_ file. This specifies it as a root and is not supposed to be used as a package.
+
+# Creating packages
+
+Now that the setup and configuration are done, we need to start creating our packages. This can be done by using
+
+> lerna create --package-name--
+
+This will create a **package** under the workspace that we configured in _lerna.json_ file.
+
+We created three packages called **_Sun_**, **_Moon_ **and **_Sky_**. Now, we want to add **_Sky_** as a dependency for **_Sun_** and **_Moon_**_. So, w_e need to update packages of \*\*\_Sun_** and **_Moon_** by adding **_Sky_\*\* as a dependency in their _package.json_ files.
+
+Which looks like this
+
+For importing S*ky* in both S*un* and M*oon,* we need to go inside the _packages_ folder and run `yarn install` **.** This creates `symlinks` between packages and makes them available under `node_modules_`.\_
+
+Now, when we run `lerna version` or`_lerna publish_`**,** it will update the version of all the packages everywhere it is referred. Then it pushes them as git release or an npm release.
+
+**Running Commands across all packages**
+
+Lerna can run npm commands across all the packages at once. It gives the status about execution if the command is a success or a failure.
+
+Let us consider where we have test cases written in all our packages, and we need to run tests in all packages before publishing. For this, we need to add a **_test/build/lint_** script in the _package.json_ of the packages.
+
+If we want to do a `build` before bumping the version for release, and we want the build to run only in **_Sun_** and **_Moon_** packages but not in **_Sky_**. So, we will write a build script only in **_Sun_** and **_Moon_**_._
+
+> lerna run --npm-script--
+
+For example,
+
+> lerna run build
+
+This will run the `build` scripts in **_Sun_** and **_Moon_** packages.
+
+# Changelog Management
+
+A changelog keeps track of all changes that are being achieved in any milestone. It acts as a single source of truth and releases notes as well.
+
+There are two ways to achieve this, one is by accessing commit messages via conventional commits**.** Another way is to use lerna-changelog.
+
+**Conventional Commits**
+
+If the project follows conventional commits (which you can learn more [here](https://www.conventionalcommits.org/en/v1.0.0-beta.4/)), we access them by adding access attribute in lerna.json.
+
+After this, the changelog can be generated using
+
+> lerna version <minor | major> — conventional-commits
+
+> This will update the version number for all packages and generates a changelog. It segregates them using milestones and commit prefixes.
+
+If we have a milestone from 0.1 to 0.2, instead of combining all the commit messages, it will divide them into paragraphs. It uses Features (feat), Tests (test), Chore (chore) prefixes that we added in the commit.
+
+The one downside of this, it combines all the commit messages which we don’t need. And sometimes 3–4 commit messages may reflect a fix or a feature in one PR.
+
+If we are working on an issue and want to mention it as fixed in the release notes or in the changelog. In the journey, we added a _fix_, a _test,_ and a _chore_ commit. Three messages get added in different locations in the changelog, which makes it confusing to read. Messages related to one issue will be mentioned in different locations.
+
+**lerna-changelog**
+
+[_lerna-changelog_](https://github.com/lerna/lerna-changelog) is a PR based changelog management tool. Every PR speaks only about one entity, it can be either a _fix_, a _feature_, or an _enhancement._ A release notes or the changelog with all the PR’s merged makes the notes look much cleaner.
+
+As a bonus, it even mentions the person who fixed the issue or built a feature.
+
+By default, it comes with the support for monorepo. It adds the package names in which the fixes or features were made. One of the awesome implementations of this is Babel’s [Changelog](https://github.com/babel/babel/blob/master/CHANGELOG.md).
+
+First, we need to install lerna-changelog on our project as devDependency
+
+> npm install lerna-changelog — save-dev
+
+To generate a changelog we need to run
+
+> \$lerna-changelog
+
+We can pass optional `— from` and `— to` flags, when we want changelog between specific milestones. By default, _lerna-changelog_ generates it from all the PR’s that were merged, after the latest _git tag/release._
+
+Let's see how it is done, with the help of snippets below.
+
+Each label in the PR is mapped to attribute in the _lerna.json_ file, which is picked as headings in the _changelog_.
+
+`ignoreCommiters`is used to ignore any specific users PR’s, into the changelog. The ideal example will be the PRs that are raised by bots.
+
+When I tried to set-up changelog for a project, I was overwhelmed with the number of ways we can do this. After leveraging all the possibilities, lerna-changelog works like a charm for any project.
+
+Here is my repository which is configured with lerna. Feel free to [reach out](https://twitter.com/askjkrishna) to me if you come across any queries.
+
+[https://github.com/JayaKrishnaNamburu/lerna-basic-setup](https://github.com/JayaKrishnaNamburu/lerna-basic-setup)

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import { posts } from '../../resources/posts';
+import { posts } from '../../resources/posts_data';
 import style from './style.module.css';
 
 const Blogs = () => {
   return (
-    <div className={style.blogsWrapper} role="main">
+    <div className={style.blogsWrapper} role="main" data-remove-script={true}>
       <Helmet>
         <title>Talks & Blogs</title>
         <meta
@@ -26,7 +26,9 @@ const Blogs = () => {
         {posts.map(post => {
           return (
             <article key={post.id}>
-              <h3 className={style.blogHeading}>{post.heading}</h3>
+              <Link to={`/post/${post.id}`}>
+                <h2>{post.heading}</h2>
+              </Link>
               <p className={style.blogDescription}>{post.description}</p>
               <Link to={`/post/${post.id}`} className={style.readMoreButton}>
                 Read more...

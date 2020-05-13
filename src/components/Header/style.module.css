@@ -31,10 +31,8 @@
 }
 
 .listItem {
-  line-height: 1.5;
   cursor: pointer;
   padding: 10px 20px;
-  font-size: 1.6rem;
 }
 
 .listItem > a {

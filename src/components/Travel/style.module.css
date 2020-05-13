@@ -30,3 +30,9 @@
   width: 175px;
   height: auto;
 }
+
+.travelDescription {
+  width: 70%;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}

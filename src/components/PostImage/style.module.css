@@ -1,0 +1,8 @@
+.image {
+  height: 400px;
+  object-fit: cover;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  max-width: 100%;
+}
