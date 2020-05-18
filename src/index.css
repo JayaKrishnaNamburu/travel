@@ -106,11 +106,14 @@ article {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  align-items: top;
   flex-wrap: wrap;
 }
 
 .splitPost > p {
+  flex: 1 1 0px;
+}
+
+.splitPost > div {
   flex: 1 1 0px;
 }
 
