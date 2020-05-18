@@ -1,6 +1,5 @@
 .blogDescription {
-  font-size: 1.4rem;
-  line-height: 1.5;
+  text-align: left;
 }
 
 .aritcleGrid {
@@ -33,7 +32,7 @@
 }
 
 .blogsDescription {
-  max-width: 500px;
+  max-width: 600px;
   margin-right: auto;
   margin-left: auto;
 }

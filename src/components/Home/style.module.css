@@ -43,6 +43,21 @@
   object-fit: cover;
 }
 
+.landingInvite {
+  display: flex;
+  margin: 0 5%;
+  align-items: center;
+  text-align: left;
+}
+
+.landingInvite > figure {
+  flex: 1 1;
+}
+
+.landingInvite > div {
+  flex: 1 1;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -62,7 +77,15 @@
   flex-wrap: wrap;
 }
 
-.jankBuster {
-  overflow-y: scroll;
-  will-change: transform;
+@media (max-width: 991px) {
+  .landingInvite {
+    display: block;
+  }
+  .landingInvite > figure > img {
+    max-width: 250px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    display: inherit;
+  }
 }
