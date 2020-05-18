@@ -40,12 +40,12 @@ const Page = () => {
       <article>
         <PostSubHeader>{heading}</PostSubHeader>
         <p className={style.post_description}>{description}</p>
-        <strong>Duration - {duration}</strong>
+        <strong>Duration: {duration}</strong>
         <p>
-          Tags -
+          Tags:
           <span>
             {tags.map(tag => (
-              <span style={{ marginRight: '1rem' }}>{tag}</span>
+              <span style={{ marginLeft: '1rem' }}>{tag}</span>
             ))}
           </span>
         </p>
