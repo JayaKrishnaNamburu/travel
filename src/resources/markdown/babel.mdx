@@ -1,23 +1,21 @@
-Babel is a compiler for next generation. It helps in making code transformations and building code mods easy.
-
+Babel is a compiler for next generation.
+It helps in making code transformations and building code mods easy.
 Here is the notes for my talk at [Geeknight](http://geeknight.in/) Meetup in Thoughtworks Chennai.
 
-### [Github](https://github.com/coderz-mafia/babel-plugin-no-console-logs)
-
-### [Slides](https://jayakrishnanamburu.github.io/slides-custom-babel-plugin/#0)
+**[Github](https://github.com/coderz-mafia/babel-plugin-no-console-logs)** **[Slides](https://jayakrishnanamburu.github.io/slides-custom-babel-plugin/#0)**
 
 ### Why we need Babel ?
 
-ECMA releases new specs and standards for javascript. These new specs are implemented by browser vendors. So, browsers will be able to execute lates code which is written using ES6.
-
-Often this takes a considerable time. Even if the implementation is successful, the clients should stay updated with browsers.
+ECMA releases new specs and standards for javascript. These new specs are implemented by browser vendors.
+So, browsers will be able to execute lates code which is written using ES6. Often this takes a considerable time.
+Even if the implementation is successful, the clients should stay updated with browsers.
 
 So, _Babel_ helps in achieving this by transpiling ES6 syntax into ES5. Hence the browsers can execute them.
 
 ### The win for DX over UX 💪 😅
 
-Often this leads to the victory of Developer Experience over User Experience. A perfect scenario is having a _Good Balance_ between Developer and User Experiences.
-
+Often this leads to the victory of Developer Experience over User Experience.
+A perfect scenario is having a _Good Balance_ between Developer and User Experiences.
 The users with latest browsers, still end up loading bigger and older bundles.
 
 ### How to balance both DX and the UX
@@ -28,8 +26,7 @@ We can generate two builds in our build phase.
 - _cjs_
 
 The _esm_ build targets the latest browsers and the _cjs_ targets old browsers.
-
-The one way to do this is having two separate script tags.
+One way to do this is having two separate script tags.
 
 ```js
 <script type="module" src="/build/app.esm.js" />
@@ -47,9 +44,8 @@ _Proptip - You can use cdn to load ESM modules for the repositoreis which expose
 
 ### AST Trees
 
-AST stands for Abstract Syntax Tree.
-
-AST is a tree representation of the syntactic structure of source code written in a programming language.
+AST stands for Abstract Syntax Tree. It is a tree representation of the syntactic structure of source code written
+in a programming language.
 
 These are widely used in compilers to represent the structure of the source code. We can use tools to understand it better.
 

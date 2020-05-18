@@ -20,15 +20,9 @@ And there is an endless list of individual projects and tools built by individua
 
 Yes, I agree a few of these are backed up by big companies but aren't we making a living out of them?
 
----
-
 ### Questions time !!
 
-Is it really easy for many projects to get a huge amount in funds at the beginning?
-
-How they are managing their finances when they are building and opensourcing everything?
-
----
+Is it really easy for many projects to get a huge amount in funds at the beginning? How they are managing their finances when they are building and opensourcing everything?
 
 ### Stories or Ideologies that inspire
 
@@ -37,8 +31,6 @@ How they are managing their finances when they are building and opensourcing eve
 - If you want a fix or a new feature. Along with raising a request(issue), give a try to fix/build it. Maintainers are always happy to encourage and help people who are willing to contribute.
 
 If I am right, the first one is from [Henry Zhu](https://twitter.com/left_pad) and the second is from [Sara Vieria](https://twitter.com/nikkitaftw)
-
----
 
 ### Ways in which we can contribute to the eco-system
 
@@ -52,11 +44,7 @@ There are a couple of ways in which we can support the eco-system.
 - Helping in setting up the infrastructure/architecture for the project.
 - Moderating the community, more like consolidating the issues and the PRs and other _chore_ related things.
 
----
-
 > [Maintainers Anonymus](https://maintainersanonymous.com/) is a podcast hosted by [Henry Zhu](https://twitter.com/left_pad) to know more about maintainers.
-
----
 
 ### How to build one?
 
@@ -117,14 +105,10 @@ Few things are self-explanatory, but let us look into the other.
 - _devDependicies_ deals with all the packages that we use at the time of development. These are not bundled into the package. [Bundlephobia](https://bundlephobia.com/) helps in understanding the space occupied by an individual package in the end result.
 - _peerDependencies_, when we want our repository to depend on another repository to work with. Mostly used in developing in UI related libraries as the frameworks depend on few other to work.
 
----
-
 ### Changelog Managment
 
 Changelog plays a major role in keeping track of all the changes and releases that are going in the package.
 [Lerna Changelog](https://github.com/lerna/lerna-changelog) makes it easy to manage one.
-
----
 
 ### Common pitfalls to look out !!
 
@@ -137,5 +121,3 @@ If the user is using _tilde_ and we bundle all fixes and do a version bump and r
 If the same package is used by `devDependencies`, the execution does not throw any error as in local. This is because it resolves from the `node_modules` since its the single source of truth for the dependencies.
 
 This can be eliminated by using [Pika CDN](https://www.pika.dev/cdn) to test the bundles against the PR's and install them independently and verify.
-
-Here are some of my views on opensource and how to get started to be a part of it.
