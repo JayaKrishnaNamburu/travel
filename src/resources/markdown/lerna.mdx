@@ -5,21 +5,17 @@ Lerna is a tool for managing monorepos. This article talks about an ideal setup 
 Lerna allows you to maintain multiple packages using yarn workspaces.
 This is useful when we build an application which has optional plugins like [Babel](https://github.com/babel/babel).
 
----
-
 1.  First, we will start by installing lerna using `yarn/npm`.
 
-> npm install lerna — save-dev
+> `npm install lerna — save-dev`
 
 This installs lerna and adds it as a `devDependency` in our _package.json_ file.
 
 2\. For initiating lerna, we need need to run
 
-> npx lerna init
+> `npx lerna init`
 
 3\. This will create a _lerna.json_ file in our project with some basic configurations. Lerna operates the project in two modes, **Fixed/Locked** and the other is **Independent**. By default, `lerna init` starts the project in fixed mode.
-
----
 
 **Packages**
 
@@ -95,21 +91,21 @@ The one downside of this, it combines all the commit messages which we don’t n
 
 If we are working on an issue and want to mention it as fixed in the release notes or in the changelog. In the journey, we added a _fix_, a _test,_ and a _chore_ commit. Three messages get added in different locations in the changelog, which makes it confusing to read. Messages related to one issue will be mentioned in different locations.
 
-**lerna-changelog**
+**[lerna-changelog](https://github.com/lerna/lerna-changelog)**
 
-[_lerna-changelog_](https://github.com/lerna/lerna-changelog) is a PR based changelog management tool. Every PR speaks only about one entity, it can be either a _fix_, a _feature_, or an _enhancement._ A release notes or the changelog with all the PR’s merged makes the notes look much cleaner.
+Is a PR based changelog management tool. Every PR speaks only about one entity, it can be either a _fix_, a _feature_, or an _enhancement._ A release notes or the changelog with all the PR’s merged makes the notes look much cleaner.
 
 As a bonus, it even mentions the person who fixed the issue or built a feature.
 
-By default, it comes with the support for monorepo. It adds the package names in which the fixes or features were made. One of the awesome implementations of this is Babel’s [Changelog](https://github.com/babel/babel/blob/master/CHANGELOG.md).
+By default, it comes with the support for monorepo. It adds the package names in which the fixes or features were made. One of the awesome implementations of this is Babel’s [changelog](https://github.com/babel/babel/blob/master/CHANGELOG.md).
 
 First, we need to install lerna-changelog on our project as devDependency
 
-> npm install lerna-changelog — save-dev
+> `npm install lerna-changelog — save-dev`
 
 To generate a changelog we need to run
 
-> \$lerna-changelog
+> `$lerna-changelog`
 
 We can pass optional `— from` and `— to` flags, when we want changelog between specific milestones. By default, _lerna-changelog_ generates it from all the PR’s that were merged, after the latest _git tag/release._
 
