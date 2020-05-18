@@ -6,7 +6,7 @@ const Holder = props => {
     <div className={styles.gridItem}>
       <img
         className="lazyload"
-        data-src={require(`../../compressed/images/${props.loc}/${props.index}.jpg`)}
+        src={require(`../../compressed/images/${props.loc}/${props.index}.jpg`)}
         alt={props.loc}
       />
     </div>

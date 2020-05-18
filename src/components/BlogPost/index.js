@@ -1,6 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
+import { PostSubHeader } from '../PostUtils';
 import { getPostData } from '../../resources/posts';
 import style from '../BlogPost/style.module.css';
 
@@ -32,9 +33,12 @@ const Page = () => {
       <Helmet>
         <title>{heading}</title>
         <meta name="description" content={description} />
+        <meta property="og:title" content={heading} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={landing_image} />
       </Helmet>
       <article>
-        <h2>{heading}</h2>
+        <PostSubHeader>{heading}</PostSubHeader>
         <p className={style.post_description}>{description}</p>
         {landing_image && (
           <div className={style.post_image_holder}>

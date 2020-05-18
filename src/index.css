@@ -1,5 +1,14 @@
+:root {
+  --main-background: rgb(14, 20, 27);
+  --anchor-link: #ffcd0e;
+  --color-primary: #fff;
+  --post-sub-header: #ffcd0e;
+}
+
 html {
   font-size: 62.5%;
+  background-color: var(--main-background);
+  color: #fff;
 }
 
 body {
@@ -12,38 +21,57 @@ body {
   line-height: 1.5;
 }
 
+strong {
+  color: var(--post-sub-header);
+}
+
 code {
-  color: red;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+p {
+  line-height: 1.5;
 }
 
 a {
   text-decoration: underline;
   cursor: pointer;
-  color: #0275d8;
+  color: var(--anchor-link);
   font-weight: bold;
 }
 
 a:hover {
-  background-color: #0275d8 !important;
-  color: #fff !important;
-  text-decoration: none !important;
+  background-color: var(--anchor-link);
+  color: var(--main-background);
+  text-decoration: none;
   border-bottom: none;
 }
 
 a > h2 {
-  color: inherit;
+  color: var(--post-sub-header);
   background-color: inherit;
   padding: inherit;
   display: inline-block;
-  text-decoration: inherit;
+  text-decoration: none;
+  margin-bottom: 0px;
+  text-align: left;
 }
 
 a:hover > h2 {
-  color: inherit;
+  color: var(--main-background);
   background-color: inherit;
   padding: inherit;
+  margin-bottom: 0px;
+}
+
+h3 {
+  color: var(--post-sub-header);
 }
 
 pre {
@@ -68,4 +96,33 @@ figurecaption {
   display: block;
   margin-top: 5px;
   font-size: 1.4rem;
+}
+
+article {
+  text-align: justify;
+}
+
+.splitPost {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.splitPost > p {
+  flex: 1 1 0px;
+}
+
+.splitPost > figure {
+  flex: 1 1 0px;
+}
+
+@media (max-width: 991px) {
+  .splitPost {
+    display: block;
+  }
+  .landingImage {
+    height: auto;
+  }
 }

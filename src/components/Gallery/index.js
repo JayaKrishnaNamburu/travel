@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import Holder from '../Holder';
 import styles from './gallery.module.css';
 import { images } from './gallery';
-import 'lazysizes';
 
 const LoadImages = ({ location }) => {
   return (

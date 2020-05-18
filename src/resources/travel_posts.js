@@ -6,7 +6,25 @@ export const travelPosts = [
     Famous for it's beach, and is the only cliff beach in India.`,
     markdown_file: 'varkala',
     image: `${require('../compressed/images/varkala/2.jpg')}`,
-    tags: ['beach', 'weeked_gateway'],
+    tags: ['beach', 'weeked-gateway'],
     duration: `2-3 Days`
+  },
+  {
+    id: 101,
+    heading: 'A weekend road trip to Jawadhi Hiils',
+    description: `Jawadhu hills are a part of the Eastren Ghats and 4hrs drive from Chennai.`,
+    markdown_file: 'jawadhi_hills',
+    image: `${require('../compressed/images/varkala/2.jpg')}`,
+    tags: ['road-tip', 'weeked-gateway'],
+    duration: `2 Days`
+  },
+  {
+    id: 103,
+    heading: `It's trekking time, Trekking in Himalayas !!`,
+    description: `Ever since i started trekking in 2019, i wait for winter every time. So, i can set on an another trek`,
+    markdown_file: 'brahmatal',
+    image: `${require('../compressed/images/varkala/2.jpg')}`,
+    tags: ['trekking', 'himalayas'],
+    duration: `7 Days`
   }
 ];

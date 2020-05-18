@@ -1,6 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
+import { PostSubHeader } from '../PostUtils';
 import { getTravelPostsData } from '../../resources/posts';
 import style from '../BlogPost/style.module.css';
 
@@ -37,11 +38,11 @@ const Page = () => {
         <meta property="og:image" content={image} />
       </Helmet>
       <article>
-        <h2>{heading}</h2>
+        <PostSubHeader>{heading}</PostSubHeader>
         <p className={style.post_description}>{description}</p>
-        <p>Duration - {duration}</p>
+        <strong>Duration - {duration}</strong>
         <p>
-          Tags - "
+          Tags -
           <span>
             {tags.map(tag => (
               <span style={{ marginRight: '1rem' }}>{tag}</span>

@@ -6,3 +6,9 @@
   display: block;
   max-width: 100%;
 }
+
+@media (max-width: 767px) {
+  .image {
+    height: auto;
+  }
+}

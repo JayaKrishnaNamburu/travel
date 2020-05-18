@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   position: relative;
   height: 690px;
+  margin-top: 50px;
 }
 
 .portfolio > div {
@@ -35,4 +36,13 @@
   width: 70%;
   font-size: 1.6rem;
   line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+  .portfolio {
+    display: block;
+  }
+  .user {
+    display: none;
+  }
 }
