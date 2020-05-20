@@ -4,6 +4,7 @@
 
 .aritcleGrid {
   display: grid;
+  text-align: justify;
   grid-gap: 40px;
   grid-template-columns: repeat(auto-fill, 300px);
 }
