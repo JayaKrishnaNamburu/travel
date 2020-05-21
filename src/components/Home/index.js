@@ -18,23 +18,26 @@ class Home extends Component {
           <div>
             <p>Hi :)</p>
             <p>
-              I am a JavaScript developer, currently working{' '}
+              I am a JavaScript developer, currently working at {' '}
               <a
                 href="https://www.teleporthq.io"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                @teleportHQ.
+                @teleportHQ. 
               </a>
-              I like opensource, JavaScript and Travelling. I occassionally
+              I like open source software, JavaScript and travelling. I occassionally
               share my thoughts at conferences and meetups. You can find links
-              and slides for all my talks. I share my experiences in travelling
-              as well.
+              and slides for all my talks. I share my travel experiences as well.
             </p>
             <p>
-              Feel like reading some travel stories, head to {''}
-              <Link to="/travel">here.</Link> Like to see some landscapes from
-              my previous journeys, head to <Link to="/gallery">here.</Link>{' '}
+              If you feel like reading some of my travel stories, head to my {''}
+              <Link to="/travel">travel blog.</Link> Do you want to just see the
+              pictures from my journeys? Then check out my <Link to="/gallery">travel gallery</Link>{''}.
+            </p>
+            <p>
+              Are you a technical person who loves JavaScript? Then head right to my {''}
+              <Link to="/blogs">technical blogs</Link>.
             </p>
             <p>
               You can find me on twitter -{' '}
