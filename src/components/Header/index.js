@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import user from '../../assets/caricature.png';
 import style from './style.module.css';
 
 const Header = () => {
@@ -32,13 +31,7 @@ const Header = () => {
         />
       </Helmet>
       <header className={style.navWrapper}>
-        <div>
-          <img
-            className={style.smallImage}
-            src={user}
-            alt="Caricature of Jaya Krishna"
-          />
-        </div>
+        <div></div>
         <nav>
           <ul className={style.navList}>
             <li className={style.listItem}>
