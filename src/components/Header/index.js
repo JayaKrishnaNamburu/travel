@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <>
       <Helmet>
-        <title>Jaya Krishna | Travel storeis</title>
+        <title>Jaya Krishna | Travel stories</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -38,13 +38,13 @@ const Header = () => {
               <Link to="/">Home</Link>
             </li>
             <li className={style.listItem}>
-              <Link to="/travel">Travel-Stories</Link>
+              <Link to="/travel">Travel Stories</Link>
             </li>
             <li className={style.listItem}>
               <Link to="/blogs">Talks & Blogs</Link>
             </li>
             <li className={style.listItem}>
-              <Link to="/gallery">Travel-Gallery</Link>
+              <Link to="/gallery">Travel Gallery</Link>
             </li>
           </ul>
         </nav>

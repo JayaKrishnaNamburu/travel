@@ -5,7 +5,7 @@ import style from './style.module.css';
 import TravelBlogs from '../TravelBlogs';
 
 const description =
-  'I like travelling and sharing my stories and here is a collection of few of my travel stories. I hope these might help others in planing their tips and would love to hear few iternaries from you.';
+  'I like travelling and sharing my stories and here is a collection of few of my travel stories. I hope these might help others in planning their tips. I would love to hear a few iternaries from you too.';
 
 const Travel = () => {
   const Map = lazy(() => import('../Map'));
