@@ -1,0 +1,85 @@
+It started out as a fork from [packd](https://github.com/Rich-Harris/packd) and over the time evolved and
+we removed the support for umd fallback. Since, we want it strictly to be _esm_ based beacause of requirements
+
+## How different it is from UNPKG and PIKA and JSPM
+
+- UNPKG can be considered as cdn from npm. It basically parses the route you are asking for and serves the code.
+  It doesn't do any _bundling_, _transpiling_ or _compressing_.
+
+- PIKA and JSPM does transpiles the code from `cjs` to `esm` and then _remaps_ all the imports for the dependencies that are used.
+  All these are compiled ahead of time and served to the user.
+
+- Both `pika` and `jspm` are doing a great job in handling all the problems that are arising due to the
+  mis-configured packages.
+
+## Then why we need a new one ?
+
+- We need a purely `esm` based one, so we can't rely on `unpkg`. Yes, it does have `format=esm` flag.
+
+- These `cdn's` mostly rely on exports-map which is a standard in node. But, most of the libraries which
+  are shipped to npm today don't actully specify the `exports-map`. They use sometihg called `module` field
+  from `package.json`. So, these cdn's need to do some static-analysis to get these convered.
+
+- The `module` field is used by bundlers but not a standard in `node`. So, there is some sense of confusion
+  on all these fields.
+
+- In the course of time, we had ran into several issues. Here, i am trying to explain a few of them.
+
+## Missing in `peerDeependency` but present in `devDependency`
+
+https://github.com/react-component/util/pull/138
+
+## Main field pointing to cjs but we need esm instead
+
+https://github.com/chakra-ui/chakra-ui/pull/1464
+
+## Change in sub-dependencies version can hurt you !!
+
+If you main package `a` is using a sub-package called `b`. Let's consider `a` uses `10.0.0` and then
+`b` initally was at `5.0.6` and you built your project around it and things are fine. But then `b` had a new
+release of `5.0.7` which have a breaking change. Currently the cdn's are not pinning down this so, in future you
+might pull `5.0.7` and the package will stop working.
+
+JSPM is solving this issue in their future release of `jspm-cli` which exports a `import-map` of every dependency that is used.
+For more details please visit the discussion in here -->https://github.com/jspm/project/issues/76
+
+### Version miss-match between same libraries of diff versions
+
+It's difficult to pin down the version of react library that you are using.
+For example you are using `react` and your `dependencies` are also using react of various versions. Then it will be
+loaded multiple time since you are serving unbundled and so imports w.r.t to your packages `deps` or `peerDeeps`
+are loaded.
+
+Loading multiple versions of react sometimes breaks your project. Here is a jsfiddle [example](https://jsfiddle.net/vbf7mst9/1/)
+If you can run the example and inspect the console, you can see react is loaded with `16.0.8` and `16.13.1`
+
+So, currently they load the latest version by default. Here is a `unpkg` [link](https://unpkg.com/browse/@material-ui/core@4.11.0/package.json)
+of `@material-ui/core@4.11.0`. You can see the `peerDeependency` of react is `16.8.0`. But when loaded from cdn,
+it loads `16.13.1`. Cdn link --> https://cdn.skypack.dev/-/antd@v4.6.1-chaSqPebG9J1riQcD3Q8/dist=es2020/antd.js
+
+This behaviour is the best the `cdn's` are doing for us inorder to save the projects from breaking.
+
+> Then why we don't run into issues like this with our projects when build locally ?
+
+Yes, it's completly logically to think in that way. Then we need to look at how the bundlers work.
+
+### Traditional Bundlers
+
+The main source of truth for bundlers is `node_modules`. So, in most of the cases they don't care about where
+the dependency is mentioned (deps, peerDeps, devDeps). They just check the package and load it from `node_modules`
+at the time of bundling. Here is a example https://github.com/saleehk/lowdb-google-cloud-storage-adapter/issues/1
+
+If you check the PR, i was mentioning to move `babel-polyfill` from `devDependency` to `peerDependency`.
+Because, if we look at the code https://github.com/saleehk/lowdb-google-cloud-storage-adapter/blob/master/src/index.js#L3
+The package is being used, but when checked in `pacakge.json` it is present under https://github.com/saleehk/lowdb-google-cloud-storage-adapter/blob/master/package.json#L17
+
+So, if any `x` package from your project uses `babel-polyfill` then during `npm install` this is resolved.
+And the bundlers don't throw any error, since all they care if the package is in `node_modules`.But when you
+using it in a isolated way, this does breaks your build, since `babel-polyfill` is not resolved during installation.
+
+By default only `peerDependencies` and `dependecies` are only resolved.
+
+### Conclusion
+
+To have a quick solution for solving the above issues, the best way is have a mash up. Transpile the pacakges to `esm`
+at the sametime bundle then with `dependeencies`. So, we are not dynamically relying on anything.
