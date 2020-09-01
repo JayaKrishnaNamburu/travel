@@ -25,17 +25,17 @@ we removed the support for umd fallback. Since, we want it strictly to be _esm_ 
 
 - In the course of time, we had ran into several issues. Here, i am trying to explain a few of them.
 
-## Missing in `peerDeependency` but present in `devDependency`
+## Missing Dependencies !
 
 https://github.com/react-component/util/pull/138
 
-## Main field pointing to cjs but we need esm instead
+## Main field exporting cjs !
 
 https://github.com/chakra-ui/chakra-ui/pull/1464
 
-## Change in sub-dependencies version can hurt you !!
+## Change in sub-dependencies !!
 
-If you main package `a` is using a sub-package called `b`. Let's consider `a` uses `10.0.0` and then
+If you are using a sub-package called `b`. Let's consider `a` which is your main package uses `10.0.0` and then
 `b` initally was at `5.0.6` and you built your project around it and things are fine. But then `b` had a new
 release of `5.0.7` which have a breaking change. Currently the cdn's are not pinning down this so, in future you
 might pull `5.0.7` and the package will stop working.
@@ -43,7 +43,7 @@ might pull `5.0.7` and the package will stop working.
 JSPM is solving this issue in their future release of `jspm-cli` which exports a `import-map` of every dependency that is used.
 For more details please visit the discussion in here -->https://github.com/jspm/project/issues/76
 
-### Version miss-match between same libraries of diff versions
+### Loading multiple versions of the same library
 
 It's difficult to pin down the version of react library that you are using.
 For example you are using `react` and your `dependencies` are also using react of various versions. Then it will be

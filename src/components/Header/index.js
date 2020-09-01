@@ -26,7 +26,7 @@ const Header = () => {
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
         <link
-          href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
           rel="stylesheet"
         />
       </Helmet>

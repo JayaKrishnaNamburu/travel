@@ -6,5 +6,5 @@ export const Suggestion = props => {
 };
 
 export const PostSubHeader = props => (
-  <h2 className={style.subHeader}>{props.children}</h2>
+  <h1 className={style.subHeader}>{props.children}</h1>
 );

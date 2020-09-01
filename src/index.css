@@ -1,16 +1,16 @@
 :root {
-  --main-background: rgb(14, 20, 27);
+  --main-background: #1f1f1f;
   --anchor-link: #ffcd0e;
   --color-primary: #e6e0e0;
   --post-sub-header: #ffcd0e;
   --grey-border: #383030;
+  --code-color: #bd5555;
 }
 
 html {
   font-size: 62.5%;
   background-color: var(--main-background);
   color: var(--color-primary);
-  word-spacing: 0.4rem;
 }
 
 body {
@@ -19,8 +19,11 @@ body {
   font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-size: 1.6rem;
+  color: var(--color-primary);
+  font-size: 1.8rem;
   line-height: 1.5;
+  word-spacing: 0.5rem;
+  font-weight: 300;
 }
 
 strong {
@@ -38,11 +41,17 @@ pre {
   border: 2px solid var(--grey-border);
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  font-size: 1.4rem;
+  color: var(--anchor-link);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  font-size: 1.3rem;
+  color: var(--anchor-link);
+  border-radius: 4px;
+  padding: 3px 2px;
 }
 
 li {
@@ -51,10 +60,13 @@ li {
 }
 
 a {
-  text-decoration: underline;
   cursor: pointer;
   color: var(--anchor-link);
-  font-weight: bold;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 1.5rem;
+  padding-bottom: 3px;
+  border-bottom: 0.5px solid var(--anchor-link);
 }
 
 a:hover {
@@ -85,7 +97,12 @@ h1,
 h2,
 h3 {
   color: var(--post-sub-header);
-  word-spacing: 0.4rem;
+  font-weight: 700;
+  word-spacing: normal;
+}
+
+p {
+  margin-top: 10px;
 }
 
 blockquote {
@@ -107,7 +124,7 @@ figurecaption {
 }
 
 article {
-  text-align: justify;
+  text-align: left;
 }
 
 .splitPost {

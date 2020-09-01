@@ -8,7 +8,7 @@ import 'lazysizes';
 const Reflow = () => {
   return (
     <section className={styles.wrapper}>
-      <h1 className={styles.heading}>Heading of the article</h1>
+      <h1>Heading of the article</h1>
       <p className={styles.content}>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
