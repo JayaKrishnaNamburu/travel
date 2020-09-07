@@ -16,27 +16,31 @@ class Home extends Component {
             />
           </figure>
           <div>
-            <p>Hi :)</p>
+            <p>Hi</p>
             <p>
-              I am a JavaScript developer, currently working at {' '}
+              I am a JavaScript developer, currently working at{' '}
               <a
                 href="https://www.teleporthq.io"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                @teleportHQ. 
-              </a>
-              I like open source software, JavaScript and travelling. I occassionally
-              share my thoughts at conferences and meetups. You can find links
-              and slides for all my talks. I share my travel experiences as well.
+                @teleportHQ.
+              </a>{' '}
+              I like open source software, JavaScript and travelling. I
+              ocassionally share my thoughts at conferences and meetups. You can
+              find links and slides for all my talks. I like travelling and like
+              sharing my travel experiences as well.
             </p>
             <p>
-              If you feel like reading some of my travel stories, head to my {''}
+              If you feel like reading some of my travel stories, head to my{' '}
               <Link to="/travel">travel blog.</Link> Do you want to just see the
-              pictures from my journeys? Then check out my <Link to="/gallery">travel gallery</Link>{''}.
+              pictures from my journeys? Then check out my{' '}
+              <Link to="/gallery">travel gallery</Link>
+              {''}.
             </p>
             <p>
-              Are you a technical person who loves JavaScript? Then head right to my {''}
+              Are you a technical person who loves JavaScript? Then head right
+              to my {''}
               <Link to="/blogs">technical blogs</Link>.
             </p>
             <p>

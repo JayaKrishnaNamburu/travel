@@ -30,9 +30,7 @@ const Blogs = () => {
                 <h2>{post.heading}</h2>
               </Link>
               <p className={style.blogDescription}>{post.description}</p>
-              <Link to={`/post/${post.id}`} className={style.readMoreButton}>
-                Read more...
-              </Link>
+              <Link to={`/post/${post.id}`}>Read more...</Link>
             </article>
           );
         })}

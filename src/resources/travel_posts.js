@@ -20,8 +20,8 @@ export const travelPosts = [
   },
   {
     id: 103,
-    heading: `It's trekking time, Trekking in Himalayas (Brahmatal) !!`,
-    description: `Ever since I started trekking in 2019, I wait until winter every year so that I can set on another trek.`,
+    heading: `Trekking in Himalayas (Brahmatal) !!`,
+    description: `Ever since I started trekking in 2019. I wait for winter every year, so i can set on another trek.`,
     markdown_file: 'brahmatal',
     image: `${require('../compressed/images/varkala/2.jpg')}`,
     tags: ['trekking', 'himalayas'],

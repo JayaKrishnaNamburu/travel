@@ -29,7 +29,7 @@ we removed the support for umd fallback. Since, we want it strictly to be _esm_ 
 
 https://github.com/react-component/util/pull/138
 
-## Main field exporting cjs !
+## Package exporting cjs under main !
 
 https://github.com/chakra-ui/chakra-ui/pull/1464
 
@@ -82,4 +82,7 @@ By default only `peerDependencies` and `dependecies` are only resolved.
 ### Conclusion
 
 To have a quick solution for solving the above issues, the best way is have a mash up. Transpile the pacakges to `esm`
-at the sametime bundle then with `dependeencies`. So, we are not dynamically relying on anything.
+at the sametime bundle then with `dependencies`. So, we are not dynamically relying on anything.
+
+I would highly recomend to watch the talk by [@guybedford](https://twitter.com/guybedford) in youtube https://youtu.be/keKKODs6Z7M?t=950,
+where he explains about the future vision of package managers and upcoming releases for jspm.

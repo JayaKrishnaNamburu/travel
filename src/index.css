@@ -22,7 +22,7 @@ body {
   color: var(--color-primary);
   font-size: 1.8rem;
   line-height: 1.5;
-  word-spacing: 0.5rem;
+  word-spacing: 0.3rem;
   font-weight: 300;
 }
 
@@ -48,7 +48,7 @@ pre {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: var(--anchor-link);
   border-radius: 4px;
   padding: 3px 2px;
@@ -62,11 +62,10 @@ li {
 a {
   cursor: pointer;
   color: var(--anchor-link);
-  text-decoration: none;
+  text-decoration: underline;
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   padding-bottom: 3px;
-  border-bottom: 0.5px solid var(--anchor-link);
 }
 
 a:hover {
@@ -98,7 +97,6 @@ h2,
 h3 {
   color: var(--post-sub-header);
   font-weight: 700;
-  word-spacing: normal;
 }
 
 p {
