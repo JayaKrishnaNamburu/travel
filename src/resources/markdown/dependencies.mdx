@@ -27,9 +27,33 @@ we removed the support for umd fallback. Since, we want it strictly to be _esm_ 
 
 ## Missing Dependencies !
 
+When a package author forgets in defining a package in the `package.json`. This becomes a very tricky problem even to find out.
+Here is why, which loading a package we might mainly look at the `package.json` which shows us the direct dependencies of the package you are using.
+But, we will not a picture of all the `sub-dependencies` of the dependencies that the main package is using.
+
+Here is a example, `antd@4.6.1` is using `rc-image` and `rc-image` in return is using `rc-util`. But rc-util did not mention
+that it is using a package called `react` in it's code. But defined as `devDependency` but not as a `peerDependency`.
+
+When you are using such kind of a package to bundle or build, we usually use the command that we had below.
+
+> npm install --production
+
+To install only dependencies and not devDependencies or peerDependencies. So, we manualy install peerDependencies. Even then the package `react`
+won't be installed since it is missing from both `depepdencies` and `peerDependencies`. If we serve such package from a `cdn` service, they tend to fail.
+Since the package is missing from both the places. So, `cdn's` fail to reolve them.
+
 https://github.com/react-component/util/pull/138
 
 ## Package exporting cjs under main !
+
+The most commong approach that many package authors take is, exporting `cjs` using `main` field in package.json. And `esm` using `module` field.
+This is a pattern that is encouraged and followed mainly on the bundlers userland. But in node environment you need to export using only `main` field. Since, `module` is not supported.
+Instead we have a another field called, `type : module` to defined if the code we are exporting is a es mdoule or a cjs bundle.
+
+To overcome this issue, `cdn`'s like `jspm` does a ahead of time static analysis. This makes then understand the package structure and the files and exports.
+But during this step, they mainly rely on `exports` field which is a `node` standard. And which is again not used by most of the pacakge authors, since bundlers are not using them at the moment.
+
+In such instances, the static analysis fails and `cdn's` faile to serve the packages when request a specific module.
 
 https://github.com/chakra-ui/chakra-ui/pull/1464
 
@@ -43,7 +67,7 @@ might pull `5.0.7` and the package will stop working.
 JSPM is solving this issue in their future release of `jspm-cli` which exports a `import-map` of every dependency that is used.
 For more details please visit the discussion in here -->https://github.com/jspm/project/issues/76
 
-### Loading multiple versions of the same library
+## Loading multiple versions of the same library
 
 It's difficult to pin down the version of react library that you are using.
 For example you are using `react` and your `dependencies` are also using react of various versions. Then it will be
@@ -63,7 +87,7 @@ This behaviour is the best the `cdn's` are doing for us inorder to save the proj
 
 Yes, it's completly logically to think in that way. Then we need to look at how the bundlers work.
 
-### Traditional Bundlers
+## Traditional Bundlers
 
 The main source of truth for bundlers is `node_modules`. So, in most of the cases they don't care about where
 the dependency is mentioned (deps, peerDeps, devDeps). They just check the package and load it from `node_modules`
@@ -79,7 +103,20 @@ using it in a isolated way, this does breaks your build, since `babel-polyfill` 
 
 By default only `peerDependencies` and `dependecies` are only resolved.
 
-### Conclusion
+## The Future !!
+
+I persoanlly like approach that `deno` has taken. Betting on `esmodules` is the future i am looking forward.
+
+- Loading code from any source and not relying on `node_modules` or some specific CDN service to do the heavy lifting.
+- Or waiting for a package author to provide a format that we want to load.
+- Loading only a specific module from a specific pacakge using `export` maps, gives us
+  tree-shaking approach out of the box. Yes, the bundlers which we use gives us the `tree-shaking` support but it has it's limitations.
+
+And i am excited about the `jspm version 3` release.
+
+If anyone is looking for a package, which follows all these standards and can serve as a good learning point. Please check --> https://unpkg.com/browse/preact@10.4.8/package.json
+
+## Conclusion
 
 To have a quick solution for solving the above issues, the best way is have a mash up. Transpile the pacakges to `esm`
 at the sametime bundle then with `dependencies`. So, we are not dynamically relying on anything.
