@@ -14,7 +14,7 @@ const Page = () => {
     if (!postId) {
       throw new Error('No post Id from the URL');
     }
-    const postDetails = getTravelPostsData(Number(postId));
+    const postDetails = getTravelPostsData(postId);
     setPostData(postDetails);
   }, [postId]);
 
