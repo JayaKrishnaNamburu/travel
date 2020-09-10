@@ -4,23 +4,19 @@ import { Helmet } from 'react-helmet';
 import style from './style.module.css';
 
 const Header = () => {
+  const seoText = `A self-motivated soul, trying to share all memories and stuff`;
+
   return (
     <>
       <Helmet>
-        <title>Jaya Krishna | Travel stories</title>
+        <title>Jaya Krishna | Travel stories and JavaScript blogs</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <matea property="og:title" content="Jaya Krishna Namburu" />
-        <meta
-          name="description"
-          content="I like writing down all the travel stories that i came across"
-        />
-        <meta
-          property="og:description"
-          content="I like writing down all the travel stories that i came across"
-        />
+        <meta name="description" content={seoText} />
+        <meta property="og:description" content={seoText} />
         <meta property="og:type" content="website" />
         <meta name="theme-color" content="#000000" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />

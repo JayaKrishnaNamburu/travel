@@ -12,6 +12,7 @@
     "react-mapbox-gl": "^4.0.2",
     "react-prerendered-component": "^1.2.4",
     "react-router-dom": "^5.2.0",
+    "react-router-hash-link": "^2.0.0",
     "react-syntax-highlighter": "^12.2.1"
   },
   "scripts": {

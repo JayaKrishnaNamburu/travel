@@ -27,20 +27,16 @@ class Home extends Component {
                 @teleportHQ.
               </a>{' '}
               I like open source software, JavaScript and travelling. I
-              ocassionally share my thoughts at conferences and meetups. You can
-              find links and slides for all my talks. I like travelling and like
-              sharing my travel experiences as well.
+              ocassionally share my thoughts at conferences and meetups too.
             </p>
             <p>
               If you feel like reading some of my travel stories, head to my{' '}
-              <Link to="/travel">travel blog.</Link> Do you want to just see the
-              pictures from my journeys? Then check out my{' '}
+              <Link to="/travel">travel blog.</Link> Or you can check out my{' '}
               <Link to="/gallery">travel gallery</Link>
               {''}.
             </p>
             <p>
-              Are you a technical person who loves JavaScript? Then head right
-              to my {''}
+              Do you love JavaScript ? here are my {''}
               <Link to="/blogs">technical blogs</Link>.
             </p>
             <p>
