@@ -1,10 +1,15 @@
 :root {
-  --main-background: #1f1f1f;
+  --main-background: #1a202c;
   --anchor-link: #ffcd0e;
   --color-primary: #e6e0e0;
   --post-sub-header: #ffcd0e;
   --grey-border: #383030;
   --code-color: #bd5555;
+}
+
+:focus {
+  outline: 2px solid var(--anchor-link);
+  border-radius: 4px;
 }
 
 html {
@@ -114,7 +119,7 @@ blockquote {
   object-fit: cover;
 }
 
-figurecaption {
+figcaption {
   text-align: center;
   display: block;
   margin-top: 5px;

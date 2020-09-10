@@ -1,9 +1,10 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
+import { getHumanDate } from '../../utils/helpers';
 import { PostSubHeader } from '../PostUtils';
 import { getPostData } from '../../resources/posts';
-import style from '../BlogPost/style.module.css';
+import style from './style.module.css';
 
 const Page = () => {
   const { postId } = useParams();
@@ -26,7 +27,7 @@ const Page = () => {
     return import(`../../resources/markdown/${post.markdown_file}.mdx`);
   });
 
-  const { heading, description, image, caption } = post;
+  const { heading, description, image, caption, date } = post;
 
   return (
     <div className={style.post_wrapper} data-remove-script={true}>
@@ -39,6 +40,7 @@ const Page = () => {
       </Helmet>
       <article>
         <PostSubHeader>{heading}</PostSubHeader>
+        {date && <div className={style.date}>{getHumanDate(date)}</div>}
         <p className={style.post_description}>{description}</p>
         {image && (
           <div className={style.post_image_holder}>
@@ -49,7 +51,7 @@ const Page = () => {
                 onLoad={() => setLandingImageLoaded(true)}
                 alt={heading}
               />
-              {caption && <figurecaption>{caption}</figurecaption>}
+              {caption && <figcaption>{caption}</figcaption>}
             </figure>
             {!landingImageLoaded && (
               <div className={style.post_landing_loader} />

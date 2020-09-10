@@ -3,6 +3,7 @@ export const posts = [
     id: `remote_life`,
     heading: `My open-source journey and working remotely`,
     description: `Opensource helped me in learning many things and at the same time gave an oppurtunity to land in my first remote job.`,
+    date: 1599735249720,
     image: `${require('../compressed/images/generic/remote_background.jpg')}`,
     caption: `Image from Unsplash, by @_ferh97`,
     markdown_file: `remote`
@@ -47,7 +48,7 @@ export const posts = [
     id: `lerna`,
     heading: 'Scaffolding a project using lerna and lerna-changelog',
     description:
-      'A tool for managing JavaScript projects with multiple packages.',
+      'Lerna is a utility tool for managing monorepos, for creating, publishing and for maintaing changelog.',
     markdown_file: 'lerna'
   }
 ];

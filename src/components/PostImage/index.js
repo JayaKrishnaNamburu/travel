@@ -5,7 +5,7 @@ const PostImage = ({ src, alt, caption }) => {
   return (
     <figure>
       <img src={src} alt={alt} className={`${style.image} lazyload`} />
-      <figurecaption>{caption}</figurecaption>
+      <figcaption>{caption}</figcaption>
     </figure>
   );
 };

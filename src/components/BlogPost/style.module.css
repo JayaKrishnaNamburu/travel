@@ -4,6 +4,12 @@
   margin-left: auto;
 }
 
+.date {
+  font-size: 1.4rem;
+  padding-bottom: 10px;
+  border-bottom: 0.3px solid var(--color-primary);
+}
+
 .post_description {
   margin-bottom: 10px;
 }
