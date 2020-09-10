@@ -26,7 +26,7 @@ const Page = () => {
     return import(`../../resources/markdown/${post.markdown_file}.mdx`);
   });
 
-  const { heading, description, landing_image } = post;
+  const { heading, description, image, caption } = post;
 
   return (
     <div className={style.post_wrapper} data-remove-script={true}>
@@ -35,19 +35,22 @@ const Page = () => {
         <meta name="description" content={description} />
         <meta property="og:title" content={heading} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={landing_image} />
+        <meta property="og:image" content={image} />
       </Helmet>
       <article>
         <PostSubHeader>{heading}</PostSubHeader>
         <p className={style.post_description}>{description}</p>
-        {landing_image && (
+        {image && (
           <div className={style.post_image_holder}>
-            <img
-              className={style.post_landing_image}
-              src={landing_image}
-              onLoad={() => setLandingImageLoaded(true)}
-              alt={heading}
-            />
+            <figure>
+              <img
+                className={style.post_landing_image}
+                src={image}
+                onLoad={() => setLandingImageLoaded(true)}
+                alt={heading}
+              />
+              {caption && <figurecaption>{caption}</figurecaption>}
+            </figure>
             {!landingImageLoaded && (
               <div className={style.post_landing_loader} />
             )}

@@ -2,7 +2,6 @@ import { posts } from './posts_data';
 import { travelPosts } from './travel_posts';
 
 export const getPostData = id => {
-  console.log(id);
   return posts.find(post => post.id === id);
 };
 

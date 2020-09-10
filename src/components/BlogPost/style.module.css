@@ -27,6 +27,9 @@
   margin-top: 15px;
   object-fit: cover;
   object-position: top;
+  max-height: 400px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .post_content {

@@ -3,21 +3,24 @@ export const posts = [
     id: `remote_life`,
     heading: `My open-source journey and working remotely`,
     description: `Opensource helped me in learning many things and at the same time gave an oppurtunity to land in my first remote job.`,
+    image: `${require('../compressed/images/generic/remote_background.jpg')}`,
+    caption: `Image from Unsplash, by @_ferh97`,
     markdown_file: `remote`
   },
-  {
-    id: `package_json`,
-    heading: `Understanding package.json`,
-    description: `package.json plays a key role in defining details about the package we are shipping. In this post, we will try to explore what are the fields in it and how we can make the best use of them`,
-    // landing_image: `https://images.unsplash.com/photo-1546864831-f1ca1eaf4e2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80`,
-    markdown_file: 'package_json'
-  },
+  // {
+  //   id: `package_json`,
+  //   heading: `Understanding package.json`,
+  //   description: `package.json plays a key role in defining details about the package we are shipping. In this post, we will try to explore what are the fields in it and how we can make the best use of them`,
+  //   // landing_image: `https://images.unsplash.com/photo-1546864831-f1ca1eaf4e2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80`,
+  //   markdown_file: 'package_json'
+  // },
   {
     id: 'dependencies',
     heading: `The state of dependency managment with bundlers and cdn's`,
     description: `I am always interested in how these cdn's work and how they are able to do everthing on the fly. But when to do the same
     we need a whole lot of setup. I recently implemented one for personal use, and here are my findings along the path`,
-    landing_image: `https://images.unsplash.com/photo-1546864831-f1ca1eaf4e2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80`,
+    image: `${require('../compressed/images/generic/package_background.jpeg')}`,
+    caption: `Image from unspalsh `,
     markdown_file: 'dependencies'
   },
   {
