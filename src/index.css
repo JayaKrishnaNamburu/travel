@@ -68,7 +68,7 @@ a {
   cursor: pointer;
   color: var(--anchor-link);
   text-decoration: underline;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.6rem;
   padding-bottom: 3px;
 }

@@ -41,13 +41,20 @@
 .post_content {
   margin-top: 20px;
   padding-bottom: 30px;
+  max-width: 70%;
+  margin: auto;
 }
-
-/* Markdown specific css */
 
 @media (max-width: 767px) {
   .post_wrapper {
     width: 90%;
     padding: 0% 5%;
+  }
+
+  .post_content {
+    margin-top: 20px;
+    padding-bottom: 30px;
+    max-width: 90%;
+    margin: auto;
   }
 }

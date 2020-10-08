@@ -40,17 +40,28 @@
 
 .landingInvite {
   display: flex;
-  margin: 0 5%;
+  max-width: 65%;
+  height: 100%;
+  margin: auto;
   align-items: center;
   text-align: left;
+  transform: translateY(50%);
 }
 
 .landingInvite > figure {
-  flex: 1 1;
+  flex: 1;
+}
+
+.landingInvite > figure > img {
+  max-width: 250px;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+  display: inherit;
 }
 
 .landingInvite > div {
-  flex: 1 1;
+  flex: 2;
 }
 
 @keyframes App-logo-spin {
@@ -74,7 +85,9 @@
 
 @media (max-width: 991px) {
   .landingInvite {
-    display: block;
+    flex-direction: column;
+    max-width: 90%;
+    transform: translateY(0%);
   }
   .landingInvite > figure > img {
     max-width: 250px;

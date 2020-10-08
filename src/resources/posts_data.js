@@ -1,4 +1,14 @@
 export const posts = [
+  // {
+  //   id: `package_json`,
+  //   heading: `Understanding package.json`,
+  //   date: 1600098998728,
+  //   image: `${require('../compressed/images/generic/package.jpg')}`,
+  //   caption: `Image is from Unsplash by @hudsoncrafted`,
+  //   description: `package.json plays a key role in defining details about the package we are shipping. In this post, we will try to explore what are the fields in it and how we can make the best use of them`,
+  //   // landing_image: `https://images.unsplash.com/photo-1546864831-f1ca1eaf4e2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80`,
+  //   markdown_file: 'package_json'
+  // },
   {
     id: `remote_life`,
     heading: `My open-source journey and working remotely`,
@@ -8,13 +18,6 @@ export const posts = [
     caption: `Image from Unsplash, by @_ferh97`,
     markdown_file: `remote`
   },
-  // {
-  //   id: `package_json`,
-  //   heading: `Understanding package.json`,
-  //   description: `package.json plays a key role in defining details about the package we are shipping. In this post, we will try to explore what are the fields in it and how we can make the best use of them`,
-  //   // landing_image: `https://images.unsplash.com/photo-1546864831-f1ca1eaf4e2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80`,
-  //   markdown_file: 'package_json'
-  // },
   {
     id: 'dependencies',
     heading: `The state of dependency managment with bundlers and cdn's`,
