@@ -1,54 +1,69 @@
+In this blogpost, let us discsuss about the state of current _CDN_ bases unbundled development.
+I recently started working with esm based cdn's and there are some short comings because of how the modules are being published to npm.
+Most of the modules are being published using _cjs_ format and a _esm_ entry with _module_ flag in package.json file which is again a non nodejs standard.
+
+So, i recently started working on something, where to mix both _esm_ and _bundling_. Like a hybrid version of cdn which servers packages from npm but bundled.
 It started out as a fork from [packd](https://github.com/Rich-Harris/packd) and over the time evolved and
-we removed the support for umd fallback. Since, we want it strictly to be _esm_ based beacause of requirements
+we removed the support for umd fallback. I will try to point out a few obseervation and try to explain then,
+a full unbundled development is just a few steps away.
 
-## How different it is from UNPKG and PIKA and JSPM
+## How traditional UNPKG is different from Skypack and JSPM
 
-- UNPKG can be considered as cdn from npm. It basically parses the route you are asking for and serves the code.
-  It doesn't do any _bundling_, _transpiling_ or _compressing_.
+- UNPKG can be considered as "mirror" for npm packages. It basically parses the route you are asking for and serves the code.
+  It doesn't apply any _bundling_, _transpiling_ or _compressing_. But unpkg has a new flag `?module` which looks for the module entry point instead.
 
-- PIKA and JSPM does transpiles the code from `cjs` to `esm` and then _remaps_ all the imports for the dependencies that are used.
-  All these are compiled ahead of time and served to the user.
+- PIKA and JSPM does transpiles the code from `cjs` to `esm` and then _remaps_ all the imports to a statically transpiled ahead of time packages.
 
-- Both `pika` and `jspm` are doing a great job in handling all the problems that are arising due to the
-  mis-configured packages.
+- Both `pika` and `jspm` are doing a great job in handling all the problems that are caused because of mis-configured packages.
 
 ## Then why we need a new one ?
 
-- We need a purely `esm` based one, so we can't rely on `unpkg`. Yes, it does have `format=esm` flag.
+As i was referring earlier that i was working on a version on my own. Let's see the "why" and "what" and "how" here.
+
+- We need a pure `esm` based one, so we can't rely on `unpkg`. Yes, it does have `?module` flag. But it doesn't remap your imports.
 
 - These `cdn's` mostly rely on exports-map which is a standard in node. But, most of the libraries which
-  are shipped to npm today don't actully specify the `exports-map`. They use sometihg called `module` field
-  from `package.json`. So, these cdn's need to do some static-analysis to get these convered.
+  are shipped to npm today don't actully specify the `exports-map`. They use `module` field
+  in `package.json`. So, these cdn's need to do some static-analysis of the package to serve them for clients.
 
-- The `module` field is used by bundlers but not a standard in `node`. So, there is some sense of confusion
-  on all these fields.
-
-- In the course of time, we had ran into several issues. Here, i am trying to explain a few of them.
+In the course of time, we had ran into several issues. Here, i am trying to explain a few of them.
 
 ## Missing Dependencies !
 
-When a package author forgets in defining a package in the `package.json`. This becomes a very tricky problem even to find out.
-Here is why, which loading a package we might mainly look at the `package.json` which shows us the direct dependencies of the package you are using.
-But, we will not a picture of all the `sub-dependencies` of the dependencies that the main package is using.
+When a package author misses defining a package in the `package.json`.
+When using a package we mainly look at direct dependencies from `package.json` that the package is using.
+But, we need to be careful about the `sub-dependencies` of the `direct-dependencies` the main package is using.
 
-Here is a example, `antd@4.6.1` is using `rc-image` and `rc-image` in return is using `rc-util`. But rc-util did not mention
-that it is using a package called `react` in it's code. But defined as `devDependency` but not as a `peerDependency`.
+Here is a example, `antd@4.6.1` is using `rc-image` and `rc-image` in return is using `rc-util`. And `rc-util` uses `react`
+directly in it's [files](https://unpkg.com/browse/rc-util@5.4.0/es/ContainerRender.js) . But the package [defines](https://unpkg.com/browse/rc-util@5.4.0/package.json) `react` and `reat-dom`
+as `devDependency` but not as `peerDependency`.
 
-When you are using such kind of a package to bundle or build, we usually use the command that we had below.
+According to npm [documentation](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file), it's clear that devDependencies are using only in local development and testing.
+Any package that is required by your application should go under dependecies or peerDependencies.
+
+When we are using such packages to bundle or build, we usually use the command that we had below.
+
+> npm install
+
+which unstalls both deependencies and devDependencies but when we use
 
 > npm install --production
 
-To install only dependencies and not devDependencies or peerDependencies. So, we manualy install peerDependencies. Even then the package `react`
-won't be installed since it is missing from both `depepdencies` and `peerDependencies`. If we serve such package from a `cdn` service, they tend to fail.
-Since the package is missing from both the places. So, `cdn's` fail to reolve them.
+It install's only dependencies and not devDependencies. So, even if we manualy install peerDependencies. `react`
+is not installed as it is missing from both `depepdencies` and `peerDependencies`. If we serve such package from a `cdn` service, they tend to fail.
+Since the package is missing from both the places. So, `cdn's` fail to reolve to fetch any `meta` like package version etc. And few cdn's resolve to the latest version of the package in that case.
 
 https://github.com/react-component/util/pull/138
 
 ## Package exporting cjs under main !
 
-The most commong approach that many package authors take is, exporting `cjs` using `main` field in package.json. And `esm` using `module` field.
-This is a pattern that is encouraged and followed mainly on the bundlers userland. But in node environment you need to export using only `main` field. Since, `module` is not supported.
-Instead we have a another field called, `type : module` to defined if the code we are exporting is a es mdoule or a cjs bundle.
+The most common approach that package authors take is, exporting `cjs` using `main` field in package.json. And `esm` using `module` field.
+This is a pattern that is encouraged and followed mainly on the bundlers userland.
+
+But in node environment you need to export using only `main` field. Since, `module` attribute is not supported or a standard in node.
+Instead we have a another field called, `type : module` which is a node [standard](https://nodejs.org/api/esm.html#esm_enabling) to define if the code we are exporting is a es mdoule or cjs.
+
+And for `esm` modules we the file extension is `.mjs` and not `.js`. But the bundlers userland will accept even if we use the `.js` extension for modules.
 
 To overcome this issue, `cdn`'s like `jspm` does a ahead of time static analysis. This makes then understand the package structure and the files and exports.
 But during this step, they mainly rely on `exports` field which is a `node` standard. And which is again not used by most of the pacakge authors, since bundlers are not using them at the moment.
@@ -57,71 +72,85 @@ In such instances, the static analysis fails and `cdn's` faile to serve the pack
 
 https://github.com/chakra-ui/chakra-ui/pull/1464
 https://github.com/rollup/plugins/issues/572
-https://github.com/nodejs/node/pull/33416
 
 ## Change in sub-dependencies !!
 
-If you are using a sub-package called `b`. Let's consider `a` which is your main package uses `10.0.0` and then
-`b` initally was at `5.0.6` and you built your project around it and things are fine. But then `b` had a new
-release of `5.0.7` which have a breaking change. Currently the cdn's are not pinning down this so, in future you
-might pull `5.0.7` and the package will stop working.
+If you are using a sub-package called `b` and `a` as your main package and `a` is at version number `10.0.0`.
+`b` is initally at `5.0.6` and you built your project around it and things are fine. But then `b` had a new
+release of `5.0.7` which have a breaking change.
 
-JSPM is solving this issue in their future release of `jspm-cli` which exports a `import-map` of every dependency that is used.
-For more details please visit the discussion in here -->https://github.com/jspm/project/issues/76
+"This happens when semver is not properly followed. Because breaking changes shouldn't go under patch or minor released"
+
+[Semver](https://semver.org/#what-if-i-inadvertently-alter-the-public-api-in-a-way-that-is-not-compliant-with-the-version-number-change-ie-the-code-incorrectly-introduces-a-major-breaking-change-in-a-patch-release)
+
+Currently the cdn's are not pinning down this so, in future you might pull `5.0.7` and the package will stop working.
+
+JSPM is solving this issue in their future release of `jspm-cli` version 3, which exports a `import-map` of every dependency that is used.
+For more details please visit the discussion in [here](https://github.com/jspm/project/issues/76)
 
 ## Loading multiple versions of the same library
 
-It's difficult to pin down the version of react library that you are using.
-For example you are using `react` and your `dependencies` are also using react of various versions. Then it will be
-loaded multiple time since you are serving unbundled and so imports w.r.t to your packages `deps` or `peerDeeps`
+It's difficult to pin down the version of library that you are using withou scopes in importmaps.
+For example if you are using `react` and your `dependencies` are also using react of various versions. Then react is
+loaded multiple times since you are serving unbundled and imports resolve w.r.t to your packages `deps` or `peerDeeps`
 are loaded.
 
 Loading multiple versions of react sometimes breaks your project. Here is a jsfiddle [example](https://jsfiddle.net/vbf7mst9/1/)
 If you can run the example and inspect the console, you can see react is loaded with `16.0.8` and `16.13.1`
 
-So, currently they load the latest version by default. Here is a `unpkg` [link](https://unpkg.com/browse/@material-ui/core@4.11.0/package.json)
+So, currently `cdn's` load the latest version by default. Here is a `unpkg` [link](https://unpkg.com/browse/@material-ui/core@4.11.0/package.json)
 of `@material-ui/core@4.11.0`. You can see the `peerDeependency` of react is `16.8.0`. But when loaded from cdn,
 it loads `16.13.1`. Cdn link --> https://cdn.skypack.dev/-/antd@v4.6.1-chaSqPebG9J1riQcD3Q8/dist=es2020/antd.js
 
-This behaviour is the best the `cdn's` are doing for us inorder to save the projects from breaking.
+And, from the jsfiddle [example](https://jsfiddle.net/vbf7mst9/1/) we can understand that, there is a unspoken `vendor effect`.
+Right now, we have `jspm` and `skypack` and each have their own approaches in solving these issues. So, when you project is loading from multiple vendors, make sure you are
+not running into problems like these. Or they have the potential to break the application.
 
 > Then why we don't run into issues like this with our projects when build locally ?
 
-Yes, it's completly logically to think in that way. Then we need to look at how the bundlers work.
+Yes, it's completly logically to think in that way. Then we need to look at how the bundlers work in more details below.
 
 ## Traditional Bundlers
 
 The main source of truth for bundlers is `node_modules`. So, in most of the cases they don't care about where
-the dependency is mentioned (deps, peerDeps, devDeps). They just check the package and load it from `node_modules`
-at the time of bundling. Here is a example https://github.com/saleehk/lowdb-google-cloud-storage-adapter/issues/1
+the dependency is mentioned (deps, peerDeps, devDeps). As we run
 
-If you check the PR, i was mentioning to move `babel-polyfill` from `devDependency` to `peerDependency`.
-Because, if we look at the code https://github.com/saleehk/lowdb-google-cloud-storage-adapter/blob/master/src/index.js#L3
-The package is being used, but when checked in `pacakge.json` it is present under https://github.com/saleehk/lowdb-google-cloud-storage-adapter/blob/master/package.json#L17
+> npm install
+
+which installs both `dependencies` and `decDependencies`
+
+They just check the package and load it from `node_modules` at the time of bundling.
+Here is a issues https://github.com/saleehk/lowdb-google-cloud-storage-adapter/issues/1 which expains it more clearly.
+
+If you check the PR, i was mentioning to move `babel-polyfill` from `devDependency` to `peerDependency` or `dependency`.
+Because, if we look at the [code](https://github.com/saleehk/lowdb-google-cloud-storage-adapter/blob/master/src/index.js#L3)
+The package is being used, but when checked in `pacakge.json` it is present under devDependencies https://github.com/saleehk/lowdb-google-cloud-storage-adapter/blob/master/package.json#L17
 
 So, if any `x` package from your project uses `babel-polyfill` then during `npm install` this is resolved.
-And the bundlers don't throw any error, since all they care if the package is in `node_modules`.But when you
-using it in a isolated way, this does breaks your build, since `babel-polyfill` is not resolved during installation.
-
-By default only `peerDependencies` and `dependecies` are only resolved.
+And the bundlers don't throw any error, since all they care if `babel-polyfill` is in `node_modules`.But when you
+using it in project where no other package loads `babel-polyfill`, this does breaks your build. As, `babel-polyfill` is not resolved during installation.
 
 ## The Future !!
 
 I persoanlly like approach that `deno` has taken. Betting on `esmodules` is the future i am looking forward.
 
-- Loading code from any source and not relying on `node_modules` or some specific CDN service to do the heavy lifting.
+- Loading code from any source and not relying on `node_modules` or some CDN service to do the heavy lifting of transpilation for us.
 - Or waiting for a package author to provide a format that we want to load.
 - Loading only a specific module from a specific pacakge using `export` maps, gives us
-  tree-shaking approach out of the box. Yes, the bundlers which we use gives us the `tree-shaking` support but it has it's limitations.
+  tree-shaking out of the box. Yes, the bundlers which we use gives us the `tree-shaking` support but it has it's limitations.
 
 And i am excited about the `jspm version 3` release.
 
-If anyone is looking for a package, which follows all these standards and can serve as a good learning point. Please check --> https://unpkg.com/browse/preact@10.4.8/package.json
+If anyone is looking for a package, which follows all these standards and can serve as a good learning point. Please check [preact](https://unpkg.com/browse/preact@10.4.8/package.json)
 
 ## Conclusion
 
-To have a quick solution for solving the above issues, the best way is have a mash up. Transpile the pacakges to `esm`
-at the sametime bundle then with `dependencies`. So, we are not dynamically relying on anything.
+To have a quick solution for solving the above issues, the best way is have a hybrid version of cdn.
 
-I would highly recomend to watch the talk by [@guybedford](https://twitter.com/guybedford) in youtube https://youtu.be/keKKODs6Z7M?t=950,
+- Transpile the pacakges to `esm`
+- Bundle it with `dependencies` and `peerDependencies`. So, we are not dynamically relying on anything or any change in sub-packages etc.
+
+Initial iteration of the hybrid version of cdn-packer [teleport-registry-packer](https://github.com/teleporthq/teleport-registry-packer)
+
+I would highly recomend to watch the talk by [@guybedford](https://twitter.com/guybedford) in [youtube](https://youtu.be/keKKODs6Z7M?t=950),
 where he explains about the future vision of package managers and upcoming releases for jspm.

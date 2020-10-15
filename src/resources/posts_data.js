@@ -20,9 +20,9 @@ export const posts = [
   },
   {
     id: 'dependencies',
-    heading: `The state of dependency managment with bundlers and cdn's`,
-    description: `I am always interested in how these cdn's work and how they are able to do everthing on the fly. But when to do the same
-    we need a whole lot of setup. I recently implemented one for personal use, and here are my findings along the path`,
+    heading: `State of esm-cdn's and development workflows`,
+    description: `Developer tooling is one of my favorite and very comfortable place to work with. And we are at the intersecion point in JS developer tooling
+    eco-system, where we are going to see a lot of buzz around unbundling development. The future looks interesting with the introduction if esm modules. `,
     image: `${require('../compressed/images/generic/package_background.jpeg')}`,
     caption: `Image from unspalsh `,
     markdown_file: 'dependencies'
