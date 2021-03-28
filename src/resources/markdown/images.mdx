@@ -1,0 +1,51 @@
+One of my main requirements for me when building this blog, is to have a place to share all the images that i click in my travels.
+
+But at the same time, I am too picky with the size of the application that i ship to the end users. The last one anyone want to experience is
+to visit my gallery and loose some **10-15MB** of their data. May be the **10-15MB** doesn't sound soo big, but the more images i keep adding the more size.
+
+And on top of that, the browser painter engine, should process all the image data and then paint them maintaining at _60FPS_ to the end users. So, instead i
+built my own pipeline, for handling images on my own.
+
+_"Don't re-invent the wheel"_, this is one of those _"things"_ we keep listening in programming. But i often try to go in the loop, just to learn how things works
+under the hood. And understand the concepts better.
+
+### Complications we face with images on the web
+
+- Image Sizes
+- Layout Thrashing
+- Compression type
+- Effective loading of images
+
+### What is layout thrashing ?
+
+When we load a website, like visiting www.google.com from our browsers. There are a series of steps that takes places
+from making a request to the servers to respoding back. But let's look at how this received information is rendering
+by the browsers, so we can see and interact with it.
+
+- First browsers, [parse]('https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/#HTML_Parser') your `index.html` file and builds a **DOM** tree which is available at `window.document`.
+- Next they parse our css stylesheets and generates [CSSOM]('https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model') which helps in constructing the CSS tree.
+- Then Painter comes into the picture and starte [rendering]('https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/#Painting') using the trees.
+
+Every interaction we make on the application, like clicking a modal, hiding or closing a division. Causes a side effect, which means
+there is some change in the DOM tree. Which triggers the painter to kick in and render the screen again.
+
+This cycle happens for every once in [insert the time taken for one frame] to give a good user experience at 60FPS. But if the DOM
+elements keep changing their positions that is when the main-thread takes up the heat. And that's why DOM operations are expensive.
+
+### Image Sizes
+
+We want hero images to showcase our products, when potential clients land on our home pages.
+At the same time we want images and assets to be rendered without loosing quality. But we already know
+that compressing something means, it looses a bit of information to reduce the size.
+But it's not exactly true in all the cases.
+
+First, let's see how the size of media effects our applications.
+
+- Takes time to parse the media information and render it to the view.
+- Takes more time to load from the server when the users are in slow networks.
+- The slower the images load, the more the issues with layout thrashing.
+
+Lossing data from the images and loosing quality depends on two reasons.
+
+- Type of compression.
+- Format of media.

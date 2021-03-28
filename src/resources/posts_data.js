@@ -1,13 +1,13 @@
 export const posts = [
   // {
-  //   id: `package_json`,
-  //   heading: `Understanding package.json`,
-  //   date: 1600098998728,
-  //   image: `${require('../compressed/images/generic/package.jpg')}`,
-  //   caption: `Image is from Unsplash by @hudsoncrafted`,
-  //   description: `package.json plays a key role in defining details about the package we are shipping. In this post, we will try to explore what are the fields in it and how we can make the best use of them`,
-  //   // landing_image: `https://images.unsplash.com/photo-1546864831-f1ca1eaf4e2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80`,
-  //   markdown_file: 'package_json'
+  //   id: `handling_images`,
+  //   heading: `Hadling images on the web`,
+  //   description: `Images takes around 50% of the size for web-app's on an average. And if they are not handled properly,
+  //   they leave a scar on the end users experience.`,
+  //   date:1603817463544,
+  //   image: `${require('../compressed/images/generic/Images.png')}`,
+  //   caption: `Gallery view from this blog`,
+  //   markdown_file: `images`
   // },
   {
     id: `remote_life`,
@@ -21,8 +21,8 @@ export const posts = [
   {
     id: 'dependencies',
     heading: `State of esm-cdn's and development workflows`,
-    description: `Developer tooling is one of my favorite and very comfortable place to work with. And we are at the intersecion point in JS developer tooling
-    eco-system, where we are going to see a lot of buzz around unbundling development. The future looks interesting with the introduction if esm modules. `,
+    description: `Developer tooling is one of my favorite things to work with. And we are at the intersecion point in JS developer tooling
+    eco-system, where we are seeing a lot of buzz around unbundling development.`,
     image: `${require('../compressed/images/generic/package_background.jpeg')}`,
     caption: `Image from unspalsh `,
     markdown_file: 'dependencies'
