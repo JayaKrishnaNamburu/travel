@@ -6,12 +6,12 @@ const AIESEC = () => {
     <div className={styles.container}>
       <div className={styles.container01}>
         <div className={styles.container02}>
-          <h1 className={styles.text}>AIESEC In Vijayawada</h1>
           <img
-            alt="AIESEC"
+            alt="Logo of AIESEC In Vijayawada"
             src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/28fb6c0c-91ad-463e-8d6f-fc87f325b081/4a294324-e190-4ff2-b435-efc3f5fcc026?org_if_sml=1"
             className={styles.image}
           />
+          <h1 className={styles.text}>AIESEC In Vijayawada</h1>
         </div>
         <div className={styles.container03}>
           <p className={styles.text01}>
@@ -21,8 +21,7 @@ const AIESEC = () => {
               the world around me.
             </span>
             <br></br>
-            <span></span>
-            <br></br>
+            <br />
             <span>I was lucky enough to get into “</span>
             <span className={styles.text07}>Incoming Exchanges</span>
             <span>
@@ -31,8 +30,7 @@ const AIESEC = () => {
               Sustaining orphanages, reducing pollution and carbon foot print etc.
             </span>
             <br></br>
-            <span></span>
-            <br></br>
+            <br />
             <span>
               we get the opportunity to work with someone who have already gained some knowledge on
               these issues in their countries and help us in applying the same towards the local
@@ -58,15 +56,12 @@ const AIESEC = () => {
               and carrying the torch forward. And at the time of leading “Magnetos”.
             </span>
             <br></br>
-            <span></span>
-            <br></br>
+            <br />
             <span>
               I lead few projects called “E = mc2” with the motto of bringing aware about nature and
               the sense of saving it to the kids. I enjoy working wit kids, most of my projects in
               the time of AIESEC are close to them.
             </span>
-            <br></br>
-            <span></span>
             <br></br>
             <span>
               Because, it’s comparitavely easy to mould them at young age and at the same time,
@@ -78,7 +73,7 @@ const AIESEC = () => {
         <div className={styles.container06}>
           <div className={styles.container07}>
             <img
-              alt="AIESEC"
+              alt="Claire from Malta at a worksop"
               src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/28fb6c0c-91ad-463e-8d6f-fc87f325b081/f9386e34-f8d0-4842-a95f-60f0d8f19608?org_if_sml=1"
               className={styles.image2}
             />
@@ -97,13 +92,6 @@ const AIESEC = () => {
               className={styles.image4}
             />
           </div>
-        </div>
-        <div className={styles.container10}>
-          <img
-            src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/28fb6c0c-91ad-463e-8d6f-fc87f325b081/b21c1485-7a95-4cd9-9171-da9510781cb3?org_if_sml=1"
-            alt="AIESEC"
-            className={styles.image5}
-          />
         </div>
       </div>
     </div>

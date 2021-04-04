@@ -87,7 +87,9 @@
   .landingInvite {
     flex-direction: column;
     max-width: 90%;
+    margin-top: 30%;
   }
+
   .landingInvite > figure > img {
     max-width: 250px;
     height: auto;

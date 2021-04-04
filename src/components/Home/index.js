@@ -25,7 +25,7 @@ class Home extends Component {
                 rel="noopener noreferrer"
               >
                 @teleportHQ.
-              </a>{' '} and maintaining <a href="https://github.com/teleporthq/teleport-code-generators"
+              </a>{' '} and maintaining <a href="https://jkrishna.dev/generators"
                  target="_blank" rel="noopener noreferrer" >Code Generators.</a> {' '}
               I like open source software, JavaScript and travelling. I
               ocassionally share my thoughts at conferences and meetups too.
@@ -43,7 +43,7 @@ class Home extends Component {
             <p>
               You can find me on twitter -{' '}
               <a
-                href="https://twitter.com/askjkrishna"
+                href="https://www.jkrishna.dev/twitter"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -52,7 +52,7 @@ class Home extends Component {
               {''}
               and GitHub -{' '}
               <a
-                href="https://github.com/JayaKrishnaNamburu"
+                href="https://jkrishna.dev/github"
                 target="_blank"
                 rel="noopener noreferrer"
               >
