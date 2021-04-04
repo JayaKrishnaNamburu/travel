@@ -1,6 +1,6 @@
 .suggestionBox {
   position: fixed;
-  background-color: var(--grey-border);
+  background-color: var(--primary-border);
   color: var(--color-primary);
   width: 50%;
   z-index: 1;

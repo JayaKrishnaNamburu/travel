@@ -16,7 +16,7 @@ class Home extends Component {
             />
           </figure>
           <div>
-            <p>Hi</p>
+            <p style={{ fontWeight: 700, fontSize: '3rem' }}>Hello...</p>
             <p>
               I am a JavaScript developer, currently working at{' '}
               <a
@@ -25,7 +25,8 @@ class Home extends Component {
                 rel="noopener noreferrer"
               >
                 @teleportHQ.
-              </a>{' '}
+              </a>{' '} and maintaining <a href="https://github.com/teleporthq/teleport-code-generators"
+                 target="_blank" rel="noopener noreferrer" >Code Generators.</a> {' '}
               I like open source software, JavaScript and travelling. I
               ocassionally share my thoughts at conferences and meetups too.
             </p>

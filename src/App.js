@@ -7,6 +7,7 @@ import Post from './components/BlogPost';
 import TravelPost from './components/TravelPost';
 import Travel from './components/Travel';
 import Blogs from './components/Blogs';
+import AIESEC from './components/AIESEC'
 
 class App extends Component {
   render() {
@@ -14,6 +15,9 @@ class App extends Component {
       <Router>
         <Header />
         <Switch>
+          <Route path="/aiesec">
+          <AIESEC />
+          </Route>
           <Route path="/gallery">
             <Gallery />
           </Route>

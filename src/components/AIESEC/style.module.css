@@ -1,0 +1,129 @@
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--main-background);
+}
+.container01 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: var(--dl-space-space-doubleunit);
+  padding-left: var(--dl-space-space-doubleunit);
+  padding-right: var(--dl-space-space-doubleunit);
+  flex-direction: column;
+  padding-bottom: var(--dl-space-space-doubleunit);
+}
+.container02 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.text {
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin-top: var(--dl-space-space-halfunit);
+  margin-bottom: var(--dl-space-space-unit);
+}
+.image {
+  width: 497px;
+  height: 97px;
+  object-fit: cover;
+}
+.container03 {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding-top: var(--dl-space-space-doubleunit);
+  padding-left: var(--dl-space-space-doubleunit);
+  padding-right: var(--dl-space-space-doubleunit);
+  flex-direction: row;
+  padding-bottom: var(--dl-space-space-doubleunit);
+}
+.text01 {
+  color: var(--anchor-link);
+}
+.text07 {
+  font-weight: 700;
+}
+.container04 {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.image1 {
+  width: 100%;
+  filter: grayscale(100%) brightness(70%);
+  object-fit: cover;
+  padding-left: var(--dl-space-space-doubleunit);
+  padding-right: var(--dl-space-space-doubleunit);
+}
+.container05 {
+  width: 100%;
+  margin-top: var(--dl-space-space-doubleunit);
+}
+.text13 {
+  color: var(--anchor-link);
+  width: 100%;
+  font-size: 2rem;
+  margin-top: var(--dl-space-space-halfunit);
+  margin-bottom: var(--dl-space-space-doubleunit);
+  text-transform: uppercase;
+}
+.text14 {
+  color: var(--anchor-link);
+}
+.container06 {
+  flex: 1 1 0px;
+  width: 100%;
+  filter: grayscale(100%) brightness(70%);
+  height: 300px;
+  display: flex;
+  margin-top: var(--dl-space-space-doubleunit);
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+.container07 {
+  flex: 1;
+  width: 100%;
+}
+.image2 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.container08 {
+  flex: 1;
+}
+.image3 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.container09 {
+  flex: 1;
+}
+.image4 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.container10 {
+  width: 100%;
+  filter: grayscale(100%) brightness(70%);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.image5 {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}

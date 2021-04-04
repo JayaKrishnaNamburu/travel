@@ -36,7 +36,7 @@ export const posts = [
   },
   {
     id: `package`,
-    heading: `Why we need to contribute to opensource and how we can do it`,
+    heading: `Why we need to contribute to opensource?`,
     description: `A lot of effort goes into building and maintaining packages. Here is how we can be a part of one.`,
     markdown_file: 'package'
   },

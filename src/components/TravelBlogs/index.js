@@ -7,7 +7,7 @@ const TravelBlogs = ({ description }) => {
   return (
     <div className={style.blogsWrapper} role="main">
       <div className={style.blogsHeading}>
-        <h2>Travel Stories</h2>
+        <h2>Stories</h2>
         <p className={style.blogsDescription}>{description}</p>
       </div>
       <article className={style.aritcleGrid}>
@@ -18,7 +18,7 @@ const TravelBlogs = ({ description }) => {
                 <h2>{post.heading}</h2>
               </Link>
               <p className={style.blogDescription}>{post.description}</p>
-              <Link to={`/travel/post/${post.id}`}>Read more...</Link>
+              <Link to={`/travel/post/${post.id}`}>Read more</Link>
             </article>
           );
         })}

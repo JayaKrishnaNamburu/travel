@@ -20,11 +20,9 @@ const Header = () => {
         <meta property="og:type" content="website" />
         <meta name="theme-color" content="#000000" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" 
+        rel="stylesheet" />
       </Helmet>
       <header className={style.navWrapper}>
         <div></div>
@@ -34,7 +32,7 @@ const Header = () => {
               <Link to="/">Home</Link>
             </li>
             <li className={style.listItem}>
-              <Link to="/travel">Travel Stories</Link>
+              <Link to="/travel">Stories</Link>
             </li>
             <li className={style.listItem}>
               <Link to="/blogs">Talks & Blogs</Link>
