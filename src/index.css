@@ -1,31 +1,56 @@
 :root {
-  --main-background: #1a202c;
-  --anchor-link: #ffcd0e;
-  --color-primary: #e6e0e0;
-  --post-sub-header: #ffcd0e;
-  --primary-border: #383030;
-  --code-color: #bd5555;
-  --dl-space-space-doubleunit: 2rem;
+  --dl-color-custom-main-background: #1a202c;
+  --dl-color-custom-foreground: #ffcd0e;
+  --dl-color-custom-content: #e6e0e0;
+  --dl-color-custom-border: #383030;
+  --dl-color-custom-code: #bd5555;
+  --dl-color-custom-links: #0275d8ff;
+  --dl-color-gray-500: #595959;
+  --dl-color-gray-700: #999999;
+  --dl-color-gray-900: #D9D9D9;
+  --dl-size-size-unit: 1rem;
+  --dl-color-danger-300: #A22020;
+  --dl-color-danger-500: #BF2626;
+  --dl-color-danger-700: #E14747;
+  --dl-color-gray-black: #000000;
+  --dl-color-gray-white: #FFFFFF;
+  --dl-space-space-unit: 1rem;
+  --dl-color-primary-100: #003EB3;
+  --dl-color-primary-300: #0074F0;
+  --dl-color-primary-500: #14A9FF;
+  --dl-color-primary-700: #85DCFF;
+  --dl-color-success-300: #199033;
+  --dl-color-success-500: #32A94C;
+  --dl-color-success-700: #4CC366;
+  --dl-size-size-halfunit: 0.5rem;
+  --dl-radius-radius-round: 50%;
+  --dl-size-size-doubleunit: 2rem;
+  --dl-size-size-tripleunit: 3rem;
   --dl-space-space-halfunit: 0.5rem;
+  --dl-radius-radius-radius2: 2px;
+  --dl-radius-radius-radius4: 4px;
+  --dl-radius-radius-radius8: 8px;
+  --dl-space-space-doubleunit: 2rem;
+  --dl-space-space-tripleunit: 3rem;
 }
 
 .light {
-  --main-background: #fff;
-  --anchor-link: #0275d8;
-  --color-primary: #383030;
-  --post-sub-header: #0275d8;
-  --primary-border: #383030;
-  --code-color: #bd5555;
+  --dl-color-custom-main-background: #fff;
+  --dl-color-custom-foreground: #0275d8;
+  --dl-color-custom-content: #383030;
+  --dl-color-custom-foreground: #0275d8;
+  --dl-color-custom-border: #383030;
+  --dl-color-custom-code: #bd5555;
 }
 
 :focus {
-  outline: 2px solid var(--anchor-link);
+  outline: 2px solid var(--dl-color-custom-foreground);
   border-radius: 4px;
 }
 
 html {
   font-size: 62.5%;
-  color: var(--color-primary);
+  color: var(--dl-color-custom-content);
 }
 
 body {
@@ -34,37 +59,37 @@ body {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background-color: var(--main-background);
-  color: var(--color-primary);
+  background-color: var(--dl-color-custom-main-background);
+  color: var(--dl-color-custom-content);
   font-size: 1.8rem;
   line-height: 1.5;
   font-weight: 400;
 }
 
 strong {
-  color: var(--post-sub-header);
+  color: var(--dl-color-custom-foreground);
 }
 
 em {
-  color: var(--anchor-link);
+  color: var(--dl-color-custom-foreground);
 }
 
 pre {
   overflow-x: scroll !important;
   padding: 5px 10px !important;
   border-radius: 4px;
-  border: 2px solid var(--primary-border);
+  border: 2px solid var(--dl-color-custom-border);
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   font-size: 1.4rem;
-  color: var(--anchor-link);
+  color: var(--dl-color-custom-foreground);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   font-size: 1.4rem;
-  color: var(--anchor-link);
+  color: var(--dl-color-custom-foreground);
   border-radius: 4px;
   padding: 3px 2px;
 }
@@ -76,7 +101,7 @@ li {
 
 a {
   cursor: pointer;
-  color: var(--anchor-link);
+  color: var(--dl-color-custom-foreground);
   text-decoration: underline;
   font-weight: 400;
   font-size: 1.6rem;
@@ -84,14 +109,14 @@ a {
 }
 
 a:hover {
-  background-color: var(--anchor-link);
-  color: var(--main-background);
+  background-color: var(--dl-color-custom-foreground);
+  color: var(--dl-color-custom-main-background);
   text-decoration: none;
   border-bottom: none;
 }
 
 a > h2 {
-  color: var(--post-sub-header);
+  color: var(--dl-color-custom-foreground);
   background-color: inherit;
   padding: inherit;
   display: inline-block;
@@ -101,7 +126,7 @@ a > h2 {
 }
 
 a:hover > h2 {
-  color: var(--main-background);
+  color: var(--dl-color-custom-main-background);
   background-color: inherit;
   padding: inherit;
   margin-bottom: 0px;
@@ -110,7 +135,7 @@ a:hover > h2 {
 h1,
 h2,
 h3 {
-  color: var(--post-sub-header);
+  color: var(--dl-color-custom-foreground);
   font-weight: 700;
 }
 
@@ -121,7 +146,7 @@ p {
 }
 
 blockquote {
-  border-left: 2px solid var(--anchor-link);
+  border-left: 2px solid var(--dl-color-custom-foreground);
   padding-left: 10px;
 }
 

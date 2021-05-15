@@ -7,7 +7,7 @@
 .date {
   font-size: 1.4rem;
   padding-bottom: 10px;
-  border-bottom: 0.3px solid var(--color-primary);
+  border-bottom: 0.3px solid var(--dl-color-custom-content);
 }
 
 .post_description {

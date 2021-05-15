@@ -8,6 +8,7 @@ import TravelPost from './components/TravelPost';
 import Travel from './components/Travel';
 import Blogs from './components/Blogs';
 import AIESEC from './components/AIESEC'
+import Design2Code from './posts-studio/design2code';
 
 class App extends Component {
   render() {
@@ -29,6 +30,9 @@ class App extends Component {
           </Route>
           <Route path="/travel/post/:postId">
             <TravelPost />
+          </Route>
+          <Route path="/design2code">
+            <Design2Code />
           </Route>
           <Route path="/blogs">
             <Blogs />

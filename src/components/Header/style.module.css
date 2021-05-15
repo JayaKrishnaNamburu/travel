@@ -33,10 +33,10 @@
   font-size: 1.8rem;
   text-decoration: none;
   font-weight: 700;
-  color: var(--post-sub-header);
+  color: var(--dl-color-custom-foreground);
   padding: 10px 20px;
 }
 
 .listItem > a:hover {
-  color: var(--main-background);
+  color: var(--dl-color-custom-main-background);
 }
