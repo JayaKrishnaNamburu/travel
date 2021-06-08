@@ -1,0 +1,24 @@
+.container {
+    width: 100%;
+    display: flex;
+    position: relative;
+    min-height: 75px;
+    align-items: flex-start;
+    padding-top: var(--dl-space-space-unit);
+    flex-direction: row;
+    padding-bottom: var(--dl-space-space-unit);
+    justify-content: center;
+    background-color: var(--dl-color-custom-main-background);
+  }
+  .container1 {
+    width: 10px;
+    height: 100px;
+    align-items: flex-start;
+    background-color: var(--dl-color-custom-foreground);
+  }
+  .text {
+    width: 80%;
+    align-self: center;
+    margin-left: var(--dl-space-space-doubleunit);
+  }
+  
