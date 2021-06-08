@@ -1,18 +1,18 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
-import Holder from '../Holder';
-import styles from './gallery.module.css';
-import { images } from './gallery';
+import React from 'react'
+import { withRouter } from 'react-router-dom'
+import Holder from '../Holder'
+import styles from './gallery.module.css'
+import { images } from './gallery'
 
 const LoadImages = ({ location }) => {
   return (
     <>
-      {images[location].map(item => (
+      {images[location].map((item) => (
         <Holder key={`${location}-${item}`} index={item} loc={location} />
       ))}
     </>
-  );
-};
+  )
+}
 
 const Gallery = () => {
   return (
@@ -21,7 +21,7 @@ const Gallery = () => {
         <LoadImages location={location} key={index} />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default withRouter(Gallery);
+export default withRouter(Gallery)

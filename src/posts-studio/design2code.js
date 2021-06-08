@@ -13,12 +13,12 @@ const Design2Code = () => {
         <span className={styles.text02}></span>
         <div className={styles.container3}>
           <img
-            alt="image"
+            alt="design"
             src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;w=1000"
             className={styles.image}
           />
           <img
-            alt="image"
+            alt="code"
             src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDF8fGNvZGV8ZW58MHx8fHwxNjIxMDczMzg4&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1000"
             className={styles.image1}
           />
@@ -26,7 +26,7 @@ const Design2Code = () => {
         <p className={styles.text03}>
           <span>
             Often in product development, majority of time is spent between design and then
-            converting those designs to code. Sometimes call this process as { ' ' }
+            converting those designs to code. Sometimes call this process as{' '}
           </span>
           <span className={styles.text05}>handoff</span>
           <span>
@@ -84,7 +84,11 @@ const Design2Code = () => {
           </span>
         </span>
         <div className={styles.container4}>
-          <img alt="image" src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/e4ac09ac-d6de-4393-9e5c-298884624998/00b8116d-0d2e-4c45-8ecf-62c9618190e2?org_if_sml=1&w=1200" className={styles.image2} />
+          <img
+            alt="ux"
+            src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/e4ac09ac-d6de-4393-9e5c-298884624998/00b8116d-0d2e-4c45-8ecf-62c9618190e2?org_if_sml=1&w=1200"
+            className={styles.image2}
+          />
           <p className={styles.text37}>
             <span>This has always been the priority while designing our</span>
             <a
@@ -118,9 +122,9 @@ const Design2Code = () => {
         </div>
         <p className={styles.text48}>
           <span>Does that sounds like we should still keep</span>
-          <span className={styles.text50}>{ ' '}designing {' ' }</span>
+          <span className={styles.text50}> designing </span>
           <span> and</span>
-          <span className={styles.text52}>{ ' '}developing{' '}</span>
+          <span className={styles.text52}> developing </span>
           <span> applications.</span>
           <br></br>
           <br></br>
@@ -135,9 +139,9 @@ const Design2Code = () => {
             Let me introduce you to &apos;teleport-cli&apos;, where we achieve to bridge this gap.
             Any designer can just design the system and developers can
           </span>
-          <span className={styles.text62}>{' '}sync{' '}</span>
+          <span className={styles.text62}> sync </span>
           <span>with the designs and continue their development.</span>
-          <span className={styles.text64}>{ ' '}Cli{ ' '}</span>
+          <span className={styles.text64}> Cli </span>
           <span>
             {' '}
             is fully under beta, and under active development. Please let me know if this idea
@@ -145,7 +149,7 @@ const Design2Code = () => {
           </span>
           <br></br>
           <br></br>
-          <span>For more details, about the cli you can check the readme {' '}</span>
+          <span>For more details, about the cli you can check the readme </span>
           <a
             href="https://github.com/teleporthq/teleport-code-generators/tree/feat/cli-beta/packages/teleport-cli"
             target="_blank"
@@ -161,7 +165,7 @@ const Design2Code = () => {
           Fun-fact, this blog is completely written using our studio at play.teleporthq.io. And
           components are synced to my profile in GitHub.
         </span>
-        <img src={gif} style={{ width: '100%'}} />
+        <img alt="design2code" src={gif} style={{ width: '100%' }} />
       </div>
     </div>
   )

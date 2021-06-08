@@ -1,4 +1,4 @@
-const getMonth = givenMonth => {
+const getMonth = (givenMonth) => {
   const months = {
     0: 'January',
     1: 'February',
@@ -11,14 +11,12 @@ const getMonth = givenMonth => {
     8: 'September',
     9: 'October',
     10: 'November',
-    11: 'December'
-  };
-  return months[givenMonth];
-};
+    11: 'December',
+  }
+  return months[givenMonth]
+}
 
-export const getHumanDate = date => {
-  const stamp = new Date(Number(date));
-  return `${stamp.getDate()} ${getMonth(
-    stamp.getMonth()
-  )} ${stamp.getFullYear()}`;
-};
+export const getHumanDate = (date) => {
+  const stamp = new Date(Number(date))
+  return `${stamp.getDate()} ${getMonth(stamp.getMonth())} ${stamp.getFullYear()}`
+}

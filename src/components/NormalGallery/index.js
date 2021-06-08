@@ -1,7 +1,7 @@
-import React from 'react';
-import { images } from '../Gallery/gallery';
-import styles from '../Gallery/gallery.module.css';
-import 'lazysizes';
+import React from 'react'
+import { images } from '../Gallery/gallery'
+import styles from '../Gallery/gallery.module.css'
+import 'lazysizes'
 
 const NormalGallery = () => {
   return (
@@ -37,7 +37,7 @@ const NormalGallery = () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default NormalGallery;
+export default NormalGallery

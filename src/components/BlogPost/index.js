@@ -1,33 +1,33 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { Helmet } from 'react-helmet';
-import { useParams } from 'react-router-dom';
-import { getHumanDate } from '../../utils/helpers';
-import { PostSubHeader } from '../PostUtils';
-import { getPostData } from '../../resources/posts';
-import style from './style.module.css';
+import React, { useState, useEffect, lazy, Suspense } from 'react'
+import { Helmet } from 'react-helmet'
+import { useParams } from 'react-router-dom'
+import { getHumanDate } from '../../utils/helpers'
+import { PostSubHeader } from '../PostUtils'
+import { getPostData } from '../../resources/posts'
+import style from './style.module.css'
 
 const Page = () => {
-  const { postId } = useParams();
-  const [post, setPostData] = useState(null);
-  const [landingImageLoaded, setLandingImageLoaded] = useState(false);
+  const { postId } = useParams()
+  const [post, setPostData] = useState(null)
+  const [landingImageLoaded, setLandingImageLoaded] = useState(false)
 
   useEffect(() => {
     if (!postId) {
-      throw new Error('No post Id from the URL');
+      throw new Error('No post Id from the URL')
     }
-    const postDetails = getPostData(postId);
-    setPostData(postDetails);
-  }, [postId]);
+    const postDetails = getPostData(postId)
+    setPostData(postDetails)
+  }, [postId])
 
   if (!post || !post.markdown_file) {
-    return null;
+    return null
   }
 
   const Content = lazy(() => {
-    return import(`../../resources/markdown/${post.markdown_file}.mdx`);
-  });
+    return import(`../../resources/markdown/${post.markdown_file}.mdx`)
+  })
 
-  const { heading, description, image, caption, date } = post;
+  const { heading, description, image, caption, date } = post
 
   return (
     <div className={style.post_wrapper} data-remove-script={true}>
@@ -53,9 +53,7 @@ const Page = () => {
               />
               {caption && <figcaption>{caption}</figcaption>}
             </figure>
-            {!landingImageLoaded && (
-              <div className={style.post_landing_loader} />
-            )}
+            {!landingImageLoaded && <div className={style.post_landing_loader} />}
           </div>
         )}
         <div className={style.post_content}>
@@ -65,7 +63,7 @@ const Page = () => {
         </div>
       </article>
     </div>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page

@@ -1,15 +1,15 @@
-import React, { Suspense, lazy } from 'react';
-import { Helmet } from 'react-helmet';
-import back from '../../assets/back.jpg';
-import style from './style.module.css';
-import TravelBlogs from '../TravelBlogs';
+import React, { Suspense, lazy } from 'react'
+import { Helmet } from 'react-helmet'
+import back from '../../assets/back.jpg'
+import style from './style.module.css'
+import TravelBlogs from '../TravelBlogs'
 
 const description = `I like travelling and ocassionally i write them down. 
 I hope these might help others in planning their tips. 
-I would love to hear iternaries from you too.`;
+I would love to hear iternaries from you too.`
 
 const Travel = () => {
-  const Map = lazy(() => import('../Map'));
+  const Map = lazy(() => import('../Map'))
 
   return (
     <div>
@@ -30,7 +30,7 @@ const Travel = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Travel;
+export default Travel

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
-import { posts } from '../../resources/posts_data';
-import style from './style.module.css';
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import { Link } from 'react-router-dom'
+import { posts } from '../../resources/posts_data'
+import style from './style.module.css'
 
 const Blogs = () => {
   return (
@@ -23,7 +23,7 @@ const Blogs = () => {
         />
       </div>
       <article className={style.aritcleGrid}>
-        {posts.map(post => {
+        {posts.map((post) => {
           return (
             <article key={post.id}>
               <Link to={`/post/${post.id}`}>
@@ -32,11 +32,11 @@ const Blogs = () => {
               <p className={style.blogDescription}>{post.description}</p>
               <Link to={`/post/${post.id}`}>Read more</Link>
             </article>
-          );
+          )
         })}
       </article>
     </div>
-  );
-};
+  )
+}
 
-export default Blogs;
+export default Blogs

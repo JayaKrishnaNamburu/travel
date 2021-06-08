@@ -8,5 +8,5 @@ export const images = {
   wayanad: [1, 2],
   coorg: [1, 2, 3],
   pollachi: [1],
-  pichavaram: [1, 2]
-};
+  pichavaram: [1, 2],
+}

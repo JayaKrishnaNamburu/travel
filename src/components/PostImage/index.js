@@ -1,5 +1,5 @@
-import React from 'react';
-import style from './style.module.css';
+import React from 'react'
+import style from './style.module.css'
 
 const PostImage = ({ src, alt, caption }) => {
   return (
@@ -7,7 +7,7 @@ const PostImage = ({ src, alt, caption }) => {
       <img src={src} alt={alt} className={`${style.image} lazyload`} />
       <figcaption>{caption}</figcaption>
     </figure>
-  );
-};
+  )
+}
 
-export default PostImage;
+export default PostImage

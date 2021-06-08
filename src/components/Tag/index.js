@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Tag = ({ tag, size }) => {
   return (
@@ -10,12 +10,12 @@ const Tag = ({ tag, size }) => {
         marginTop: '10px',
         fontSize: size === 'sm' ? '1rem' : '1.4rem',
         backgroundColor: '#555edc',
-        color: '#fff'
+        color: '#fff',
       }}
     >
       {tag}
     </button>
-  );
-};
+  )
+}
 
-export default Tag;
+export default Tag
