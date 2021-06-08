@@ -10,6 +10,13 @@ export const posts = [
   //   markdown_file: `images`
   // },
   {
+    id: `design2code`,
+    heading: `Bridging the gap between design and code.`,
+    description: `In a product development, majority of time is spent between design and then
+    converting those designs to code`,
+    redirect: `design2code`
+  },
+  {
     id: `remote_life`,
     heading: `My open-source journey and working remotely`,
     description: `Opensource helped me in learning many things and at the same time gave an oppurtunity to land in my first remote job.`,

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import gif from '../assets/design2code.gif'
 import BlockQuote from './block-quote'
 import styles from './design2code.module.css'
@@ -25,7 +26,7 @@ const Design2Code = () => {
         </div>
         <p className={styles.text03}>
           <span>
-            Often in product development, majority of time is spent between design and then
+            In a product development, majority of time is spent between design and then
             converting those designs to code. Sometimes call this process as{' '}
           </span>
           <span className={styles.text05}>handoff</span>
@@ -139,7 +140,7 @@ const Design2Code = () => {
             Let me introduce you to &apos;teleport-cli&apos;, where we achieve to bridge this gap.
             Any designer can just design the system and developers can
           </span>
-          <span className={styles.text62}> sync </span>
+          <span className={styles.text62}> sync </span>{' '}
           <span>with the designs and continue their development.</span>
           <span className={styles.text64}> Cli </span>
           <span>
@@ -165,6 +166,7 @@ const Design2Code = () => {
           Fun-fact, this blog is completely written using our studio at play.teleporthq.io. And
           components are synced to my profile in GitHub.
         </span>
+
         <img alt="design2code" src={gif} style={{ width: '100%' }} />
       </div>
     </div>
