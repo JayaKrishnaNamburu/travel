@@ -2,9 +2,9 @@ import React from 'react'
 
 import PropTypes from 'prop-types'
 
-import styles from './block-quote.module.css'
+import styles from './quote.module.css'
 
-const BlockQuote = (props) => {
+const Quote = (props) => {
   return (
     <div className={styles.container}>
       <div className={styles.container1}></div>
@@ -13,12 +13,12 @@ const BlockQuote = (props) => {
   )
 }
 
-BlockQuote.defaultProps = {
+Quote.defaultProps = {
   text: 'Text',
 }
 
-BlockQuote.propTypes = {
+Quote.propTypes = {
   text: PropTypes.string,
 }
 
-export default BlockQuote
+export default Quote

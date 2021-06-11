@@ -10,6 +10,12 @@ export const posts = [
   //   markdown_file: `images`
   // },
   {
+    id: 'esbuild',
+    heading: `Reducing build time by 50% for a Typescript Monorepo`,
+    description: `As, the projects starts to grow, monorepo build times are taking a massive hit. Here is a succesful attempt in reducing our build time by 50%`,
+    redirect: `esbuild_monorepos`
+  },
+  {
     id: `design2code`,
     heading: `Bridging the gap between design and code.`,
     description: `In a product development, majority of time is spent between design and then
