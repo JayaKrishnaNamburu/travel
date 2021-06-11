@@ -1,5 +1,4 @@
 .container {
-  width: 100%;
   height: auto;
   display: flex;
   min-height: 100vh;
@@ -250,4 +249,27 @@
 }
 .text132 {
   color: var(--dl-color-custom-foreground);
+}
+
+@media(max-width: 767px) {
+  .container1 {
+    width: 90%;
+  }
+  
+  .container2 {
+    flex-wrap: wrap;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image {
+    margin-right: 0px;
+  }
+
+  .text003 {
+    margin-left: 0px;
+  }
 }
