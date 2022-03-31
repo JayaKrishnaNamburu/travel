@@ -13,6 +13,7 @@ class Map extends Component {
     const previous_year = places[2017]
     const current_year = places[2019]
     const new_year = places[2020]
+    const covid1 = places[2021]
 
     const Map = ReactMapboxGl({
       accessToken:
@@ -63,6 +64,13 @@ class Map extends Component {
               return (
                 <Marker key={index} coordinates={item.points} anchor="top">
                   <div style={{ backgroundColor: '#ff0' }} className="mapMarkerStyle"></div>
+                </Marker>
+              )
+            })}
+            {covid1.map((item, index) => {
+              return (
+                <Marker key={index} coordinates={item.points} anchor="top">
+                  <div style={{ backgroundColor: 'purple' }} className="mapMarkerStyle"></div>
                 </Marker>
               )
             })}

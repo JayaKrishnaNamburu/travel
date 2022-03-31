@@ -216,6 +216,21 @@ const places = {
       points: [76.5202, 8.5157],
     },
   ],
+  2021: [
+    {
+      name: 'Maredumilli',
+      points: [17.597728, 81.715018]
+    }
+  ],
+  2022: [
+    {
+      name: 'Kondaveedu',
+      points: [16.255338, 80.265297]
+    },
+    {
+      name: ''
+    }
+  ]
 }
 
 export default places

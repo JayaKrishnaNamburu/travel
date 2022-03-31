@@ -1,7 +1,6 @@
 import React from 'react'
 import { images } from '../Gallery/gallery'
 import styles from '../Gallery/gallery.module.css'
-import 'lazysizes'
 
 const NormalGallery = () => {
   return (

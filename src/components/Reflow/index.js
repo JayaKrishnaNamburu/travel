@@ -3,7 +3,6 @@ import banner from '../../images/varkala/2.jpg'
 import holderOne from '../../images/kedarkantha/1.jpg'
 import holderThree from '../../images/pollachi/1.jpg'
 import styles from './style.module.css'
-import 'lazysizes'
 
 const Reflow = () => {
   return (
