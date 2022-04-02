@@ -12,13 +12,13 @@
   background-color: #dddddd;
   display: block;
   position: relative;
-  height: 250px;
+  height: 350px;
   width: auto;
   overflow: hidden;
 }
 
 .gridItem > img {
-  height: 250px;
+  height: 350px;
   width: 100%;
   object-fit: cover;
   object-position: center;

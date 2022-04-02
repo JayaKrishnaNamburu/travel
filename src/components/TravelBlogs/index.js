@@ -6,10 +6,6 @@ import style from '../Blogs/style.module.css'
 const TravelBlogs = ({ description }) => {
   return (
     <div className={style.blogsWrapper} role="main">
-      <div className={style.blogsHeading}>
-        <h2>Stories</h2>
-        <p className={style.blogsDescription}>{description}</p>
-      </div>
       <article className={style.aritcleGrid}>
         {travelPosts.map((post) => {
           return (

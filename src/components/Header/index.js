@@ -34,7 +34,7 @@ const Header = () => {
               <Link to="/travel">Stories</Link>
             </li>
             <li className={style.listItem}>
-              <Link to="/blogs">Talks & Blogs</Link>
+              <Link to="/blogs">Blogs</Link>
             </li>
             <li className={style.listItem}>
               <Link to="/gallery">Travel Gallery</Link>

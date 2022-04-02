@@ -12,11 +12,12 @@
     "react-prerendered-component": "^1.2.4",
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^2.0.0",
-    "react-syntax-highlighter": "^12.2.1"
+    "react-syntax-highlighter": "^12.2.1",
+    "walkdir": "^0.4.1"
   },
   "scripts": {
-    "dev": "npm run crush && node scripts/start.js",
-    "build": "npm run crush && node scripts/build.js",
+    "dev": "npm run crush && node scripts/gps.mjs && node scripts/start.js",
+    "build": "node scripts/gps.mjs && npm run crush && node scripts/build.js",
     "test": "node scripts/test.js",
     "crush": "rimraf -f src/compressed && node scripts/compressor.js && node scripts/baseline.js",
     "postbuild": "react-snap"
@@ -50,6 +51,7 @@
     "bfj": "6.1.1",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.1",
+    "chomp": "^0.2.1",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "1.0.0",
     "dotenv": "6.0.0",
@@ -63,6 +65,7 @@
     "eslint-plugin-jsx-a11y": "6.1.2",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "7.11.1",
+    "exif": "^0.6.0",
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.0",

@@ -1,5 +1,4 @@
-const places = {
-  2017: [
+const places = [
     {
       name: 'Ooty',
       points: [76.6932, 11.4064],
@@ -44,8 +43,6 @@ const places = {
       name: 'Mamallapuram',
       points: [80.1927, 12.6269],
     },
-  ],
-  2018: [
     {
       name: 'Vijayawada',
       points: [80.648, 16.5062],
@@ -150,8 +147,7 @@ const places = {
       name: 'Salem',
       points: [78.146, 11.6643],
     },
-  ],
-  2019: [
+  
     {
       name: 'Dehradun',
       points: [78.0322, 30.3165],
@@ -190,11 +186,10 @@ const places = {
       points: [78.4867, 17.385],
     },
     {
-      name: 'Jawadhi Hills',
+      name: 'Yawadhihills',
       points: [78.8333, 12.5833],
     },
-  ],
-  2020: [
+  
     {
       name: 'Rishikesh',
       points: [78.2676, 30.0869],
@@ -215,22 +210,16 @@ const places = {
       name: 'Jatayu Earth Center',
       points: [76.5202, 8.5157],
     },
-  ],
-  2021: [
     {
       name: 'Maredumilli',
       points: [17.597728, 81.715018]
-    }
-  ],
-  2022: [
+    },
     {
       name: 'Kondaveedu',
       points: [16.255338, 80.265297]
     },
-    {
-      name: ''
-    }
-  ]
-}
+]
 
-export default places
+module.exports = {
+  places
+}

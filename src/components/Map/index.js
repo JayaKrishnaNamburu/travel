@@ -1,29 +1,23 @@
 import React, { Component } from 'react'
-import ReactMapboxGl, { Layer, Marker } from 'react-mapbox-gl'
-import places from './points.js'
+import ReactMapboxGl, { Layer, Marker, Popup } from 'react-mapbox-gl'
+import { places } from './points.js'
 import './style.css'
 
+const MapBox = ReactMapboxGl({
+  accessToken:
+    'pk.eyJ1IjoiamtyaXNobmEiLCJhIjoiY2lwODMyOTRlMDE2ZHRjbHl0cjdrOHY1YyJ9.EfSggaPaoVi_jUm82n8gZg',
+})
 class Map extends Component {
-  handleClick = (map, evt) => {
-    console.log(map, evt)
+  state = {
+    pin: null
   }
 
   render() {
-    const filtered_points = places[2018]
-    const previous_year = places[2017]
-    const current_year = places[2019]
-    const new_year = places[2020]
-    const covid1 = places[2021]
-
-    const Map = ReactMapboxGl({
-      accessToken:
-        'pk.eyJ1IjoiamtyaXNobmEiLCJhIjoiY2lwODMyOTRlMDE2ZHRjbHl0cjdrOHY1YyJ9.EfSggaPaoVi_jUm82n8gZg',
-    })
-
+    const { pin } = this.state
     return (
       <>
-        <Map
-          style="mapbox://styles/mapbox/dark-v9" //eslint-disable-line
+        <MapBox
+          style="mapbox://styles/mapbox/dark-v10" //eslint-disable-line
           containerStyle={{
             width: '100%',
             display: 'inline-flex',
@@ -34,47 +28,25 @@ class Map extends Component {
           onClick={this.handleClick}
         >
           <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}></Layer>
-          {filtered_points.map((item, index) => {
+          {pin && pin.name && (
+             <Popup coordinates={pin.points} anchor="top" closeOnClick={true}>
+             <div style={{ color: 'black'}}>{pin.name}</div>
+           </Popup>
+          )}
+          {places.map((item, index) => {
             return (
-              <Marker key={index} coordinates={item.points} anchor="top">
-                <div className="mapMarkerStyle"></div>
-              </Marker>
-            )
-          })}
-          {previous_year.map((item, index) => {
-            return (
-              <Marker key={index} coordinates={item.points} anchor="top">
-                <div style={{ backgroundColor: 'red' }} className="mapMarkerStyle"></div>
-              </Marker>
-            )
-          })}
-          {current_year.map((item, index) => {
-            return (
-              <Marker key={index} coordinates={item.points} anchor="top">
-                <div
-                  style={{ backgroundColor: 'rgb(93, 208, 155)' }}
-                  className="mapMarkerStyle"
+              <div key={index}>
+              <Marker key={`marker-${index}`} coordinates={item.points} anchor="bottom">
+                <div onClick={() => {
+                  this.setState({ pin: item })
+                }} 
+                className="mapMarkerStyle" 
                 ></div>
               </Marker>
+              </div>
             )
           })}
-          {new_year &&
-            new_year.length > 0 &&
-            new_year.map((item, index) => {
-              return (
-                <Marker key={index} coordinates={item.points} anchor="top">
-                  <div style={{ backgroundColor: '#ff0' }} className="mapMarkerStyle"></div>
-                </Marker>
-              )
-            })}
-            {covid1.map((item, index) => {
-              return (
-                <Marker key={index} coordinates={item.points} anchor="top">
-                  <div style={{ backgroundColor: 'purple' }} className="mapMarkerStyle"></div>
-                </Marker>
-              )
-            })}
-        </Map>
+        </MapBox>
       </>
     )
   }

@@ -1,0 +1,23 @@
+version = 0.1
+default-task = 'build'
+
+[[task]]
+name = 'build'
+deps = ['compress', 'gps']
+run = 'node scripts/build.js'
+
+
+[[task]]
+name = 'dev'
+deps = ['compress', 'gps']
+invalidation = 'not-found'
+run = 'node scripts/start.js'
+
+[[task]]
+name = 'compress'
+run = 'node scripts/compressor.js && node scripts/baseline.js'
+
+
+[[task]]
+name = 'gps'
+run = 'node scripts/gps.mjs'

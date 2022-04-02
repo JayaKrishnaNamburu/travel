@@ -7,12 +7,12 @@ class Home extends Component {
   render() {
     return (
       <>
-        <section class={style.landingInvite}>
+        <section className={style.landingInvite}>
           <figure>
             <img src={user} alt="Jaya Krishna Namburu" className={style.landingImage} />
           </figure>
           <div>
-            <p style={{ fontWeight: 700, fontSize: '3rem' }}>Hello...</p>
+            <p style={{ fontWeight: 700, fontSize: '3rem' }}>Hello..</p>
             <p>
               I am a JavaScript developer, currently working at{' '}
               <a href="https://www.teleporthq.io" target="_blank" rel="noopener noreferrer">

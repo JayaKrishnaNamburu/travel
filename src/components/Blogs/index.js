@@ -8,7 +8,7 @@ const Blogs = () => {
   return (
     <div className={style.blogsWrapper} role="main" data-remove-script={true}>
       <Helmet>
-        <title>Talks & Blogs</title>
+        <title>Posts</title>
         <meta
           name="description"
           content="  A collection of all my previous talks and blogs in once place

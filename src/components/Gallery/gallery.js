@@ -10,6 +10,8 @@ export const images = {
   coorg: [1, 2, 3],
   pollachi: [1],
   pichavaram: [1, 2],
-  vizag: [1],
-  brahmatal: [2, 3]
+  vizag: [1,2],
+  brahmatal: [2, 3],
+  kanyakumari: [1]
 }
+

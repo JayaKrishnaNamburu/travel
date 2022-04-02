@@ -13,8 +13,13 @@ const compress = (folder) => {
         plugins: [imageminMozjpeg({ quality: 30 }), imageminPngquant({ quality: [0.6, 0.8] })],
       }
     )
-      .then((files) => resolve(files))
-      .catch((e) => console.log(e))
+      .then((files) => {
+        resolve(files)
+      })
+      .catch((e) => {
+        reject(e)
+        console.log(e)
+      })
   })
 }
 
@@ -23,12 +28,14 @@ const run = async () => {
   try {
     const folders = fs.readdirSync('src/images/')
     spinner.start()
-    for (let i = 0; i < folders.length; i++) {
-      const folder = folders[i]
-      if (!folder.includes('.DS_Store')) {
-        await compress(folder)
+    const promises = []
+    folders.forEach((folder) => {
+      if (folder.includes('.DS_Store')) {
+        return
       }
-    }
+      promises.push(compress(folder))
+    })
+    await Promise.all(promises)
     spinner.stop()
     console.log('Compression Successful')
   } catch (e) {
