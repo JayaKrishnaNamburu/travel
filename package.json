@@ -16,8 +16,9 @@
     "walkdir": "^0.4.1"
   },
   "scripts": {
-    "dev": "npm run crush && node scripts/gps.mjs && node scripts/start.js",
-    "build": "node scripts/gps.mjs && npm run crush && node scripts/build.js",
+    "dev": "node scripts/gps.js && node scripts/start.js",
+    "build": "npm run crush && node scripts/build.js",
+    "gps": "node scripts/gps.js",
     "test": "node scripts/test.js",
     "crush": "rimraf -f src/compressed && node scripts/compressor.js && node scripts/baseline.js",
     "postbuild": "react-snap"
@@ -66,6 +67,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "7.11.1",
     "exif": "^0.6.0",
+    "exif-parser": "^0.1.12",
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.0",

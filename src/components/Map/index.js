@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactMapboxGl, { Layer, Marker, Popup } from 'react-mapbox-gl'
-import { places } from './points.js'
+import places from './points.json'
 import './style.css'
 
 const MapBox = ReactMapboxGl({
