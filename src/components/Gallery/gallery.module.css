@@ -40,6 +40,16 @@
   transition: opacity 300ms;
 }
 
+@media(max-width: 476px) {
+    .gridItem {
+      height: 200px;
+    }
+
+  .gridItem > img {
+    height: 200px;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .rotate {
     transform: rotate(90deg) translateY(-100%) translateX(-40%);

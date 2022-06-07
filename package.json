@@ -16,7 +16,7 @@
     "walkdir": "^0.4.1"
   },
   "scripts": {
-    "dev": "node scripts/gps.js && node scripts/start.js",
+    "dev": "node scripts/start.js",
     "build": "npm run crush && node scripts/build.js",
     "gps": "node scripts/gps.js",
     "test": "node scripts/test.js",
