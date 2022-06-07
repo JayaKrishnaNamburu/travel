@@ -23,13 +23,13 @@ const emitter =  walk('src/images', (path, stat) => {
                     if (!meta?.gps) {
                         return reject(`No location data`)
                     }
-        
+
                     const { GPSLatitude, GPSLongitude  } = meta.gps
                     if (!GPSLatitude || !GPSLongitude) {
                         return reject('No GPS lat-long data')
                     }
                     
-                    console.log(GPSLatitude, GPSLongitude)
+                    console.log(location)
                     newPlaces.push({ name: location, points: [GPSLatitude, GPSLongitude] })
                     return resolve()
                 })
@@ -43,9 +43,9 @@ const emitter =  walk('src/images', (path, stat) => {
 emitter.on('end', async () => {
     try {
         await Promise.allSettled(promises)
-        console.log(newPlaces)
-        // writeFileSync(join(__dirname, '../src/components/Map/points.json'), JSON.stringify([...places, ...newPlaces], null, 2), 'utf-8')
-        // console.log('Parsing GPS coordinates done !')
+        // console.log(newPlaces)
+        writeFileSync(join(__dirname, '../src/components/Map/points.json'), JSON.stringify([...places, ...newPlaces], null, 2), 'utf-8')
+        console.log('Parsing GPS coordinates done !')
     } catch(e) {
         console.log(e)
     }

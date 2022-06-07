@@ -12,6 +12,11 @@ export const images = {
   pichavaram: [1, 2],
   vizag: [1,2],
   brahmatal: [2, 3],
-  kanyakumari: [1]
+  kanyakumari: [1],
+  dandeli: [1, 2],
+  'jog-falls': [1],
+  'kundle-beach': [1],
+  panjim: [1, 2, 3],
+  ponda: [1]
 }
 
