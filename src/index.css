@@ -167,11 +167,16 @@ article {
   text-align: left;
 }
 
+video {
+  width: 100%;
+}
+
 .splitPost {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .splitPost > p {
