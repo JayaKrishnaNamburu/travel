@@ -26,14 +26,14 @@ export const travelPosts = [
     image: `${require('../compressed/images/varkala/2.jpg')}`,
     tags: ['trekking', 'himalayas'],
     duration: `7 days`
+  },
+  {
+    id: 'goa-karnnataka',
+    heading: `Goa and Karnataka`,
+    description: `Time to hit the road after a long break and covid lockdowns.`,
+    markdown_file: 'goa-karnataka',
+    image: `${require('../assets/road-trip/map.jpg')}`,
+    tags: ['road_trip', 'workation'],
+    duration: `15 days`
   }
-  // {
-  //   id: 'goa-karnnataka',
-  //   heading: `Goa and Karnataka`,
-  //   description: `Time to hit the road after a long break and covid lockdowns.`,
-  //   markdown_file: 'goa-karnataka',
-  //   image: `${require('../assets/road-trip/map.jpg')}`,
-  //   tags: ['road_trip', 'workation'],
-  //   duration: `15 days`
-  // }
 ];

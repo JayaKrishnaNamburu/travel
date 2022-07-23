@@ -17,5 +17,7 @@ export const images = {
   panjim: [1, 3],
   ponda: [1],
   varkala: [1, 2, 3, 4],
-  rishikesh: [1]
+  rishikesh: [1],
+  hampta: [1, 2],
+  amritsar: [1]
 };

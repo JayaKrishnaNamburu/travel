@@ -28,6 +28,7 @@ const emitter = walk("src/images", (path, stat) => {
             return reject(err);
           }
           const location = capitalize(basename(dirname(path)));
+
           if (!meta?.gps) {
             return reject(`No location data`);
           }
@@ -63,12 +64,16 @@ const emitter = walk("src/images", (path, stat) => {
   );
 });
 
+const getUniquesFromArray = (arr) => {
+  return arr.filter((a, i) => arr.findIndex((s) => a.name === s.name) === i);
+};
+
 emitter.on("end", async () => {
   try {
     await Promise.allSettled(promises);
     writeFileSync(
       join(__dirname, "../src/components/Map/points.json"),
-      JSON.stringify([...places, ...newPlaces], null, 2),
+      JSON.stringify(getUniquesFromArray([...places, ...newPlaces]), null, 2),
       "utf-8"
     );
     console.log("Parsing GPS coordinates done !");
