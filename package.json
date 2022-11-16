@@ -41,7 +41,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@mdx-js/loader": "^1.6.1",
+    "@mdx-js/loader": "^2.1.5",
     "@svgr/webpack": "2.4.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
@@ -88,7 +88,7 @@
     "postcss-preset-env": "6.0.6",
     "postcss-safe-parser": "4.0.1",
     "prettier": "^1.15.3",
-    "react-dev-utils": "^6.1.1",
+    "react-dev-utils": "^12.0.1",
     "react-snap": "git+https://github.com/JayaKrishnaNamburu/react-snap.git",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
