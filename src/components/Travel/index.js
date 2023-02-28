@@ -20,14 +20,14 @@ const Travel = () => {
       <TravelBlogs description={description} />
       <div className={style.travelDescription}></div>
       <div className={style.portfolio}>
-        <div className={style.user}>
+        {/* <div className={style.user}>
           <img src={back} alt="bigPicture" className={style.bigPicture} />
         </div>
-        <div className={style.map}>
+        <div className={style.map}> */}
           <Suspense fallback={<div>Loding...</div>}>
             <Map />
           </Suspense>
-        </div>
+        {/* </div> */}
       </div>
     </div>
   )

@@ -1,68 +1,549 @@
-.gridWrapper {
-  margin-top: 5px;
+.girid-wrapper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+  margin-top: 5px;
+  will-change: transform;
   grid-row-gap: 5px;
   grid-column-gap: 5px;
-  position: relative;
-  will-change: transform;
+  grid-template-columns: repeat(3, 1fr);
 }
-
-.gridItem {
-  background-color: #dddddd;
-  display: block;
-  position: relative;
-  height: 350px;
+.grid-item {
   width: auto;
-  overflow: hidden;
-}
-
-.gridItem > img {
   height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image {
   width: 100%;
+  height: 350px;
+  transform: translateZ(0);
   object-fit: cover;
   object-position: center;
+}
+.grid-item01 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image01 {
+  width: 100%;
+  height: 350px;
   transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
 }
-
-.rotate {
-  transform: rotate(90deg) translateY(-100%);
-  transform-origin: top left;
-  width: 200% !important;
+.grid-item02 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
 }
-
-.lazyload {
-  opacity: 0;
+.image02 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
 }
-
-.lazyloading {
-  opacity: 1;
-  transition: opacity 300ms;
+.grid-item03 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
 }
-
-@media(max-width: 476px) {
-    .gridItem {
-      height: 200px;
-    }
-
-  .gridItem > img {
-    height: 200px;
-  }
+.image03 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
 }
-
-@media only screen and (min-width: 768px) {
-  .rotate {
-    transform: rotate(90deg) translateY(-100%) translateX(-40%);
-    transform-origin: top left;
-    height: 200% !important;
-  }
-
-  .gridWrapper {
-    margin-top: 5px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: 5px;
-    grid-column-gap: 5px;
-    position: relative;
-  }
+.grid-item04 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image04 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item05 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image05 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item06 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image06 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item07 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image07 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item08 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image08 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item09 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image09 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item10 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image10 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item11 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image11 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item12 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image12 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item13 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image13 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item14 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image14 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item15 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image15 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item16 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image16 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item17 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image17 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item18 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image18 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item19 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image19 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item20 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image20 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item21 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image21 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item22 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image22 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item23 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image23 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item24 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image24 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item25 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image25 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item26 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image26 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item27 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image27 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item28 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image28 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item29 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image29 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item30 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image30 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item31 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image31 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item32 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image32 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item33 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image33 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item34 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image34 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
+}
+.grid-item35 {
+  width: auto;
+  height: 350px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background-color: #dddddd;
+}
+.image35 {
+  width: 100%;
+  height: 350px;
+  transform: translateZ(0);
+  object-fit: cover;
+  object-position: center;
 }

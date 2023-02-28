@@ -12,15 +12,17 @@
     "react-prerendered-component": "^1.2.4",
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^2.0.0",
-    "react-syntax-highlighter": "^12.2.1",
-    "walkdir": "^0.4.1"
+    "react-syntax-highlighter": "^12.2.1"
+  },
+  "resolutions": {
+    "imagemin-mozjpeg/mozjpeg": "^6.0.0"
   },
   "scripts": {
     "dev": "node scripts/start.js",
     "build": "npm run crush && node scripts/build.js",
     "gps": "node scripts/gps.js",
     "test": "node scripts/test.js",
-    "crush": "rimraf -f src/compressed && node scripts/compressor.js && node scripts/baseline.js",
+    "crush": "rimraf -f src/compressed && node scripts/compressor.mjs",
     "postbuild": "react-snap"
   },
   "reactSnap": {
@@ -43,6 +45,8 @@
   "devDependencies": {
     "@mdx-js/loader": "^1.6.1",
     "@svgr/webpack": "2.4.1",
+    "@teleporthq/teleport-component-generator-react": "^0.25.4",
+    "@teleporthq/teleport-shared": "^0.25.4",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "23.6.0",
@@ -70,18 +74,21 @@
     "exif-parser": "^0.1.12",
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
-    "fs-extra": "7.0.0",
+    "fs-extra": "^11.1.0",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
-    "imagemin": "^6.1.0",
+    "imagemin": "^8.0.1",
+    "imagemin-jpegtran": "^7.0.0",
     "imagemin-mozjpeg": "^8.0.0",
-    "imagemin-pngquant": "^8.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "is-jpg": "^3.0.0",
     "jest": "23.6.0",
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
+    "jpeg-autorotate": "^9.0.0",
     "mini-css-extract-plugin": "0.4.3",
     "optimize-css-assets-webpack-plugin": "5.0.1",
-    "ora": "^4.0.3",
+    "ora": "^6.0.0",
     "pnp-webpack-plugin": "1.1.0",
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "3.0.0",

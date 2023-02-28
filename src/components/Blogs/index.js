@@ -18,7 +18,7 @@ const Blogs = () => {
       <div>
         <img
           className={style.landingImage}
-          src={require(`../../compressed/images/generic/ember_meetup.jpg`)}
+          src={require(`../../compressed/generic/ember_meetup.jpg`)}
           alt="Langing Hero"
         />
       </div>

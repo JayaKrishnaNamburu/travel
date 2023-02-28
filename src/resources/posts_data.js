@@ -27,7 +27,7 @@ export const posts = [
     heading: `My open-source journey and working remotely`,
     description: `Opensource helped me in learning many things and at the same time gave an oppurtunity to land in my first remote job.`,
     date: 1599735249720,
-    image: `${require('../compressed/images/generic/remote_background.jpg')}`,
+    image: `${require('../compressed/generic/remote_background.jpg')}`,
     caption: `Image from Unsplash, by @_ferh97`,
     markdown_file: `remote`,
   },
@@ -36,7 +36,7 @@ export const posts = [
     heading: `State of esm-cdn's and development workflows`,
     description: `Developer tooling is one of my favorite things to work with. And we are at the intersecion point in JS developer tooling
     eco-system, where we are seeing a lot of buzz around unbundling development.`,
-    image: `${require('../compressed/images/generic/package_background.jpeg')}`,
+    image: `${require('../compressed/generic/package_background.jpeg')}`,
     caption: `Image from unspalsh `,
     markdown_file: 'dependencies',
   },
