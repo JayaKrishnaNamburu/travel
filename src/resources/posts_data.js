@@ -4,6 +4,7 @@ export const posts = [
     heading: 'Importmaps in NodeJS with custom loaders',
     description: 'A simple experiment with NodeJS and custom loader to use importmaps and modules from CDN',
     markdown_file: 'importmaps-nodejs',
+    og: `og-import-map.svg`,
     date: 1678481219000
   },
   {
@@ -25,16 +26,18 @@ export const posts = [
     description: `Opensource helped me in learning many things and at the same time gave an oppurtunity to land in my first remote job.`,
     date: 1599735249720,
     image: `${require('../compressed/generic/remote_background.jpg')}`,
+    og: `og-remote-life.svg`,
     caption: `Image from Unsplash, by @_ferh97`,
     markdown_file: `remote`,
   },
   {
     id: 'dependencies',
-    heading: `State of esm-cdn's and development workflows`,
+    heading: `Module cdn's and workflows`,
     description: `Exploring some es-module based CDN's`,
     image: `${require('../compressed/generic/package_background.jpeg')}`,
     caption: `Image from unspalsh `,
     markdown_file: 'dependencies',
+    og: `og-module-cdns.svg`
   },
   {
     id: `web_past`,
@@ -42,10 +45,11 @@ export const posts = [
     description: `The state of web-development has changed a lot in the last few years. 
     From using a simple html + css + js, we evolved into a collection of bundler, transpilers and some complex build steps.`,
     markdown_file: 'web_past',
+    og: `og-contribute-oss.svg`
   },
   {
     id: `package`,
-    heading: `Why we need to contribute to opensource?`,
+    heading: `Why contribute to opensource?`,
     description: `A lot of effort goes into building and maintaining packages. Here is how we can be a part of one.`,
     markdown_file: 'package',
   },
@@ -61,5 +65,6 @@ export const posts = [
     description:
       'Lerna is a utility tool for managing monorepos, for creating, publishing and for maintaing changelog.',
     markdown_file: 'lerna',
+    og: `og-lerna.svg`
   },
 ]

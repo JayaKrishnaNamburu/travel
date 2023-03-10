@@ -4,8 +4,6 @@ import Header from './components/Header'
 import Gallery from './components/Gallery'
 import Home from './components/Home'
 import Post from './components/BlogPost'
-import TravelPost from './components/TravelPost'
-import Travel from './components/Travel'
 import Blogs from './components/Blogs'
 import AIESEC from './components/AIESEC'
 import Design2Code from './posts-studio/design2code'
@@ -23,14 +21,8 @@ class App extends Component {
           <Route path="/gallery">
             <Gallery />
           </Route>
-          <Route exact path="/travel">
-            <Travel />
-          </Route>
           <Route path="/post/:postId">
             <Post />
-          </Route>
-          <Route path="/travel/post/:postId">
-            <TravelPost />
           </Route>
           <Route path="/design2code">
             <Design2Code />

@@ -28,7 +28,7 @@ const Page = () => {
     return import(`../../resources/markdown/${post.markdown_file}.mdx`)
   })
 
-  const { heading, description, image, caption, date } = post
+  const { heading, description, image, caption, date, og } = post
 
   return (
     <div className={style.post_wrapper} data-remove-script={true}>
@@ -37,7 +37,7 @@ const Page = () => {
         <meta name="description" content={description} />
         <meta property="og:title" content={heading} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
+        {og && <meta property="og:image" content={`https://${window.location.host}/${og}`} />}
       </Helmet>
       <article>
         <div className={style.post_content}>

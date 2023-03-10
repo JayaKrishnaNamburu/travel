@@ -113,6 +113,34 @@ And that's it! You now have a quick custom loader to support import-maps in Node
 
 Putting together and experimenting with this Node.js loader was a fun and rewarding experience. It allowed us to explore the use of HTTP URLs and import-maps in Node.js, and gain a deeper understanding of how custom loaders work in the Node.js ecosystem.
 
+<img
+  src={require('../../assets/csb-screenshot.png')}
+  style={{ width: '100%' }}
+/>
+
+Link for [Codesandbox &#8227;](https://codesandbox.io/p/github/JayaKrishnaNamburu/import-maps-nodejs/main?file=%2Fsrc%2Findex.ts&selection=%5B%7B%22endColumn%22%3A1%2C%22endLineNumber%22%3A28%2C%22startColumn%22%3A1%2C%22startLineNumber%22%3A28%7D%5D&workspace=%257B%2522activeFileId%2522%253A%2522clf2odt9l0005g5fw1aeyehxn%2522%252C%2522openFiles%2522%253A%255B%2522%252Fsrc%252Findex.ts%2522%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522spaces%2522%253A%257B%2522clf2odutt000e3b6hskmy2d9z%2522%253A%257B%2522key%2522%253A%2522clf2odutt000e3b6hskmy2d9z%2522%252C%2522name%2522%253A%2522Default%2522%252C%2522devtools%2522%253A%255B%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522clf2p6wa900hp3b6hqmzom2ub%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522key%2522%253A%2522clf2p6r7i00ec3b6h1ze6evvb%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D%257D%252C%2522currentSpace%2522%253A%2522clf2odutt000e3b6hskmy2d9z%2522%252C%2522spacesOrder%2522%253A%255B%2522clf2odutt000e3b6hskmy2d9z%2522%255D%252C%2522hideCodeEditor%2522%253Afalse%257D) template
+
+<button style={{ 
+    background: 'var(--dl-color-custom-foreground)',
+    color: 'var(--dl-color-custom-main-background)',
+    fontWeight: 'bold',
+    marginBottom: '8px',
+    borderRadius: '6px',
+    height: '30px'
+  }} 
+  onClick={() => {
+  const frame = document.getElementById('import-map-frame')
+  frame.src = frame.src
+}}>Reload</button>
+
+<iframe
+  id="import-map-frame"
+  src="https://jg6c9o-3000.csb.app"
+  style={{ width: '100%', height: '200px', background: 'white' }}
+/>
+
+
+
 ### Disk usage
 
 The amount of disk usage for `node_modules` vs the `.cache` is quite significant. As import-maps are so granular to control the dependencies that are actually needed for the project to run. The above example takes around **1.3MB** in dependencies to run a simple express server. You can check by running

@@ -20,9 +20,12 @@ const Blogs = () => {
         {posts.map((post) => {
           return (
             <article key={post.id}>
+              <Balancer>
               <Link to={post.redirect ? post.redirect : `/post/${post.id}`}>
                 <h2>{post.heading}</h2>
               </Link>
+
+              </Balancer>
               <p className={style.blogDescription}><Balancer>{post.description}</Balancer></p>
               <Link to={post.redirect ? post.redirect : `/post/${post.id}`}><b>Read more</b></Link>
             </article>
