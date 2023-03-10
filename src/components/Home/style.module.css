@@ -58,6 +58,7 @@
   margin-right: auto;
   margin-left: auto;
   display: inherit;
+  filter: grayscale(10);
 }
 
 .landingInvite > div {

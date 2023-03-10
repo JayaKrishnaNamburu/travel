@@ -5,6 +5,7 @@ import { getHumanDate } from '../../utils/helpers'
 import { PostSubHeader } from '../PostUtils'
 import { getPostData } from '../../resources/posts'
 import style from './style.module.css'
+import Balancer from 'react-wrap-balancer'
 
 const Page = () => {
   const { postId } = useParams()
@@ -39,26 +40,28 @@ const Page = () => {
         <meta property="og:image" content={image} />
       </Helmet>
       <article>
-        <PostSubHeader>{heading}</PostSubHeader>
-        {date && <div className={style.date}>{getHumanDate(date)}</div>}
-        <p className={style.post_description}>{description}</p>
-        {image && (
-          <div className={style.post_image_holder}>
-            <figure>
-              <img
-                className={style.post_landing_image}
-                src={image}
-                onLoad={() => setLandingImageLoaded(true)}
-                alt={heading}
-              />
-              {caption && <figcaption>{caption}</figcaption>}
-            </figure>
-            {!landingImageLoaded && <div className={style.post_landing_loader} />}
-          </div>
-        )}
         <div className={style.post_content}>
+          <PostSubHeader>{heading}</PostSubHeader>
+          <p className={style.post_description}>{description}</p>
+          {date && <div className={style.date}>{getHumanDate(date)}</div>}
+          {image && (
+            <div className={style.post_image_holder}>
+              <figure>
+                <img
+                  className={style.post_landing_image}
+                  src={image}
+                  onLoad={() => setLandingImageLoaded(true)}
+                  alt={heading}
+                />
+                {caption && <figcaption>{caption}</figcaption>}
+              </figure>
+              {!landingImageLoaded && <div className={style.post_landing_loader} />}
+            </div>
+          )}
           <Suspense fallback={<div>Loading....</div>}>
-            <Content />
+            <Balancer>
+              <Content />
+            </Balancer>
           </Suspense>
         </div>
       </article>

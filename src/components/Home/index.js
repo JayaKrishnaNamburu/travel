@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import style from './style.module.css'
 import user from '../../assets/caricature.png'
+import Balancer from 'react-wrap-balancer'
 
 class Home extends Component {
   render() {
@@ -12,40 +12,29 @@ class Home extends Component {
             <img src={user} alt="Jaya Krishna Namburu" className={style.landingImage} />
           </figure>
           <div>
-            <p style={{ fontWeight: 700, fontSize: '3rem' }}>Hello..</p>
-            <p>
-              I am a JavaScript developer, currently working at{' '}
-              <a href="https://www.teleporthq.io" target="_blank" rel="noopener noreferrer">
-                @teleportHQ.
-              </a>{' '}
-              and maintaining{' '}
-              <a href="https://jkrishna.dev/generators" target="_blank" rel="noopener noreferrer">
-                Code Generators.
-              </a>{' '}
-              I like open source software, JavaScript and travelling. I ocassionally share my
-              thoughts at conferences and meetups too.
-            </p>
-            <p>
-              If you feel like reading some of my travel stories, head to my{' '}
-              <Link to="/travel">travel blog.</Link> Or you can check out my{' '}
-              <Link to="/gallery">travel gallery</Link>
-              {''}.
-            </p>
-            <p>
-              Do you love JavaScript ? here are my {''}
-              <Link to="/blogs">technical blogs</Link>.
-            </p>
-            <p>
-              You can find me on twitter -{' '}
-              <a href="https://www.jkrishna.dev/twitter" target="_blank" rel="noopener noreferrer">
-                @askjkrishna
-              </a>{' '}
-              {''}
-              and GitHub -{' '}
-              <a href="https://jkrishna.dev/github" target="_blank" rel="noopener noreferrer">
-                JayaKrishnaNamburu
-              </a>
-            </p>
+            <Balancer>
+              <p style={{ fontWeight: 700, fontSize: '3rem' }}>Hello..</p>
+              <p>
+                I am an Engineer, currently working at{' '} 
+                <a className='bold' href='https://codesandbox.io/?from-app=1' target="_blank" rel="noopener noreferrer">Codesandbox</a> previously {' '}
+                <a className='bold' href="https://www.teleporthq.io" target="_blank" rel="noopener noreferrer">
+                  teleportHQ.
+                </a>{' '} and core member of <a className='bold' href="https://jspm.org" target="_blank" rel="noopener noreferrer">JSPM</a>.{' '}
+                I like open source software, JavaScript and travelling. I ocassionally share my
+                thoughts at conferences and meetups too.
+              </p>
+              <p>
+                You can find me on twitter{' '}
+                <a className='bold' href="https://www.jkrishna.dev/twitter" target="_blank" rel="noopener noreferrer">
+                  @askjkrishna
+                </a>{' '}
+                {''}
+                and GitHub{' '}
+                <a className='bold' href="https://jkrishna.dev/github" target="_blank" rel="noopener noreferrer">
+                  JayaKrishnaNamburu
+                </a>
+              </p>
+            </Balancer>
           </div>
         </section>
       </>

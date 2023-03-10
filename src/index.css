@@ -1,9 +1,9 @@
 :root {
-  --dl-color-custom-main-background: #1a202c;
-  --dl-color-custom-foreground: #ffcd0e;
-  --dl-color-custom-content: #e6e0e0;
+  --dl-color-custom-main-background: #fff;
+  --dl-color-custom-foreground: #000;
+  --dl-color-custom-content: #000;
   --dl-color-custom-border: #383030;
-  --dl-color-custom-code: #bd5555;
+  --dl-color-custom-code: #f0f0f0;
   --dl-color-custom-links: #0275d8ff;
   --dl-color-gray-500: #595959;
   --dl-color-gray-700: #999999;
@@ -34,13 +34,14 @@
   --dl-space-space-tripleunit: 3rem;
 }
 
-.light {
-  --dl-color-custom-main-background: #fff;
-  --dl-color-custom-foreground: #0275d8;
-  --dl-color-custom-content: #383030;
-  --dl-color-custom-foreground: #0275d8;
-  --dl-color-custom-border: #383030;
-  --dl-color-custom-code: #bd5555;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dl-color-custom-main-background: #000;
+    --dl-color-custom-foreground: #fff;
+    --dl-color-custom-content: #fff;
+    --dl-color-custom-border: #383030;
+    --dl-color-custom-code: #252424;
+  }
 }
 
 :focus {
@@ -62,8 +63,7 @@ body {
   background-color: var(--dl-color-custom-main-background);
   color: var(--dl-color-custom-content);
   font-size: 1.8rem;
-  line-height: 1.5;
-  font-weight: 400;
+  line-height: 1.3;
 }
 
 strong {
@@ -76,22 +76,23 @@ em {
 
 pre {
   overflow-x: scroll !important;
-  padding: 5px 10px !important;
+  padding: 8px !important;
   border-radius: 4px;
-  border: 2px solid var(--dl-color-custom-border);
+  border: 0.5px solid var(--dl-color-custom-border);
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   font-size: 1.4rem;
-  color: var(--dl-color-custom-foreground);
+  background-color: var(--dl-color-custom-code);
+  line-height: 2rem;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-  font-size: 1.4rem;
-  color: var(--dl-color-custom-foreground);
   border-radius: 4px;
-  padding: 3px 2px;
+  padding: 0px 6px;
+  background-color: var(--dl-color-custom-code);
+  color: var(--dl-color-custom-foreground)
 }
 
 li {
@@ -103,9 +104,10 @@ a {
   cursor: pointer;
   color: var(--dl-color-custom-foreground);
   text-decoration: underline;
-  font-weight: 400;
+  font-weight: bold;
   font-size: 1.6rem;
   padding-bottom: 3px;
+  padding: 2px;
 }
 
 a:hover {
@@ -118,7 +120,6 @@ a:hover {
 a > h2 {
   color: var(--dl-color-custom-foreground);
   background-color: inherit;
-  padding: inherit;
   display: inline-block;
   text-decoration: none;
   margin-bottom: 0px;
@@ -127,22 +128,23 @@ a > h2 {
 
 a:hover > h2 {
   color: var(--dl-color-custom-main-background);
-  background-color: inherit;
-  padding: inherit;
   margin-bottom: 0px;
 }
 
 h1,
 h2,
 h3 {
-  color: var(--dl-color-custom-foreground);
+  padding: 5px;
+  color: var(--dl-color-custom-main-background);
+  background-color: var(--dl-color-custom-foreground);
   font-weight: 700;
+  width: auto;
+  display: inline-block;
 }
 
 p {
   margin-top: 2rem;
   font-size: 1.6rem;
-  font-weight: 300;
 }
 
 blockquote {
@@ -189,6 +191,10 @@ video {
 
 .splitPost > figure {
   flex: 1 1 0px;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 @media (max-width: 991px) {

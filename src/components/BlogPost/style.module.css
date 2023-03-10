@@ -2,6 +2,7 @@
   width: 70%;
   margin-right: auto;
   margin-left: auto;
+  line-height: 1.5;
 }
 
 .date {
@@ -41,7 +42,7 @@
 .post_content {
   margin-top: 20px;
   padding-bottom: 30px;
-  max-width: 70%;
+  max-width: 80%;
   margin: auto;
 }
 

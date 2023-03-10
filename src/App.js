@@ -20,9 +20,9 @@ class App extends Component {
           <Route path="/aiesec">
             <AIESEC />
           </Route>
-          {/* <Route path="/gallery">
+          <Route path="/gallery">
             <Gallery />
-          </Route> */}
+          </Route>
           <Route exact path="/travel">
             <Travel />
           </Route>

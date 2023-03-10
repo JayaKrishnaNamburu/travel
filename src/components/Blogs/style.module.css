@@ -6,13 +6,13 @@
   display: grid;
   text-align: left;
   grid-gap: 40px;
-  grid-template-columns: repeat(auto-fill, 350px);
+  grid-template-columns: 1fr 1fr;
 }
 
 .blogsWrapper {
   margin-right: auto;
   margin-left: auto;
-  padding: 10px 50px;
+  width: 50%;
 }
 
 .landingImage {

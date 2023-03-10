@@ -1,27 +1,24 @@
 export const posts = [
-  // {
-  //   id: `handling_images`,
-  //   heading: `Hadling images on the web`,
-  //   description: `Images takes around 50% of the size for web-app's on an average. And if they are not handled properly,
-  //   they leave a scar on the end users experience.`,
-  //   date:1603817463544,
-  //   image: `${require('../compressed/images/generic/Images.png')}`,
-  //   caption: `Gallery view from this blog`,
-  //   markdown_file: `images`
-  // },
+  {
+    id: 'import-maps-nodejs',
+    heading: 'Importmaps in NodeJS with custom loaders',
+    description: 'A simple experiment with NodeJS and custom loader to use importmaps and modules from CDN',
+    markdown_file: 'importmaps-nodejs',
+    date: 1678481219000
+  },
   {
     id: 'esbuild',
     heading: `Reducing build time by 50% for a Typescript Monorepo`,
     description: `As, the projects starts to grow, monorepo build times are taking a massive hit. Here is a succesful attempt in reducing our build time by 50%`,
     redirect: `esbuild_monorepos`
   },
-  {
-    id: `design2code`,
-    heading: `Bridging the gap between design and code.`,
-    description: `In a product development, majority of time is spent between design and then
-    converting those designs to code`,
-    redirect: `design2code`
-  },
+  // {
+  //   id: `design2code`,
+  //   heading: `Bridging the gap between design and code.`,
+  //   description: `In a product development, majority of time is spent between design and then
+  //   converting those designs to code`,
+  //   redirect: `design2code`
+  // },
   {
     id: `remote_life`,
     heading: `My open-source journey and working remotely`,
@@ -34,8 +31,7 @@ export const posts = [
   {
     id: 'dependencies',
     heading: `State of esm-cdn's and development workflows`,
-    description: `Developer tooling is one of my favorite things to work with. And we are at the intersecion point in JS developer tooling
-    eco-system, where we are seeing a lot of buzz around unbundling development.`,
+    description: `Exploring some es-module based CDN's`,
     image: `${require('../compressed/generic/package_background.jpeg')}`,
     caption: `Image from unspalsh `,
     markdown_file: 'dependencies',

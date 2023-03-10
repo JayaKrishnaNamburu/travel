@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from 'react'
 import { Helmet } from 'react-helmet'
-import back from '../../assets/back.jpg'
 import style from './style.module.css'
 import TravelBlogs from '../TravelBlogs'
 

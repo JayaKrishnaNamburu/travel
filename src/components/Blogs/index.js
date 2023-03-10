@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { posts } from '../../resources/posts_data'
 import style from './style.module.css'
+import Balancer from 'react-wrap-balancer'
 
 const Blogs = () => {
   return (
@@ -15,13 +16,6 @@ const Blogs = () => {
         "
         />
       </Helmet>
-      <div>
-        <img
-          className={style.landingImage}
-          src={require(`../../compressed/generic/ember_meetup.jpg`)}
-          alt="Langing Hero"
-        />
-      </div>
       <article className={style.aritcleGrid}>
         {posts.map((post) => {
           return (
@@ -29,8 +23,8 @@ const Blogs = () => {
               <Link to={post.redirect ? post.redirect : `/post/${post.id}`}>
                 <h2>{post.heading}</h2>
               </Link>
-              <p className={style.blogDescription}>{post.description}</p>
-              <Link to={post.redirect ? post.redirect : `/post/${post.id}`}>Read more</Link>
+              <p className={style.blogDescription}><Balancer>{post.description}</Balancer></p>
+              <Link to={post.redirect ? post.redirect : `/post/${post.id}`}><b>Read more</b></Link>
             </article>
           )
         })}

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Balancer from 'react-wrap-balancer'
 import Divider from './divider'
 import Quote from './quote'
 import styles from './es-build.module.css'
@@ -22,8 +22,9 @@ const EsBuild = () => {
           content="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/e4ac09ac-d6de-4393-9e5c-298884624998/887654f9-d9de-4069-abe7-2af2c5bc176b?org_if_sml=1&w=200"
         />
       </Helmet>
+      <Balancer>
       <div className={styles.container1}>
-        <h1 className={styles.text}>{heading}</h1>
+        <h1>{heading}</h1>
         <span className={styles.text001}>11-06-2021</span>
         <Divider></Divider>
         <div className={styles.container2}>
@@ -32,7 +33,7 @@ const EsBuild = () => {
             src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/e4ac09ac-d6de-4393-9e5c-298884624998/57ff0ad0-be40-4637-aca8-62f0ce11da15?org_if_sml=1&w=200"
             className={styles.image}
           />
-          <h1 className={styles.text002}>+</h1>
+          <h1>+</h1>
           <h1 className={styles.text003}> Monorepo&apos;s</h1>
         </div>
         <p className={styles.text004}>
@@ -94,7 +95,7 @@ const EsBuild = () => {
           </a>
           <span>.</span>
         </p>
-        <h1 className={styles.text045}>Monorepo build times</h1>
+        <h1>Monorepo build times</h1>
         <p className={styles.text046}>
           <span>
             Now, let&apos;s talk about monorepos. I wrote a article before on setting up a monorepo
@@ -199,7 +200,7 @@ const EsBuild = () => {
           <span className={styles.text096}>and</span>
           <span className={styles.text097}>static-type-checking.</span>
         </p>
-        <h1 className={styles.text099}>Custom Build Scripts</h1>
+        <h1>Custom Build Scripts</h1>
         <p className={styles.text100}>
           <span>I started to put together some custom scripts to achieve this.</span>
           <br></br>
@@ -275,14 +276,10 @@ const EsBuild = () => {
             PS: This may not be the best of the solutions in configuring a mono-repo with custom
             scripts. But hey, it works for us and saves half a time spent on transpiling the
             code-base.
-          <br></br>
-          <span>You can reach me out at</span>
-          <a href="https://twitter.com/askjkrishna" target="_blank" rel="noreferrer noopener">
-            <span className={styles.text131}> @askjkrishna</span>
-          </a>
-          <span className={styles.text132}></span>
         </p>
       </div>
+      </Balancer>
+      
     </div>
   )
 }
