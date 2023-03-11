@@ -108,6 +108,7 @@ a {
   font-size: 1.6rem;
   padding-bottom: 3px;
   padding: 2px;
+  overflow-wrap: break-word;
 }
 
 a:hover {
@@ -150,6 +151,7 @@ p {
 blockquote {
   border-left: 2px solid var(--dl-color-custom-foreground);
   padding-left: 10px;
+  overflow-x: scroll;
 }
 
 .landingImage {

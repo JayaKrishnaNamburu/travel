@@ -12,6 +12,7 @@
 .blogsWrapper {
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 100px;
   width: 50%;
 }
 
@@ -30,4 +31,10 @@
   max-width: 600px;
   margin-right: auto;
   margin-left: auto;
+}
+
+@media(max-width: 768px) {
+  .aritcleGrid {
+    grid-template-columns: 1fr;
+  }
 }

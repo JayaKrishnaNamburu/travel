@@ -1,5 +1,14 @@
 export const posts = [
   {
+    id: 'building-packages-for-runtimes',
+    heading: 'Building runtime aware JavaScript packages',
+    description: 'Building javascript packages for respective runtimes, for better compatability and cross-platform usage.',
+    markdown_file: 'building-packages-for-runtimes',
+    image: 'https://images.unsplash.com/photo-1546864831-f1ca1eaf4e2a',
+    og: `og-runtime-javascript-package.svg`,
+    date: 1678481219000
+  },
+  {
     id: 'import-maps-nodejs',
     heading: 'Importmaps in NodeJS with custom loaders',
     description: 'A simple experiment with NodeJS and custom loader to use importmaps and modules from CDN',
