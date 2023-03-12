@@ -6,6 +6,7 @@ import './style.css'
 const MapBox = ReactMapboxGl({
   accessToken:
     'pk.eyJ1IjoiamtyaXNobmEiLCJhIjoiY2lwODMyOTRlMDE2ZHRjbHl0cjdrOHY1YyJ9.EfSggaPaoVi_jUm82n8gZg',
+    interactive: false
 })
 class Map extends Component {
   state = {
@@ -17,13 +18,13 @@ class Map extends Component {
     return (
       <>
         <MapBox
-          style="mapbox://styles/mapbox/dark-v10" //eslint-disable-line
+          style={window && window.matchMedia('(prefers-color-scheme:dark)').matches ? 'mapbox://styles/mapbox/dark-v10' : 'mapbox://styles/mapbox/light-v10'}
           containerStyle={{
             width: '100%',
             display: 'inline-flex',
           }}
-          center={[78.9629, 20.5937]}
-          zoom={[4]}
+          center={[15, 35]}
+          zoom={[3]}
           scrollZoom="false"
           onClick={this.handleClick}
         >

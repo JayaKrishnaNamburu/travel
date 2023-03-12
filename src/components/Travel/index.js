@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react'
 import { Helmet } from 'react-helmet'
 import style from './style.module.css'
-import TravelBlogs from '../TravelBlogs'
+// import TravelBlogs from '../TravelBlogs'
 
 const description = `I like travelling and ocassionally i write them down. 
 I hope these might help others in planning their tips. 
@@ -16,7 +16,7 @@ const Travel = () => {
         <meta name="description" content={description} />
         <meta property="og:description" content={description} />
       </Helmet>
-      <TravelBlogs description={description} />
+      {/* <TravelBlogs description={description} /> */}
       <div className={style.travelDescription}></div>
       <div className={style.portfolio}>
         {/* <div className={style.user}>

@@ -8,6 +8,7 @@ import Blogs from './components/Blogs'
 import AIESEC from './components/AIESEC'
 import Design2Code from './posts-studio/design2code'
 import EsBuild from './posts-studio/es-build'
+import Travel from './components/Travel'
 
 class App extends Component {
   render() {
@@ -32,6 +33,9 @@ class App extends Component {
           </Route>
           <Route path="/blogs">
             <Blogs />
+          </Route>
+          <Route path="/map">
+            <Travel />
           </Route>
           <Route path="/">
             <Home />
