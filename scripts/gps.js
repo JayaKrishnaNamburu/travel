@@ -27,8 +27,8 @@ const emitter = walk("src/images", (path, stat) => {
           if (err) {
             return reject(err);
           }
-          const location = capitalize(basename(dirname(path)));
 
+          const location = capitalize(basename(dirname(path)));
           if (!meta?.gps) {
             return reject(`No location data`);
           }
