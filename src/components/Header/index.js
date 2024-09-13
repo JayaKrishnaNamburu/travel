@@ -1,16 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet'
-import style from './style.module.css'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import style from './style.module.css';
 
 const Header = () => {
-  const seoText = `A self-motivated soul, trying to share all memories and stuff`
+  const seoText = `A self-motivated soul, trying to share all memories and stuff`;
 
   return (
     <>
       <Helmet>
         <title>Jaya Krishna | Travel stories and JavaScript blogs</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
         <matea property="og:title" content="Jaya Krishna Namburu" />
         <meta name="description" content={seoText} />
         <meta property="og:description" content={seoText} />
@@ -19,7 +22,7 @@ const Header = () => {
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,400;0,900;1,300&display=swap"
           rel="stylesheet"
         />
       </Helmet>
@@ -43,7 +46,7 @@ const Header = () => {
         </nav>
       </header>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

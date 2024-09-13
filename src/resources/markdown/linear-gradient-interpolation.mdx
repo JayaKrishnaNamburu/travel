@@ -84,7 +84,7 @@ To address the gap between official specifications and practical usage, I kept t
 into the `linear-gradient` function. This unofficial syntax is:
 
 ```css
-linear-gradient([ in <color-interpolation-method> ]? [ <angle> | to <side-or-corner> ]? , <color-stop-list>)
+linear-gradient([ <color-interpolation-method> ]? [ <angle> | to <side-or-corner> ]? , <color-stop-list>)
 ```
 
 Now it's time to test this unofficial syntax with some examples.
@@ -127,6 +127,31 @@ linear-gradient(in oklch 90deg, pink 30%, black 70%);
 ```
 
 - Transition from `pink` to `black` using OKLCH color space with specific color stops and a `90deg` angle.
+
+### Official Syntax
+
+Soon after i played around with this unofficial syntax, After some little more research,
+i came across the actual syntax that is specified in the [CSS Images Module Level 4](https://drafts.csswg.org/css-images-4/#linear-gradients).
+
+```
+<linear-gradient-syntax> =
+  [ [ <angle> | to <side-or-corner> ] || <color-interpolation-method> ]? ,
+  <color-stop-list>
+```
+
+From the official syntax we can understand that
+
+- `<angle> | to <side-or-corner>` : This part indicates that you can use either an angle or a side/corner for the gradient direction. For example, you might use 45deg or to right.
+
+- `|| <color-interpolation-method>` : The || signifies that `<color-interpolation-method>` is another independent option that can be used in conjunction with or instead of the angle/side-or-corner specification.
+
+Examples:
+
+```
+linear-gradient(45deg, red, blue)
+linear-gradient(in lab, red, blue)
+linear-gradient(to right in lch, red, blue)
+```
 
 ### Conclusion
 

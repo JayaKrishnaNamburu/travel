@@ -35,29 +35,15 @@ const Page = () => {
       <Helmet>
         <title>{heading}</title>
         <meta name="description" content={description} />
-
         <meta property="og:url" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={heading} />
         <meta property="og:description" content={description} />
-        {og && (
-          <meta property="og:image" content={`https://jkrishna.dev/${og}`} />
-        )}
-
+        <meta property="og:image:url" content={`https://jkrishna.dev/${og}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="jkrishna.dev" />
-        <meta
-          property="twitter:url"
-          content="https://jkrishna.dev/post/import-maps-nodejs"
-        />
         <meta name="twitter:title" content={heading} />
         <meta name="twitter:description" content={description} />
-        {og && (
-          <meta
-            property="twitter:image"
-            content={`https://jkrishna.dev/${og}`}
-          />
-        )}
       </Helmet>
       <article>
         <div className={style.post_content}>
