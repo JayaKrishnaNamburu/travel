@@ -1,8 +1,19 @@
 export const posts = [
   {
+    id: 'linear-gradient-interpolation',
+    heading:
+      'Navigating CSS Gradient Syntax: From confusion to unofficial syntax',
+    description:
+      'This post explains how I built an unofficial syntax to parse linear-gradient with modern color interpolation methods. It details the challenges with existing specifications and the practical solutions developed.',
+    markdown_file: 'linear-gradient-interpolation',
+    og: `og-linear-gradient-interpolation.svg`,
+    date: 1726205737079
+  },
+  {
     id: 'building-packages-for-runtimes',
     heading: 'Building runtime aware JavaScript packages',
-    description: 'Building javascript packages for respective runtimes, for better compatability and cross-platform usage.',
+    description:
+      'Building javascript packages for respective runtimes, for better compatability and cross-platform usage.',
     markdown_file: 'building-packages-for-runtimes',
     image: 'https://images.unsplash.com/photo-1546864831-f1ca1eaf4e2a',
     og: `og-runtime-javascript-package.svg`,
@@ -11,7 +22,8 @@ export const posts = [
   {
     id: 'import-maps-nodejs',
     heading: 'Importmaps in NodeJS with custom loaders',
-    description: 'A simple experiment with NodeJS and custom loader to use importmaps and modules from CDN',
+    description:
+      'A simple experiment with NodeJS and custom loader to use importmaps and modules from CDN',
     markdown_file: 'importmaps-nodejs',
     og: `og-import-map.svg`,
     date: 1678481219000
@@ -37,7 +49,7 @@ export const posts = [
     image: `${require('../compressed/generic/remote_background.jpg')}`,
     og: `og-remote-life.svg`,
     caption: `Image from Unsplash, by @_ferh97`,
-    markdown_file: `remote`,
+    markdown_file: `remote`
   },
   {
     id: 'dependencies',
@@ -51,7 +63,7 @@ export const posts = [
   {
     id: `web_past`,
     heading: 'Web development, the past, present and the future !!',
-    description: `The state of web-development has changed a lot in the last few years. 
+    description: `The state of web-development has changed a lot in the last few years.
     From using a simple html + css + js, we evolved into a collection of bundler, transpilers and some complex build steps.`,
     markdown_file: 'web_past',
     og: `og-contribute-oss.svg`
@@ -60,13 +72,14 @@ export const posts = [
     id: `package`,
     heading: `Why contribute to opensource?`,
     description: `A lot of effort goes into building and maintaining packages. Here is how we can be a part of one.`,
-    markdown_file: 'package',
+    markdown_file: 'package'
   },
   {
     id: `babel`,
     heading: 'Creating custom Babel plugins',
-    description: 'A talk on creating babel plugins and understanding AST. (Abstract Syntax Trees)',
-    markdown_file: 'babel',
+    description:
+      'A talk on creating babel plugins and understanding AST. (Abstract Syntax Trees)',
+    markdown_file: 'babel'
   },
   {
     id: `lerna`,
@@ -75,5 +88,5 @@ export const posts = [
       'Lerna is a utility tool for managing monorepos, for creating, publishing and for maintaing changelog.',
     markdown_file: 'lerna',
     og: `og-lerna.svg`
-  },
-]
+  }
+];
