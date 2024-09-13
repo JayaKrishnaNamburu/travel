@@ -1,53 +1,63 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react'
-import { Helmet } from 'react-helmet'
-import { useParams } from 'react-router-dom'
-import { getHumanDate } from '../../utils/helpers'
-import { PostSubHeader } from '../PostUtils'
-import { getPostData } from '../../resources/posts'
-import style from './style.module.css'
-import Balancer from 'react-wrap-balancer'
+import React, { useState, useEffect, lazy, Suspense } from 'react';
+import { Helmet } from 'react-helmet';
+import { useParams } from 'react-router-dom';
+import { getHumanDate } from '../../utils/helpers';
+import { PostSubHeader } from '../PostUtils';
+import { getPostData } from '../../resources/posts';
+import style from './style.module.css';
+import Balancer from 'react-wrap-balancer';
 
 const Page = () => {
-  const { postId } = useParams()
-  const [post, setPostData] = useState(null)
-  const [landingImageLoaded, setLandingImageLoaded] = useState(false)
+  const { postId } = useParams();
+  const [post, setPostData] = useState(null);
+  const [landingImageLoaded, setLandingImageLoaded] = useState(false);
 
   useEffect(() => {
     if (!postId) {
-      throw new Error('No post Id from the URL')
+      throw new Error('No post Id from the URL');
     }
-    const postDetails = getPostData(postId)
-    setPostData(postDetails)
-  }, [postId])
+    const postDetails = getPostData(postId);
+    setPostData(postDetails);
+  }, [postId]);
 
   if (!post || !post.markdown_file) {
-    return null
+    return null;
   }
 
   const Content = lazy(() => {
-    return import(`../../resources/markdown/${post.markdown_file}.mdx`)
-  })
+    return import(`../../resources/markdown/${post.markdown_file}.mdx`);
+  });
 
-  const { heading, description, image, caption, date, og } = post
+  const { heading, description, image, caption, date, og } = post;
 
   return (
     <div className={style.post_wrapper} data-remove-script={true}>
       <Helmet>
-        <title>Importmaps in NodeJS with custom loaders</title>
+        <title>{heading}</title>
         <meta name="description" content={description} />
 
         <meta property="og:url" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={heading} />
         <meta property="og:description" content={description} />
-        {og && <meta property="og:image" content={`https://jkrishna.dev/${og}`} />}
+        {og && (
+          <meta property="og:image" content={`https://jkrishna.dev/${og}`} />
+        )}
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="jkrishna.dev" />
-        <meta property="twitter:url" content="https://jkrishna.dev/post/import-maps-nodejs" />
+        <meta
+          property="twitter:url"
+          content="https://jkrishna.dev/post/import-maps-nodejs"
+        />
         <meta name="twitter:title" content={heading} />
         <meta name="twitter:description" content={description} />
-        {og && <meta property="twitter:image" content={`https://jkrishna.dev/${og}`} />}
+        {og && (
+          <meta
+            property="twitter:image"
+            content={`https://jkrishna.dev/${og}`}
+          />
+        )}
       </Helmet>
       <article>
         <div className={style.post_content}>
@@ -65,7 +75,9 @@ const Page = () => {
                 />
                 {caption && <figcaption>{caption}</figcaption>}
               </figure>
-              {!landingImageLoaded && <div className={style.post_landing_loader} />}
+              {!landingImageLoaded && (
+                <div className={style.post_landing_loader} />
+              )}
             </div>
           )}
           <Suspense fallback={<div>Loading....</div>}>
@@ -76,7 +88,7 @@ const Page = () => {
         </div>
       </article>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
