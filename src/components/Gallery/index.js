@@ -11,16 +11,16 @@ import goa3 from '../../compressed/goa/3.jpg'
 import goa4 from '../../compressed/goa/4.jpg'
 import udaipur1 from '../../compressed/udaipur/1.jpg'
 import udaipur2 from '../../compressed/udaipur/2.jpg'
-import pondicherry1 from '../../compressed/pondicherry/1.jpg'
-import pondicherry2 from '../../compressed/pondicherry/2.jpg'
 import banglore1 from '../../compressed/banglore/1.jpg'
 import banglore4 from '../../compressed/banglore/4.jpg'
+import pondicherry1 from '../../compressed/pondicherry/1.jpg'
+import pondicherry2 from '../../compressed/pondicherry/2.jpg'
+import hampta1 from '../../compressed/hampta/1.jpg'
+import hampta2 from '../../compressed/hampta/2.jpg'
 import kedarkantha1 from '../../compressed/kedarkantha/1.jpg'
 import kedarkantha2 from '../../compressed/kedarkantha/2.jpg'
 import kedarkantha3 from '../../compressed/kedarkantha/3.jpg'
 import kedarkantha4 from '../../compressed/kedarkantha/4.jpg'
-import hampta1 from '../../compressed/hampta/1.jpg'
-import hampta2 from '../../compressed/hampta/2.jpg'
 import vizag1 from '../../compressed/vizag/1.jpg'
 import vizag2 from '../../compressed/vizag/2.jpg'
 import pichavaram1 from '../../compressed/pichavaram/1.jpg'
@@ -37,8 +37,8 @@ import kundleBeach1 from '../../compressed/kundle-beach/1.jpg'
 import ponda1 from '../../compressed/ponda/1.jpg'
 import wayanad1 from '../../compressed/wayanad/1.jpg'
 import wayanad2 from '../../compressed/wayanad/2.jpg'
-import kanyakumari1 from '../../compressed/kanyakumari/1.jpg'
 import jogFalls1 from '../../compressed/jog-falls/1.jpg'
+import kanyakumari1 from '../../compressed/kanyakumari/1.jpg'
 import parisFrance from '../../compressed/paris/france.jpeg'
 import belgiumBruge from '../../compressed/belgium/bruge.jpg'
 
@@ -81,34 +81,34 @@ const Gallery = (props) => {
         <img alt="2" src={udaipur2} className={styles['image10']} />
       </div>
       <div className={styles['grid-item11']}>
-        <img alt="1" src={pondicherry1} className={styles['image11']} />
+        <img alt="1" src={banglore1} className={styles['image11']} />
       </div>
       <div className={styles['grid-item12']}>
-        <img alt="2" src={pondicherry2} className={styles['image12']} />
+        <img alt="4" src={banglore4} className={styles['image12']} />
       </div>
       <div className={styles['grid-item13']}>
-        <img alt="1" src={banglore1} className={styles['image13']} />
+        <img alt="1" src={pondicherry1} className={styles['image13']} />
       </div>
       <div className={styles['grid-item14']}>
-        <img alt="4" src={banglore4} className={styles['image14']} />
+        <img alt="2" src={pondicherry2} className={styles['image14']} />
       </div>
       <div className={styles['grid-item15']}>
-        <img alt="1" src={kedarkantha1} className={styles['image15']} />
+        <img alt="1" src={hampta1} className={styles['image15']} />
       </div>
       <div className={styles['grid-item16']}>
-        <img alt="2" src={kedarkantha2} className={styles['image16']} />
+        <img alt="2" src={hampta2} className={styles['image16']} />
       </div>
       <div className={styles['grid-item17']}>
-        <img alt="3" src={kedarkantha3} className={styles['image17']} />
+        <img alt="1" src={kedarkantha1} className={styles['image17']} />
       </div>
       <div className={styles['grid-item18']}>
-        <img alt="4" src={kedarkantha4} className={styles['image18']} />
+        <img alt="2" src={kedarkantha2} className={styles['image18']} />
       </div>
       <div className={styles['grid-item19']}>
-        <img alt="1" src={hampta1} className={styles['image19']} />
+        <img alt="3" src={kedarkantha3} className={styles['image19']} />
       </div>
       <div className={styles['grid-item20']}>
-        <img alt="2" src={hampta2} className={styles['image20']} />
+        <img alt="4" src={kedarkantha4} className={styles['image20']} />
       </div>
       <div className={styles['grid-item21']}>
         <img alt="1" src={vizag1} className={styles['image21']} />
@@ -159,10 +159,10 @@ const Gallery = (props) => {
         <img alt="2" src={wayanad2} className={styles['image36']} />
       </div>
       <div className={styles['grid-item37']}>
-        <img alt="1" src={kanyakumari1} className={styles['image37']} />
+        <img alt="1" src={jogFalls1} className={styles['image37']} />
       </div>
       <div className={styles['grid-item38']}>
-        <img alt="1" src={jogFalls1} className={styles['image38']} />
+        <img alt="1" src={kanyakumari1} className={styles['image38']} />
       </div>
       <div className={styles['grid-item39']}>
         <img alt="france" src={parisFrance} className={styles['image39']} />

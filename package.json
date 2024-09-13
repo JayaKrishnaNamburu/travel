@@ -23,8 +23,7 @@
     "build": "npm run crush && node scripts/build.js",
     "gps": "node scripts/gps.js",
     "test": "node scripts/test.js",
-    "crush": "rimraf -f src/compressed && node scripts/compressor.mjs",
-    "postbuild": "react-snap"
+    "crush": "rimraf -f src/compressed && node scripts/compressor.mjs"
   },
   "reactSnap": {
     "inlineCSS": true,
