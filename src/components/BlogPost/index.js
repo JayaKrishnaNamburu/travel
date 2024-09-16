@@ -6,6 +6,7 @@ import { PostSubHeader } from '../PostUtils';
 import { getPostData } from '../../resources/posts';
 import style from './style.module.css';
 import Balancer from 'react-wrap-balancer';
+import { CustomMDXProvider } from '../SyntaxComponent';
 
 const Page = () => {
   const { postId } = useParams();
@@ -67,9 +68,11 @@ const Page = () => {
             </div>
           )}
           <Suspense fallback={<div>Loading....</div>}>
-            <Balancer>
-              <Content />
-            </Balancer>
+            <CustomMDXProvider>
+              <Balancer>
+                <Content />
+              </Balancer>
+            </CustomMDXProvider>
           </Suspense>
         </div>
       </article>

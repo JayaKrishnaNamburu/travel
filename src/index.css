@@ -1,5 +1,5 @@
 :root {
-  --dl-color-custom-main-background: #e4e4e4;
+  --dl-color-custom-main-background: #cbd2d3;
   --dl-color-custom-foreground: #000;
   --dl-color-custom-content: #000;
   --dl-color-custom-border: #383030;
@@ -76,23 +76,15 @@ em {
 
 pre {
   overflow-x: scroll !important;
-  padding: 8px !important;
   border-radius: 4px;
-  border: 0.5px solid var(--dl-color-custom-border);
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   font-size: 1.4rem;
-  background-color: var(--dl-color-custom-code);
-  line-height: 2rem;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-  border-radius: 4px;
-  padding: 0px 6px;
-  background-color: var(--dl-color-custom-code);
-  color: var(--dl-color-custom-foreground);
 }
 
 li {
