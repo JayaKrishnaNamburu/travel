@@ -1,3 +1,5 @@
+import CSBScreenshot from '../../assets/csb-screenshot.png'
+
 Import-maps is a new feature introduced in modern web browsers that allows web developers to specify how modules should be resolved and loaded in a web application. With import-maps, developers can map specific module URLs to different URLs or aliases, making it easier to manage dependencies and load modules from third-party sources.
 
 Import-maps are supported in most of the major browsers at the moment. But, you can polyfill it by using [es-modue-shims](https://github.com/guybedford/es-module-shims). You can read more about `import-map` in this detailed blogposts by mozilla team
@@ -14,12 +16,12 @@ Import-maps are supported in most of the major browsers at the moment. But, you 
 Deno has [embraced](https://deno.land/manual@v1.31.0/basics/import_maps#import-maps) import-maps in its core and now supports them by default, providing users with more control over dependencies used in their projects. Furthermore, Deno supports loading modules from **`http`** URLs, which enhances the usefulness of **`import-map`**. Users can now load their modules from any source and use them as **`bare module specifiers`** in their projects. Personally, I have always been a huge fan of loading modules from CDNs due to the numerous benefits they offer, such as reducing disk space consumption.
 
 <br />
-However, NodeJS users need not despair just yet. NodeJS is experimenting with loading modules from external URLs behind a flag.
-NodeJS custom loaders are also a powerful feature in themselves, offering an elegant API to hook into Node's resolution algorithm and load content on demand.
-Let’s put together a custom NodeJS loader using the
-<a href="https://github.com/jspm/import-map">
-  @jspm/import-map
-</a> package and run an express-based server for serving some random facts.
+However, NodeJS users need not despair just yet. NodeJS is experimenting with loading
+modules from external URLs behind a flag. NodeJS custom loaders are also a powerful
+feature in themselves, offering an elegant API to hook into Node's resolution algorithm
+and load content on demand. Let’s put together a custom NodeJS loader using the
+<a href="https://github.com/jspm/import-map">@jspm/import-map</a>
+package and run an express-based server for serving some random facts.
 <br />
 <br />
 
@@ -62,7 +64,7 @@ const importmap = new ImportMap({
   rootUrl: import.meta.url,
   map: existsSync(nodeImportMapPath)
     ? JSON.parse(readFileSync(nodeImportMapPath, { encoding: 'utf8' }))
-    : {}
+    : {},
 });
 
 export const resolve = async (specifier, context, nextResolve) => {
@@ -114,32 +116,34 @@ And that's it! You now have a quick custom loader to support import-maps in Node
 Putting together and experimenting with this Node.js loader was a fun and rewarding experience. It allowed us to explore the use of HTTP URLs and import-maps in Node.js, and gain a deeper understanding of how custom loaders work in the Node.js ecosystem.
 
 <img
-  src={require('../../assets/csb-screenshot.png')}
+  src={CSBScreenshot}
   style={{ width: '100%' }}
 />
 
 Link for [Codesandbox &#8227;](https://codesandbox.io/p/github/JayaKrishnaNamburu/import-maps-nodejs/main?file=%2Fsrc%2Findex.ts&selection=%5B%7B%22endColumn%22%3A1%2C%22endLineNumber%22%3A28%2C%22startColumn%22%3A1%2C%22startLineNumber%22%3A28%7D%5D&workspace=%257B%2522activeFileId%2522%253A%2522clf2odt9l0005g5fw1aeyehxn%2522%252C%2522openFiles%2522%253A%255B%2522%252Fsrc%252Findex.ts%2522%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522spaces%2522%253A%257B%2522clf2odutt000e3b6hskmy2d9z%2522%253A%257B%2522key%2522%253A%2522clf2odutt000e3b6hskmy2d9z%2522%252C%2522name%2522%253A%2522Default%2522%252C%2522devtools%2522%253A%255B%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522clf2p6wa900hp3b6hqmzom2ub%2522%252C%2522isMinimized%2522%253Afalse%257D%252C%257B%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522key%2522%253A%2522clf2p6r7i00ec3b6h1ze6evvb%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D%257D%252C%2522currentSpace%2522%253A%2522clf2odutt000e3b6hskmy2d9z%2522%252C%2522spacesOrder%2522%253A%255B%2522clf2odutt000e3b6hskmy2d9z%2522%255D%252C%2522hideCodeEditor%2522%253Afalse%257D) template
 
-<button style={{ 
+<button
+  style={{
     background: 'var(--dl-color-custom-foreground)',
     color: 'var(--dl-color-custom-main-background)',
     fontWeight: 'bold',
     marginBottom: '8px',
     borderRadius: '6px',
-    height: '30px'
-  }} 
+    height: '30px',
+  }}
   onClick={() => {
-  const frame = document.getElementById('import-map-frame')
-  frame.src = frame.src
-}}>Reload</button>
+    const frame = document.getElementById('import-map-frame');
+    frame.src = frame.src;
+  }}
+>
+  Reload
+</button>
 
 <iframe
   id="import-map-frame"
   src="https://jg6c9o-3000.csb.app"
   style={{ width: '100%', height: '200px', background: 'white' }}
 />
-
-
 
 ### Disk usage
 

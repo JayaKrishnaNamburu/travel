@@ -1,3 +1,6 @@
+import RemoteBackground from '../compressed/generic/remote_background.jpg';
+import PackageBackground from '../compressed/generic/package_background.jpeg';
+
 export const posts = [
   {
     id: 'linear-gradient-interpolation',
@@ -7,7 +10,7 @@ export const posts = [
       'This post explains how I built an unofficial syntax to parse linear-gradient with modern color interpolation methods. It details the challenges with existing specifications and the practical solutions developed.',
     markdown_file: 'linear-gradient-interpolation',
     og: `og-linear-gradient-interpolation.svg`,
-    date: 1726205737079
+    date: 1726205737079,
   },
   {
     id: 'building-packages-for-runtimes',
@@ -17,7 +20,7 @@ export const posts = [
     markdown_file: 'building-packages-for-runtimes',
     image: 'https://images.unsplash.com/photo-1546864831-f1ca1eaf4e2a',
     og: `og-runtime-javascript-package.svg`,
-    date: 1678481219000
+    date: 1678481219000,
   },
   {
     id: 'import-maps-nodejs',
@@ -26,13 +29,13 @@ export const posts = [
       'A simple experiment with NodeJS and custom loader to use importmaps and modules from CDN',
     markdown_file: 'importmaps-nodejs',
     og: `og-import-map.svg`,
-    date: 1678481219000
+    date: 1678481219000,
   },
   {
     id: 'esbuild',
     heading: `Reducing build time by 50% for a Typescript Monorepo`,
     description: `As, the projects starts to grow, monorepo build times are taking a massive hit. Here is a succesful attempt in reducing our build time by 50%`,
-    redirect: `esbuild_monorepos`
+    redirect: `esbuild_monorepos`,
   },
   // {
   //   id: `design2code`,
@@ -46,19 +49,19 @@ export const posts = [
     heading: `My open-source journey and working remotely`,
     description: `Opensource helped me in learning many things and at the same time gave an oppurtunity to land in my first remote job.`,
     date: 1599735249720,
-    image: `${require('../compressed/generic/remote_background.jpg')}`,
+    image: RemoteBackground,
     og: `og-remote-life.svg`,
     caption: `Image from Unsplash, by @_ferh97`,
-    markdown_file: `remote`
+    markdown_file: `remote`,
   },
   {
     id: 'dependencies',
     heading: `Module cdn's and workflows`,
     description: `Exploring some es-module based CDN's`,
-    image: `${require('../compressed/generic/package_background.jpeg')}`,
+    image: PackageBackground,
     caption: `Image from unspalsh `,
     markdown_file: 'dependencies',
-    og: `og-module-cdns.svg`
+    og: `og-module-cdns.svg`,
   },
   {
     id: `web_past`,
@@ -66,20 +69,20 @@ export const posts = [
     description: `The state of web-development has changed a lot in the last few years.
     From using a simple html + css + js, we evolved into a collection of bundler, transpilers and some complex build steps.`,
     markdown_file: 'web_past',
-    og: `og-contribute-oss.svg`
+    og: `og-contribute-oss.svg`,
   },
   {
     id: `package`,
     heading: `Why contribute to opensource?`,
     description: `A lot of effort goes into building and maintaining packages. Here is how we can be a part of one.`,
-    markdown_file: 'package'
+    markdown_file: 'package',
   },
   {
     id: `babel`,
     heading: 'Creating custom Babel plugins',
     description:
       'A talk on creating babel plugins and understanding AST. (Abstract Syntax Trees)',
-    markdown_file: 'babel'
+    markdown_file: 'babel',
   },
   {
     id: `lerna`,
@@ -87,6 +90,6 @@ export const posts = [
     description:
       'Lerna is a utility tool for managing monorepos, for creating, publishing and for maintaing changelog.',
     markdown_file: 'lerna',
-    og: `og-lerna.svg`
-  }
+    og: `og-lerna.svg`,
+  },
 ];

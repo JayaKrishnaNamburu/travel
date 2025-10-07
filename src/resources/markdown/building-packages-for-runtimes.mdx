@@ -1,3 +1,5 @@
+import ChalkGif from '../../assets/chalk.gif';
+
 One of the great things about JavaScript is how easy it is to share modules. With the use of package managers like `npm`, developers can easily publish their code as packages and share them with the world and distribute them across with global cdn’s like `jspm`.
 
 This makes it easy for other developers to reuse the code in their own projects, saving time and effort. Additionally, the open-source nature of many of these packages means that they can be constantly improved and updated by the community. All in all, this makes JavaScript a powerful and collaborative language for building applications.
@@ -98,7 +100,8 @@ Here is `imports` from the `package.json`
 > `https://ga.jspm.io/npm:chalk@5.2.0/source/vendor/supports-color/index.js` > `https://ga.jspm.io/npm:chalk@5.2.0/source/vendor/supports-color/browser.js`
 
 <br />
-<img src={require('../../assets/chalk.gif')} style={{ width: '100%' }} />
+
+<img src={ChalkGif} style={{ width: '100%' }} />
 <br />
 <hr />
 <br />
@@ -140,8 +143,10 @@ While bundling for projects, it’s a common practice that we use `process.env.N
 Well, this is common practice in building applications, but when packaging for libraries, this becomes a problem.As `process` is not a browser built-in.
 
 <br />
-It is of the best interest for the authors of these libraries to serve different versions in different build targets to give better error messages.
-Better build sizes etc. When we try load these type of modules in browsers directly from CDNs, it crashes the script execution.
+It is of the best interest for the authors of these libraries to serve different
+versions in different build targets to give better error messages. Better build sizes
+etc. When we try load these type of modules in browsers directly from CDNs, it crashes
+the script execution.
 
 One example is, by trying load `react-router@5.2.0` into the browser as `esm` module. Fails to load it, as the `entry` uses `process.env.NODE_ENV`
 
@@ -194,13 +199,15 @@ The build pipelines became so complex, it’s a proper combination of `bundlers`
 
 ### package.json
 
-#### **browser**
+We are now going to explore the different fields inside `package.json` and discuss their roles in module resolution and runtime compatibility.
+
+#### browser
 
 If a package is specifying [browser](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#browser) field in the package.json. And when these packages are used in generating `import-maps` for browser as target. Then jspm uses this field instead of `main`, as the package authors explicitly stating the module that needs to be used when loading the same build inside a browser environments.
 
 <br />
 
-#### **module**
+#### module
 
 Module build detection in jspm. Let’s say, we are exposing `cjs` build from `main` and `esm` version in `module` field.
 And we don’t have `type` as `module` set on the package. Nor, the entry point is ending with `.mjs` extension. Something like below

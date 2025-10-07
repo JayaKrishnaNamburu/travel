@@ -7,7 +7,7 @@ export const travelPosts = [
     markdown_file: 'varkala',
     image: `${require('../compressed/varkala/2.jpg')}`,
     tags: ['beach', 'weekend_gateway'],
-    duration: `2-3 days`
+    duration: `2-3 days`,
   },
   {
     id: `jawadhi_hills`,
@@ -16,7 +16,7 @@ export const travelPosts = [
     markdown_file: 'jawadhi_hills',
     image: `${require('../compressed/varkala/2.jpg')}`,
     tags: ['road_trip', 'weekend_gateway'],
-    duration: `2 days`
+    duration: `2 days`,
   },
   {
     id: 'brahmatal',
@@ -25,7 +25,7 @@ export const travelPosts = [
     markdown_file: 'brahmatal',
     image: `${require('../compressed/varkala/2.jpg')}`,
     tags: ['trekking', 'himalayas'],
-    duration: `7 days`
+    duration: `7 days`,
   },
   {
     id: 'goa-karnnataka',
@@ -34,6 +34,6 @@ export const travelPosts = [
     markdown_file: 'goa-karnataka',
     image: `${require('../assets/road-trip/map.jpg')}`,
     tags: ['road_trip', 'workation'],
-    duration: `15 days`
-  }
+    duration: `15 days`,
+  },
 ];

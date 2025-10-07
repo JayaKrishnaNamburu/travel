@@ -40,16 +40,12 @@
 
 .landingInvite {
   display: flex;
-  max-width: 65%;
-  height: 80vh;
   margin: auto;
   align-items: center;
   justify-content: center;
   text-align: left;
-}
-
-.landingInvite > figure {
-  flex: 1;
+  flex-direction: column;
+  transform: translateY(40%);
 }
 
 .landingInvite > figure > img {
@@ -58,20 +54,6 @@
   margin-right: auto;
   margin-left: auto;
   display: inherit;
-  filter: grayscale(10);
-}
-
-.landingInvite > div {
-  flex: 2;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .card {
