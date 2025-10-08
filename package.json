@@ -20,11 +20,20 @@
   "resolutions": {
     "imagemin-mozjpeg/mozjpeg": "^6.0.0"
   },
+  "reactSnap": {
+    "skipFailures": true,
+    "inlineCSS": true,
+    "minifyHtml": {
+      "collapseWhitespace": false,
+      "removeComments": false
+    }
+  },
   "scripts": {
     "dev": "vite dev",
     "build": "npm run crush && vite build",
     "gps": "node scripts/gps.mjs",
-    "crush": "rimraf src/compressed && node scripts/compressor.mjs"
+    "crush": "rimraf src/compressed && node scripts/compressor.mjs",
+    "postbuild": "react-snap"
   },
   "browserslist": [
     ">0.2%",
@@ -46,6 +55,7 @@
     "is-jpg": "^3.0.0",
     "jpeg-autorotate": "^9.0.0",
     "ora": "^9.0.0",
+    "react-snap": "^1.23.0",
     "rimraf": "^6.0.1",
     "vite": "^7.1.9",
     "vite-plugin-svgr": "^4.5.0",

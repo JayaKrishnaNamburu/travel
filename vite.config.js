@@ -39,8 +39,10 @@ export default defineConfig({
     open: true,
   },
   build: {
+    target: "es2019",
     outDir: "build",
-    sourcemap: true,
+    manifest: "manifest.json",
+    sourcemap: false,
     rollupOptions: {
       input: path.resolve(__dirname, "index.html"),
     },

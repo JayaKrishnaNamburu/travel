@@ -11,6 +11,7 @@ Import-maps are supported in most of the major browsers at the moment. But, you 
 <iframe
   style={{ width: '100%', height: '500px' }}
   src="https://caniuse.com/import-maps"
+  title="Import maps browser support"
 />
 
 Deno has [embraced](https://deno.land/manual@v1.31.0/basics/import_maps#import-maps) import-maps in its core and now supports them by default, providing users with more control over dependencies used in their projects. Furthermore, Deno supports loading modules from **`http`** URLs, which enhances the usefulness of **`import-map`**. Users can now load their modules from any source and use them as **`bare module specifiers`** in their projects. Personally, I have always been a huge fan of loading modules from CDNs due to the numerous benefits they offer, such as reducing disk space consumption.
