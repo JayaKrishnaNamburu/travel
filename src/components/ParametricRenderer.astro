@@ -1,0 +1,430 @@
+<div>
+  <link rel="stylesheet" href="https://ga.jspm.io/npm:notyf@3.10.0/notyf.min.css" />
+  
+  <label for="total_keys">Total Keys:</label>
+  <input type="number" id="total_keys" value="6" min="1" placeholder="Total Keys" />
+  <label for="keys_per_row">Keys Per Row:</label>
+  <input type="number" id="keys_per_row" value="3" min="1" placeholder="Keys Per Row" />
+  <button id="render">Generate</button>
+
+  <canvas
+    id="top-viewer"
+    class="canvas-container"
+  ></canvas>
+  <br />
+  <button id="download-stl-top">Download top STL</button>
+
+  <canvas
+    id="bottom-viewer"
+    class="canvas-container"
+  ></canvas>
+  <br />
+  <button id="download-stl-bottom">Download bottom STL</button>
+  
+</div>
+
+<script type="importmap">
+  {
+    "imports": {
+      "notyf": "https://ga.jspm.io/npm:notyf@3.10.0/notyf.es.js",
+      "openscad-wasm": "https://ga.jspm.io/npm:openscad-wasm@0.0.4/openscad.js",
+      "three": "https://ga.jspm.io/npm:three@0.182.0/build/three.module.js",
+      "three/examples/jsm/loaders/STLLoader.js": "https://ga.jspm.io/npm:three@0.182.0/examples/jsm/loaders/STLLoader.js",
+      "three/examples/jsm/controls/OrbitControls.js": "https://ga.jspm.io/npm:three@0.182.0/examples/jsm/controls/OrbitControls.js"
+    }
+  }
+</script>
+
+<script type="module">
+  import * as THREE from "three";
+  import { STLLoader } from "three/examples/jsm/loaders/STLLoader.js";
+  import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+  import { createOpenSCAD } from "openscad-wasm";
+  import { Notyf } from 'notyf';
+
+  const notyf = new Notyf({
+    durtion: 500,
+    types: [
+      {
+        type: 'info',
+        className: 'notyf__toast--info',
+        icon: false
+      }
+    ]
+  });
+
+  const total_keys = document.getElementById("total_keys");
+  const keys_per_row = document.getElementById("keys_per_row");
+
+  const getVariables = () => ([
+    { name: "resolution", value: 30 },
+    { name: "total_keys", value: total_keys.value ? Number(total_keys.value) : 6 },
+    { name: "keys_per_row", value: keys_per_row.value ? Number(keys_per_row.value) : 3 },
+    { name: "pitch", value: 19.05 },
+    { name: "hole_size", value: 14 },
+    { name: "plate_thickness", value: 2 },
+    { name: "corner_radius", value: 2 },
+    { name: "border", value: 6 },
+    { name: "box_height", value: 20 },
+    { name: "wall_thickness", value: 2 },
+    { name: "post_diameter", value: 8 },
+    { name: "thread_pitch", value: 0.7 },
+    { name: "$fn", value: 50 },
+  ])
+ 
+  
+  const scadWorkerCode = `
+  import { createOpenSCAD } from "https://ga.jspm.io/npm:openscad-wasm@0.0.4/openscad.js";
+
+  self.onmessage = async (e) => {
+    const { scadCode, variables } = e.data;
+
+    try {
+      // Create a new OpenSCAD instance for each compilation
+      const openScad = await createOpenSCAD();
+      const instance = openScad.getInstance();
+
+      let fullScript = scadCode;
+      if (variables.length) {
+        const vars = variables.map(v => \`\${v.name} = \${JSON.stringify(v.value)};\`).join("\\n");
+        fullScript = \`\${vars}\\n\${scadCode}\`;
+      }
+
+      instance.FS.writeFile("/input.scad", fullScript);
+      instance.callMain(["-o", "/output.stl", "/input.scad"]);
+      const result = instance.FS.readFile("/output.stl");
+
+      // Clean up instance files
+      instance.FS.unlink("/input.scad");
+      instance.FS.unlink("/output.stl");
+
+      self.postMessage({ success: true, stl: result.buffer }, [result.buffer]);
+    } catch (err) {
+      self.postMessage({ success: false, error: err.message || 'Unknown OpenSCAD error' });
+    }
+  };
+`;
+  const scadWorkerBlob = new Blob([scadWorkerCode], { type: "application/javascript" });
+  const scadWorker = new Worker(URL.createObjectURL(scadWorkerBlob), { type: "module" });
+
+  async function compileToSTL(openscadCode, variables) {
+    return new Promise((resolve, reject) => {
+      notyf.open({ type: 'info', message: 'Generating STL, please wait...' });
+
+      const listener = (e) => {
+        const data = e.data;
+        if (data.success) {
+          notyf.success('STL generation successful!');
+          resolve(new Uint8Array(data.stl));
+        } else {
+          console.log(data)
+          notyf.error(`STL generation failed`);
+          reject(new Error(data.error || 'Unknown OpenSCAD error'));
+        }
+        scadWorker.removeEventListener('message', listener);
+      };
+
+      scadWorker.addEventListener('message', listener);
+      scadWorker.postMessage({ scadCode: openscadCode, variables });
+    });
+  }
+
+  function renderStlData(stlData, id) {
+    // --- Three.js setup ---
+    const canvas = document.getElementById(id);
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: true,
+    });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(width, height);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping; // Better color range
+    renderer.toneMappingExposure = 1.2; // Brighter overall
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xf8f8f8);
+
+    const camera = new THREE.PerspectiveCamera(45, 760 / 600, 0.1, 1000);
+    camera.position.set(60, 60, 60);
+    camera.lookAt(0, 0, 0);
+
+    // ADD ORBIT CONTROLS HERE
+    const controls = new OrbitControls(camera, canvas);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 1.0; // Allow full rotation
+
+    // Optional: Enable auto-rotate when idle
+    controls.autoRotate = true; // Auto-rotate when not interacting
+    controls.autoRotateSpeed = 1.0; // Rotation speed (degrees per second)
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+
+    // Lights
+    const fillLight = new THREE.DirectionalLight(0xffffff, 0.3);
+    fillLight.position.set(-50, 40, -50);
+    scene.add(fillLight);
+
+    // Rim light (highlights edges from behind)
+    const rimLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    rimLight.position.set(0, 20, -80);
+    scene.add(rimLight);
+
+    // Hemisphere light for natural sky/ground effect
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 0.3);
+    hemiLight.position.set(0, 100, 0);
+    scene.add(hemiLight);
+
+    // Helpers
+    const gridHelper = new THREE.GridHelper(100, 10);
+    gridHelper.receiveShadow = true;
+    scene.add(gridHelper);
+
+    const loader = new STLLoader();
+    let mesh = null;
+
+    // Initial render
+    renderer.render(scene, camera);
+    controls.addEventListener("change", () => {
+      renderer.render(scene, camera);
+    });
+
+    // @ts-ignore
+    const geometry = loader.parse(stlData.buffer);
+    geometry.center();
+    geometry.computeVertexNormals();
+
+    if (mesh) {
+      scene.remove(mesh);
+      mesh.geometry.dispose();
+      mesh.material.dispose();
+    }
+
+    mesh = new THREE.Mesh(
+      geometry,
+      new THREE.MeshStandardMaterial({
+        color: 0x14d700,
+        roughness: 0.4,
+        metalness: 0.2,
+        flatShading: false,
+      }),
+    );
+
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+
+    scene.add(mesh);
+    renderer.render(scene, camera);
+  }
+
+  async function generateSTLForTop() {
+    const stlData = await compileToSTL(
+      `
+  rows = ceil(total_keys / keys_per_row);
+  keys_in_last_row = total_keys - (rows - 1) * keys_per_row;
+  max_keys_in_any_row = (rows > 1) ? keys_per_row : keys_in_last_row;
+  usb_cutout_width  = 9;
+  usb_cutout_height = 4;
+
+
+  // ISO bolt/nut dimensions. Modeled the holes around M2 screw
+  // https://www.wermac.org/bolts/dimensions_hex-nuts_across-flats-and-heights_din-iso.html
+  mount_inset = 4.5;      // inset from plate edge for mounting holes
+  nut_diameter = 4.32;
+  nut_height  = 1.5;
+  bolt_diameter = 4;
+
+  // Key grid size
+  grid_width  = max_keys_in_any_row * pitch;
+  grid_height = rows * pitch;
+
+  // Plate size (including borders)
+  plate_width  = grid_width + 2*border;
+  plate_height = grid_height + 2*border;
+
+  bottom_plate_thickness = plate_thickness + 1;
+        
+  union() {
+    // Top chamfer
+    translate([0, 0, bottom_plate_thickness])
+    difference() {
+        difference() {
+            linear_extrude(height=plate_thickness)
+                offset(r=corner_radius)
+                    square([plate_width - 2*corner_radius, plate_height - 2*corner_radius], center=true);
+        }
+        cube([grid_width, grid_height, plate_thickness + 2], center=true);
+    }
+    
+    
+    difference() {
+        // Rounded top plate
+        linear_extrude(height=bottom_plate_thickness)
+            offset(r=corner_radius)
+                square([plate_width - 2*corner_radius, plate_height - 2*corner_radius], center=true);
+        
+        // MX switch holes (centered in key grid)
+        grid_origin_x = -grid_width/2;
+        grid_origin_y = -grid_height/2;
+        
+        for (r = [0:rows-1]) {
+            cols = (r < rows - 1) ? keys_per_row : keys_in_last_row;
+            row_y_origin = grid_origin_y + r * pitch;
+            
+            for (c = [0:cols-1]) {
+                col_x_origin = grid_origin_x + c * pitch;
+                translate([col_x_origin + pitch/2 - hole_size/2,
+                            row_y_origin + pitch/2 - hole_size/2,
+                            -0.1])
+                    cube([hole_size, hole_size, bottom_plate_thickness + 1], center=false);
+            }
+        }
+        
+        // Mounting holes in corners (inset from plate edges)
+        mount_positions = [
+            [-plate_width/2 + mount_inset, -plate_height/2 + mount_inset],      // bottom-left
+            [plate_width/2 - mount_inset, -plate_height/2 + mount_inset],       // bottom-right
+            [-plate_width/2 + mount_inset, plate_height/2 - mount_inset],       // top-left
+            [plate_width/2 - mount_inset, plate_height/2 - mount_inset]         // top-right
+        ];
+        
+        for (pos = mount_positions) {
+            translate([pos[0], pos[1], 0])
+                cylinder(d=nut_diameter, h=nut_height, center=false, $fn=resolution);
+        }
+    }
+
+  }`,
+      getVariables(),
+    );
+    return stlData
+  }
+
+  async function generateSTLForBottom() {
+    const stlData = await compileToSTL(
+    `
+  rows = ceil(total_keys / keys_per_row);
+  keys_in_last_row = total_keys - (rows - 1) * keys_per_row;
+  max_keys_in_any_row = (rows > 1) ? keys_per_row : keys_in_last_row;
+  usb_cutout_width  = 9;
+  usb_cutout_height = 4;
+
+
+  // ISO bolt/nut dimensions. Modeled the holes around M2 screw
+  // https://www.wermac.org/bolts/dimensions_hex-nuts_across-flats-and-heights_din-iso.html
+  mount_inset = 4.5;      // inset from plate edge for mounting holes
+  nut_diameter = 4.32;
+  nut_height  = 1.5;
+  bolt_diameter = 4;
+
+  grid_width  = max_keys_in_any_row * pitch;
+  grid_height = rows * pitch;
+
+  plate_width  = grid_width + 2*border;
+  plate_height = grid_height + 2*border;
+
+  bottom_plate_thickness = plate_thickness + 1;
+
+  outer_w = plate_width;
+  outer_h = plate_height;
+  outer_d = box_height;
+
+  mount_positions = [
+      [-outer_w/2 + mount_inset, -outer_h/2 + mount_inset],
+      [ outer_w/2 - mount_inset, -outer_h/2 + mount_inset],
+      [-outer_w/2 + mount_inset,  outer_h/2 - mount_inset],
+      [ outer_w/2 - mount_inset,  outer_h/2 - mount_inset]
+  ];
+  
+  difference() {
+    union() {
+
+        // SHELL = outer box minus inner hollow
+        difference() {
+            // Outer rounded box
+            linear_extrude(height = outer_d)
+                offset(r = corner_radius)
+                    square([outer_w - 2*corner_radius, outer_h - 2*corner_radius], center = true);
+
+            // Inner hollow
+            translate([0,0,wall_thickness])
+                linear_extrude(height = outer_d - wall_thickness)
+                    offset(r = corner_radius)
+                        square([
+                            outer_w - 2*corner_radius - 2*wall_thickness,
+                            outer_h - 2*corner_radius - 2*wall_thickness
+                        ], center = true);
+        }
+
+        // Posts (solid, added AFTER hollowing so they stay intact)
+        for (pos = mount_positions)
+          translate([pos[0], pos[1], 0])
+              cylinder(d = post_diameter, h = outer_d, $fn = resolution);
+    }
+    
+    translate([0, -outer_h/2 - 0.1, (box_height + usb_cutout_height*2) - box_height])
+      cube([usb_cutout_width, wall_thickness + 5, usb_cutout_height], center = true);
+
+    for (pos = mount_positions) {
+      union() {
+        translate([pos[0], pos[1], -0.1])
+        cylinder(d = nut_diameter, h = outer_d + 0.2);
+        
+        translate([pos[0], pos[1], -0.1])
+            cylinder(d = bolt_diameter, h = outer_d / 2);
+      }
+    }
+  } 
+    `, getVariables());
+    return stlData;
+  }
+
+  async function renderTopModel() {
+    const stlData = await generateSTLForTop();
+    renderStlData(stlData, "top-viewer");
+  }
+
+  async function renderBottomModel() {
+    const stlData = await generateSTLForBottom();
+    renderStlData(stlData, "bottom-viewer");
+  }
+
+  function downloadUint8Array(uint8Array, filename, mimeType) {
+    const blob = new Blob([uint8Array], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  const run = async () => {
+    await renderTopModel();
+    await renderBottomModel();
+  };
+
+  document.getElementById("render")?.addEventListener("click", run);
+  window.addEventListener("load", run);
+
+  document.getElementById("download-stl-top")?.addEventListener("click", async () => {
+    const topStlData = await generateSTLForTop();
+    downloadUint8Array(topStlData, "keyboard_top.stl", "application/sla");
+  });
+
+  document.getElementById("download-stl-bottom")?.addEventListener("click", async () => {
+    const bottomStlData = await generateSTLForBottom();
+    downloadUint8Array(bottomStlData, "keyboard_bottom.stl", "application/sla");
+  });
+</script>

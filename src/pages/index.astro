@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import Caricature from "../assets/caricature.png";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+    <Image
+		src={Caricature}
+		alt="Jaya Krishna Namburu"
+		width={200}
+		height={200}
+		style="border-radius: 100%; margin-bottom: 1rem;"
+	/>  <h2>Hello !</h2>
+	  
+      <p>
+        I'm Jaya Krishna Namburu, a software engineer with hands-on experience
+        in open source and building scalable front-end platforms and developer
+        tools. Currently at <a
+          class="bold"
+          href="https://www.userflow.com/"
+          target="_blank"
+          rel="noopener noreferrer">Userflow</a
+        >, previously at <a
+          class="bold"
+          href="https://www.teleporthq.io"
+          target="_blank"
+          rel="noopener noreferrer">teleportHQ</a
+        >, <a
+          class="bold"
+          href="https://codesandbox.io/?from-app=1"
+          target="_blank"
+          rel="noopener noreferrer">Codesandbox</a
+        >.
+      </p>
+    </main>
+  </body>
+</html>

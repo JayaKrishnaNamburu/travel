@@ -1,0 +1,28 @@
+{
+  "name": "my-blog",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "dev:verbose": "astro dev --verbose",
+    "gallery": "node gallery.mjs && npx prettier src/pages/gallery.astro --write",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/rss": "^4.0.14",
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.16.6",
+    "astro-embed": "^0.9.2",
+    "npm": "^11.7.0",
+    "openscad-wasm": "^0.0.4",
+    "sharp": "^0.34.3"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.3.3",
+    "prettier": "3.7.4",
+    "prettier-plugin-astro": "0.14.1"
+  }
+}

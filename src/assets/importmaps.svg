@@ -1,0 +1,45 @@
+<svg width="960" height="540" viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .label { font: 600 16px system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:#111827 }
+      .code  { font: 14px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill:#065f46 }
+      .box   { fill:#ecfdf5; stroke:#22c55e; stroke-width:2; rx:14 }
+      .box2  { fill:#eff6ff; stroke:#3b82f6; stroke-width:2; rx:14 }
+      .arrow { stroke:#374151; stroke-width:2.5; marker-end:url(#arrowhead) }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <!-- Left: App Code -->
+  <rect x="60" y="90" width="300" height="220" class="box"/>
+  <text x="210" y="120" text-anchor="middle" class="label">Application Code</text>
+  <text x="80" y="160" class="code">import fs from "fs";</text>
+  <text x="80" y="185" class="code">import path from "path";</text>
+  <text x="80" y="210" class="code">import logger from "logger";</text>
+
+  <!-- Middle: Import Map -->
+  <rect x="330" y="120" width="300" height="260" class="box2"/>
+  <text x="480" y="150" text-anchor="middle" class="label">importmap.json</text>
+
+  <text x="350" y="185" class="code">{</text>
+  <text x="370" y="210" class="code">"imports": {</text>
+  <text x="390" y="235" class="code">"fs": "node:fs",</text>
+  <text x="390" y="260" class="code">"path": "node:path",</text>
+  <text x="390" y="285" class="code">"logger": "./src/utils/logger.js"</text>
+  <text x="370" y="310" class="code">}</text>
+  <text x="350" y="335" class="code">}</text>
+
+  <!-- Right: Resolved Modules -->
+  <rect x="600" y="90" width="300" height="220" class="box"/>
+  <text x="750" y="120" text-anchor="middle" class="label">Resolved Targets</text>
+  <text x="620" y="160" class="code">node:fs (built-in)</text>
+  <text x="620" y="185" class="code">node:path (built-in)</text>
+  <text x="620" y="210" class="code">./src/utils/logger.js</text>
+
+  <!-- Arrows -->
+  <line x1="360" y1="200" x2="330" y2="200" class="arrow"/>
+  <line x1="630" y1="200" x2="600" y2="200" class="arrow"/>
+
+</svg>

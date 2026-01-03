@@ -1,0 +1,159 @@
+---
+title: "Exploring CSS Gradient Syntax"
+description: "This post explains how i explored an unofficial syntax to parse linear-gradient with modern color interpolation methods. It details the challenges with existing specifications and the practical solutions developed."
+pubDate: "13 September 2024"
+---
+
+In the process of understanding syntax for `linear-gradient`, I encountered a series of confusions related to color interpolation methods. This journey led me to explore an unofficial syntax that aligns with modern CSS.
+
+### The Struggle with Existing Syntax
+
+The official CSS syntax for `linear-gradient` is well-documented:
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient#formal_syntax" target="_blank">
+MDN Documentation
+</a>
+<br />
+<a href="https://github.com/mdn/data/blob/main/css/syntaxes.json#L450C16-L450C89" target="\_blank">
+MDN Data
+</a>
+<br />
+<a href="https://www.w3.org/TR/css-images-3/#linear-gradient-syntax" target="\_blank"> W3C Specification</a>
+<br />
+<a href="https://css-tricks.com/a-complete-guide-to-css-gradients/#aa-linear-css-gradients"
+  target="\_blank"
+> CSS Tricks</a>
+
+```css
+linear-gradient([ <angle> | to <side-or-corner> ]? , <color-stop-list>)
+```
+
+<br />
+However, during my search. I came across examples that did not fit this official
+specification, such as:
+
+```css
+linear-gradient(in hsl longer hue, blue, red)
+```
+
+This `in hsl` syntax was puzzling and did not conform to the formal syntax outlined by documentation sources. For reference:
+
+These sources clearly outline the expected syntax, but the `in hsl` syntax did not align with their definitions.
+My attempts to parse this syntax using tools like `css-tree` resulted in errors, highlighting the discrepancy between official specifications and actual usage.
+
+<br />
+<iframe
+  style={{ width: '100%', height: '500px' }}
+  src="https://stackblitz.com/edit/vitejs-vite-147ich?embed=1&file=main.js"
+/>
+<br />
+<br />
+<hr />
+
+### Browsers vs. Specifications
+
+Despite the official documentation, browsers seemed to handle this unconventional syntax without issue. This led me to question whether such syntax was a legacy feature or an experimental addition. Browsers’ leniency in handling these cases created confusion about their validity. This divergence between browser behavior and formal documentation underscored the need for a more flexible approach to CSS gradients.
+
+### The 2023 Specification
+
+In 2023, CSS introduced `<color-interpolation-method>` [mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/color-interpolation-method),
+allowing more precise control over color interpolation in gradients.
+
+#### syntax
+
+```css
+<color-interpolation-method> =
+  in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? ]
+```
+
+Where `<color-interpolation-method>` could be `srgb`, `hsl`, `lab`, `lch`, `oklab`, or `oklch`.
+However, the notation `in hsl`, `in oklab`, etc.
+
+<hr />
+
+## Exploring an unofficial syntax for linear-gradient
+
+To address the gap between official specifications and practical usage, I kept together an unofficial syntax that incorporates color interpolation methods directly
+into the `linear-gradient` function. This unofficial syntax is:
+
+```css
+linear-gradient([ <color-interpolation-method> ]? [ <angle> | to <side-or-corner> ]? , <color-stop-list>)
+```
+
+Now it's time to test this unofficial syntax with some examples.
+
+<iframe
+  style={{ width: '100%', height: '500px' }}
+  src="https://stackblitz.com/edit/vitejs-vite-c13r3s?embed=1&file=main.js"
+/>
+
+### Examples of the Unofficial Syntax
+
+**1. Using LCH Interpolation**
+
+```css
+linear-gradient(in lch 45deg, red, blue);
+```
+
+- Colors transition from `red` to `blue` using the LCH color space with a `45deg` angle.
+
+**2. Applying LAB Interpolation**
+
+```css
+linear-gradient(in lab to right, yellow, purple);
+```
+
+- Gradient from `yellow` to `purple` using the LAB color space, flowing to the right.
+
+**3. Default Interpolation (sRGB)**
+
+```css
+linear-gradient(to bottom, orange, green);
+```
+
+- Standard gradient from `orange` to `green`, using the default sRGB interpolation.
+
+**4. Using OKLCH with Color Stops**
+
+```css
+linear-gradient(in oklch 90deg, pink 30%, black 70%);
+```
+
+- Transition from `pink` to `black` using OKLCH color space with specific color stops and a `90deg` angle.
+
+### Official Syntax
+
+Soon after i played around with this unofficial syntax, After some little more research,
+i came across the actual syntax that is specified in the [CSS Images Module Level 4](https://drafts.csswg.org/css-images-4/#linear-gradients).
+
+```
+<linear-gradient-syntax> =
+  [ [ <angle> | to <side-or-corner> ] || <color-interpolation-method> ]? ,
+  <color-stop-list>
+```
+
+From the official syntax we can understand that
+
+- `<angle> | to <side-or-corner>` : This part indicates that you can use either an angle or a side/corner for the gradient direction. For example, you might use 45deg or to right.
+
+- `|| <color-interpolation-method>` : The || signifies that `<color-interpolation-method>` is another independent option that can be used in conjunction with or instead of the angle/side-or-corner specification.
+
+Examples:
+
+```css
+linear-gradient(45deg, red, blue)
+```
+
+```css
+linear-gradient(in lab, red, blue)
+```
+
+```css
+linear-gradient(to right in lch, red, blue)
+```
+
+### Conclusion
+
+The journey from dealing with non-standard syntax to creating an unofficial syntax that incorporates `<color-interpolation-method>` has been both challenging and enlightening. By integrating these modern color interpolation methods into the `linear-gradient` function, I’ve developed a more versatile approach to handling gradients. This unofficial syntax not only aligns with the latest CSS practices but also addresses gaps in existing documentation and real-world usage.
+
+Through this process, I’ve learned the importance of adaptability in web development and the need to bridge the gap between evolving standards and practical implementation challenges.
