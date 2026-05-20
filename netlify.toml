@@ -1,0 +1,48 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/uidl"
+  to = "https://dl.acm.org/doi/10.1145/3397874"
+  status = 301
+
+[[redirects]]
+  from = "/github"
+  to = "https://github.com/JayaKrishnaNamburu"
+  status = 301
+
+[[redirects]]
+  from = "/generators"
+  to = "https://github.com/teleporthq/teleport-code-generators"
+  status = 301
+
+[[redirects]]
+  from = "/aiesec_endorsement"
+  to = "https://drive.google.com/file/d/0B9eB_h_08Uj4QXVuTzQ4a0o3UUU/view?usp=sharing"
+  status = 301
+
+[[redirects]]
+  from = "/emc"
+  to = "https://drive.google.com/file/d/1j9w3wQVMxA1_YFcn57ks9NW4CSEhZvrn/view?usp=sharing"
+  status = 301
+
+[[redirects]]
+  from = "/twitter"
+  to = "https://twitter.com/askjkrishna"
+  status = 301
+
+[[redirects]]
+  from = "/save-the-date"
+  to = "https://youtu.be/3h8IDA6sVI4?si=y_s315Kxw-n1knvg"
+  status = 301
+
+[[redirects]]
+  from = "/linkedin"
+  to = "https://www.linkedin.com/in/namburu26"
+  status = 301
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
